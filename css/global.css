@@ -203,7 +203,7 @@ nav ul li a.nav-item.active {
 }
 
 /* ==========================================================================
-   5. Universal Mega Menu System
+   5. Universal Mega Menu System (อัปเดตใส่รูปภาพฝั่งขวา)
    ========================================================================== */
 nav ul li.mega-dropdown {
     position: static;
@@ -214,7 +214,8 @@ nav ul li.mega-dropdown {
     top: 80px;
     left: 50%;
     transform: translateX(-50%) translateY(15px);
-    width: 900px;
+    width: 1050px;
+    /* ขยายความกว้างให้พอดีกับรูปภาพ */
     background-color: var(--bg-white);
     box-shadow: 0 20px 50px rgba(0, 0, 0, 0.12);
     border-radius: 12px;
@@ -237,7 +238,8 @@ nav ul li.mega-dropdown:hover .mega-menu {
 }
 
 .mega-menu-left {
-    width: 45%;
+    width: 38%;
+    /* ปรับสัดส่วนฝั่งซ้าย */
     background-color: #FDFDFD;
     display: flex;
     flex-direction: column;
@@ -245,7 +247,7 @@ nav ul li.mega-dropdown:hover .mega-menu {
 }
 
 .mega-menu-link {
-    padding: 14px 25px;
+    padding: 16px 25px;
     border-bottom: 1px solid #F5F5F5;
     border-left: 4px solid transparent;
     display: block;
@@ -253,9 +255,9 @@ nav ul li.mega-dropdown:hover .mega-menu {
     transition: all 0.25s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
+/* สีของเมนูซ้ายที่กำลัง Active อยู่ */
 .mega-menu-link:hover,
-.mega-menu-link.active,
-.mega-menu-link.active-hover {
+.mega-menu-link.active {
     background-color: var(--accent-gold-light);
     border-left-color: var(--accent-gold);
     padding-left: 32px;
@@ -264,40 +266,81 @@ nav ul li.mega-dropdown:hover .mega-menu {
 .mega-menu-link h4 {
     color: var(--accent-gold);
     font-size: 0.95rem;
-    margin-bottom: 2px;
-    font-weight: 600;
+    margin-bottom: 4px;
+    font-weight: 700;
     transition: color 0.25s ease;
 }
 
 .mega-menu-link:hover h4,
-.mega-menu-link.active-hover h4 {
+.mega-menu-link.active h4 {
     color: var(--primary-color);
-    /* เปลี่ยนตัวอักษรเป็นดำตอน Hover */
 }
 
 .mega-menu-link p {
-    color: #888888;
-    font-size: 0.8rem;
+    color: var(--text-muted);
+    font-size: 0.85rem;
     margin: 0;
 }
 
+/* ฝั่งขวา (แบ่งเป็นเนื้อหาและรูปภาพ) */
 .mega-menu-right {
-    width: 55%;
+    width: 62%;
     display: flex;
     background-color: var(--bg-white);
 }
 
 .mega-content {
-    padding: 40px;
+    flex: 1;
+    padding: 35px;
     display: flex;
     flex-direction: column;
     justify-content: center;
 }
 
+/* ส่วนรูปภาพใน Mega Menu */
+.mega-image-container {
+    width: 260px;
+    /* ความกว้างของรูปภาพฝั่งขวาสุด */
+    flex-shrink: 0;
+}
+
+.mega-image-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* จุดเด่น (Bullet Points) ใน Mega Menu */
+.mega-bullet-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+    margin-bottom: 25px;
+}
+
+.mega-bullet-item {
+    font-size: 0.9rem;
+    color: var(--text-dark);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: 500;
+}
+
+.mega-bullet-item::before {
+    content: '';
+    display: inline-block;
+    width: 6px;
+    height: 6px;
+    background-color: var(--accent-gold);
+    /* จุดสีทอง */
+    border-radius: 50%;
+}
+
 .mega-tag {
-    font-size: 0.75rem;
+    font-size: 0.8rem;
     font-weight: 700;
-    color: #999999;
+    color: var(--accent-gold);
     letter-spacing: 1.5px;
     margin-bottom: 10px;
     text-transform: uppercase;
@@ -305,24 +348,22 @@ nav ul li.mega-dropdown:hover .mega-menu {
 
 .mega-title {
     color: var(--primary-color);
-    font-size: 1.6rem;
+    font-size: 1.8rem;
     margin-bottom: 15px;
     font-weight: 700;
+    line-height: 1.2;
 }
 
 .mega-desc {
     color: var(--text-muted);
-    font-size: 0.9rem;
+    font-size: 0.95rem;
     margin-bottom: 25px;
+    line-height: 1.6;
 }
 
 .mega-actions {
     display: flex;
     gap: 15px;
-}
-
-main {
-    margin-top: 70px;
 }
 
 /* ==========================================================================
