@@ -1,0 +1,97 @@
+/* ==========================================================================
+   PAGE-SPECIFIC STYLES: VISA & WORK PERMIT (visa.css)
+   ========================================================================== */
+
+/* ภาพวงกลมแบบมีเงา (สำหรับในส่วนของ Tabs) */
+.circle-img-container {
+    width: 250px;
+    height: 250px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 5px solid var(--bg-white);
+    /* เปลี่ยนเป็นตัวแปรสีขาว */
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.08);
+    /* ปรับเงาให้ฟุ้งและหรูขึ้น */
+    flex-shrink: 0;
+    margin-bottom: 20px;
+}
+
+.circle-img-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Layout กล่องเนื้อหาคู่กับภาพวงกลมใน Tab */
+.tab-content-flex {
+    display: flex;
+    gap: 50px;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    background-color: var(--accent-gold-light);
+    /* ดึงสีพื้นหลังครีมอ่อนจาก Global CSS */
+    padding: 60px;
+    border-radius: 12px;
+    /* โค้งมนทุกมุม */
+    border: 1px solid var(--border-color);
+    /* เพิ่มขอบบางๆ ให้ดูเนียนตา */
+}
+
+.tab-content-flex .text-side {
+    flex: 1;
+    min-width: 300px;
+}
+
+.tab-content-flex h3 {
+    font-size: 2.2rem;
+    color: var(--primary-color);
+    /* หัวข้อสีดำ */
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    line-height: 1.2;
+}
+
+.tab-content-flex p {
+    font-size: 1.05rem;
+    color: var(--text-muted);
+    /* เนื้อหาสีเทาเข้ม */
+    margin-bottom: 20px;
+    line-height: 1.8;
+}
+
+.tab-content-flex ul {
+    margin-bottom: 30px;
+    padding-left: 20px;
+}
+
+.tab-content-flex ul li {
+    font-size: 1rem;
+    color: var(--text-dark);
+    /* จุด Bullet List ให้อ่านง่าย */
+    margin-bottom: 10px;
+    line-height: 1.6;
+    list-style-type: disc;
+}
+
+.tab-content-flex h4 {
+    font-size: 1.25rem;
+    color: var(--primary-color);
+    /* หัวข้อย่อยสีดำ */
+    margin-bottom: 15px;
+    margin-top: 35px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .tab-content-flex {
+        padding: 40px 25px;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .circle-img-container {
+        width: 200px;
+        height: 200px;
+        margin: 0 auto 30px;
+    }
+}

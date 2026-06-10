@@ -1,0 +1,235 @@
+/* ==========================================================================
+   PAGE-SPECIFIC STYLES: REAL ESTATE (real-estate.css)
+   ========================================================================== */
+
+/* 1. Grid สำหรับ Icon Cards (Opportunities & What We Provide) */
+.re-icon-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    margin-top: 30px;
+}
+
+.re-icon-card {
+    background: var(--bg-white);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    /* ปรับขอบมน */
+    padding: 30px 20px;
+    text-align: center;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.02);
+    transition: transform 0.3s, border-color 0.3s, box-shadow 0.3s;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.re-icon-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--accent-gold);
+    /* Hover ขอบทอง */
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+}
+
+.re-icon-card svg {
+    width: 32px;
+    height: 32px;
+    color: var(--primary-color);
+    /* ไอคอนสีดำ */
+    margin-bottom: 15px;
+}
+
+.re-icon-card p {
+    font-size: 0.95rem;
+    color: var(--primary-color);
+    font-weight: 600;
+    margin: 0;
+    line-height: 1.4;
+}
+
+/* 2. Grid สำหรับ Text Cards (Due Diligence & Solutions) */
+.re-text-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+    margin-top: 30px;
+}
+
+.re-text-card {
+    background: var(--bg-white);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    padding: 40px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.02);
+}
+
+.re-text-card:hover {
+    border-color: var(--accent-gold);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
+    transform: translateY(-5px);
+}
+
+.re-text-card h4 {
+    font-size: 1.15rem;
+    color: var(--primary-color);
+    margin-bottom: 15px;
+}
+
+.re-text-card p {
+    font-size: 0.95rem;
+    color: var(--text-muted);
+    margin: 0;
+    line-height: 1.6;
+}
+
+/* 3. Featured Property Portfolios */
+.re-portfolio-images {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 25px;
+    margin-bottom: 30px;
+}
+
+.re-portfolio-images img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 12px;
+    /* ขอบมน */
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+}
+
+.re-portfolio-texts {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 25px;
+}
+
+.re-portfolio-texts h4 {
+    font-size: 1.15rem;
+    color: var(--primary-color);
+    margin-bottom: 5px;
+    line-height: 1.4;
+}
+
+.re-portfolio-texts p.subtitle {
+    font-size: 0.9rem;
+    color: var(--accent-gold);
+    /* Subtitle สีทอง */
+    font-weight: 600;
+    margin-bottom: 15px;
+}
+
+.re-portfolio-texts p.desc {
+    font-size: 0.95rem;
+    color: var(--text-muted);
+    margin-bottom: 15px;
+    line-height: 1.6;
+}
+
+.re-portfolio-texts ul {
+    padding-left: 18px;
+}
+
+.re-portfolio-texts ul li {
+    font-size: 0.85rem;
+    color: var(--text-dark);
+    margin-bottom: 10px;
+    line-height: 1.5;
+}
+
+/* 4. Timeline (Property Acquisition Process - 6 ขั้นตอน) */
+.re-process-grid {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 15px;
+    margin-top: 40px;
+    text-align: center;
+}
+
+.re-process-step {
+    position: relative;
+}
+
+.re-process-num {
+    width: 45px;
+    height: 45px;
+    background-color: var(--primary-color);
+    /* วงกลมสีดำ */
+    color: #fff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.1rem;
+    font-weight: 700;
+    margin: 0 auto 15px;
+    position: relative;
+    z-index: 2;
+}
+
+/* เส้นเชื่อมระหว่างวงกลม */
+.re-process-step:not(:last-child)::after {
+    content: '';
+    position: absolute;
+    top: 22px;
+    left: 50%;
+    width: 100%;
+    height: 2px;
+    background-color: var(--border-color);
+    z-index: 1;
+}
+
+.re-process-step p {
+    font-size: 0.95rem;
+    color: var(--text-dark);
+    line-height: 1.4;
+    margin: 0;
+    font-weight: 600;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+    .re-icon-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .re-portfolio-images,
+    .re-portfolio-texts {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .re-process-grid {
+        grid-template-columns: repeat(3, 1fr);
+        row-gap: 40px;
+    }
+
+    .re-process-step:nth-child(3)::after {
+        display: none;
+    }
+}
+
+@media (max-width: 768px) {
+
+    .re-icon-grid,
+    .re-text-grid,
+    .re-portfolio-images,
+    .re-portfolio-texts {
+        grid-template-columns: 1fr;
+    }
+
+    .re-process-grid {
+        grid-template-columns: 1fr;
+        text-align: left;
+    }
+
+    .re-process-step:not(:last-child)::after {
+        display: none;
+    }
+
+    .re-process-num {
+        margin: 0 0 10px 0;
+    }
+}

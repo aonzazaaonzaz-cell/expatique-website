@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us | Expatique</title>
+
+    <link rel="stylesheet" href="css/global.css?v=2">
+    <link rel="stylesheet" href="css/contact.css?v=4">
+
+    <script>
+        const basePath = "./";
+        const activeMenuId = "nav-contact"; 
+    </script>
+</head>
+
+<body>
+
+    <div id="navbar-placeholder"></div>
+
+    <main>
+
+        <section class="contact-hero">
+            <div class="woxa-container">
+                <span class="contact-label">Contact</span>
+                <h1>Get in Touch</h1>
+                <p>Partnerships, consultations, or a first conversation about your future in Thailand—send a note and
+                    we'll route it to the right experts.</p>
+            </div>
+        </section>
+
+        <section class="form-section">
+            <div class="form-container">
+                <div class="form-header">
+                    <span>WRITE TO US</span>
+                    <h2>Send a message</h2>
+                    <p style="color: var(--text-muted); margin-top: 10px;">All fields help our experts respond faster;
+                        please include the service you are interested in.</p>
+                </div>
+
+                <form action="https://api.web3forms.com/submit" method="POST" class="expatique-form">
+                    <input type="hidden" name="access_key" value="YOUR_ACCESS_KEY_HERE">
+
+                    <div class="form-group">
+                        <label>Name</label>
+                        <input type="text" name="name" placeholder="Your full name" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Email</label>
+                        <input type="email" name="email" placeholder="you@company.com" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Subject / Service Required</label>
+                        <input type="text" name="company" placeholder="e.g. Legal Support, BOI, Visa, etc.">
+                    </div>
+
+                    <div class="form-group">
+                        <label>Message</label>
+                        <textarea name="message"
+                            placeholder="How can we help? Mention specific goals or timelines if relevant." rows="6"
+                            required></textarea>
+                    </div>
+
+                    <div style="display: flex; justify-content: flex-start;">
+                        <button type="submit" class="btn" style="padding: 18px 45px; font-size: 1.1rem;">Send message
+                            &rarr;</button>
+                    </div>
+                </form>
+            </div>
+        </section>
+
+        <section class="office-section">
+            <div class="woxa-container">
+                <div class="office-grid">
+                    <div class="office-info">
+                        <span class="contact-label" style="justify-content: flex-start;">OFFICES</span>
+                        <h2>Where to find<br><span style="color: var(--accent-gold);">Expatique</span></h2>
+
+                        <div class="office-card">
+                            <img src="picture/office-hq.jpg" alt="Expatique HQ" class="office-img">
+                            <div class="office-details">
+                                <h4>Bangkok Headquarters</h4>
+                                <p>500 Terry Francine Street, Sukhumvit Road,<br>Bangkok, Thailand 10110</p>
+                                <p>
+                                    <strong style="color: var(--primary-color);">Email:</strong> info@expatique.com<br>
+                                    <strong style="color: var(--primary-color);">Phone:</strong> +66 (0) 81-000-0000
+                                </p>
+                                <div class="social-icons">
+                                    <a href="#"><svg viewBox="0 0 24 24" fill="currentColor" width="20">
+                                            <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z">
+                                            </path>
+                                        </svg></a>
+                                    <a href="#"><svg viewBox="0 0 24 24" fill="currentColor" width="20">
+                                            <path
+                                                d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z">
+                                            </path>
+                                            <rect x="2" y="9" width="4" height="12"></rect>
+                                            <circle cx="4" cy="4" r="2"></circle>
+                                        </svg></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="office-map">
+                        <iframe
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3875.5413158913955!2d100.523186!3d13.736717!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x30e298d02df0eab3%3A0xc39f88bd37a1f5a5!2sLumphini%20Park!5e0!3m2!1sen!2sth!4v1680000000000!5m2!1sen!2sth"
+                            width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <div id="footer-placeholder"></div>
+
+    <script src="js/main.js"></script>
+</body>
+
+</html>

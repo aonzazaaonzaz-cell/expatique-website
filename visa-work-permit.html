@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Visa & Work Permit | Expatique</title>
+
+    <link rel="stylesheet" href="css/global.css?v=2">
+    <link rel="stylesheet" href="css/legal.css?v=3">
+    <link rel="stylesheet" href="css/visa.css?v=2">
+    <script>
+        const basePath = "./";
+        const activeMenuId = "nav-visa"; 
+    </script>
+</head>
+
+<body>
+
+    <div id="navbar-placeholder"></div>
+
+    <main>
+
+        <section class="hero-with-bg" style="background-image: url('picture/visa-bg.jpg'); text-align: left;">
+            <div class="woxa-container">
+                <span class="hero-subtitle">Legal Services</span>
+                <h1 style="font-size: 3.8rem; margin-bottom: 15px; max-width: 900px; line-height: 1.1;">Expert Visa And
+                    Work Permit Consulting</h1>
+                <p>Guidance and professional assistance for education visas, DTV visas, and long-term stays in Thailand.
+                </p>
+            </div>
+        </section>
+
+        <section class="split-content-section" style="padding-bottom: 40px; background-color: var(--bg-white);">
+            <div class="woxa-container split-content-block" style="align-items: center;">
+
+                <div class="split-text-side" style="flex: 1.2;">
+                    <span
+                        style="font-size: 0.9rem; font-weight: 700; letter-spacing: 2px; color: var(--accent-gold); text-transform: uppercase; margin-bottom: 10px; display: block;">Overview</span>
+                    <h2 style="font-size: 2.5rem; color: var(--primary-color); margin-bottom: 25px;">Clear Pathways for
+                        Your Stay</h2>
+
+                    <p style="font-size: 1.05rem; margin-bottom: 25px; color: var(--text-muted);">
+                        At <strong>Expatique</strong>, we provide personalised consultation and guidance for
+                        individuals, families, students, professionals, and long-term residents seeking to build their
+                        lives in Thailand with clarity and confidence.
+                    </p>
+                    <p style="font-size: 1.05rem; margin-bottom: 25px; color: var(--text-muted);">
+                        We assist with educational visas, long-term stay options, work permit pathways, residency
+                        applications, and family-based support visas, helping clients understand the requirements,
+                        prepare documentation, and navigate each process with ease.
+                    </p>
+
+                    <ul style="margin-bottom: 30px; padding-left: 20px; color: var(--text-dark);">
+                        <li style="margin-bottom: 15px; line-height: 1.6;">
+                            <strong>The Education (ED) Visa</strong> is a common option for individuals who wish to stay
+                            in Thailand while participating in structured learning programs. This includes
+                            <strong>educational activities such as Language studies or cultural courses</strong>, where
+                            students enrol in certified programs that meet immigration requirements.
+                        </li>
+                        <li style="margin-bottom: 15px; line-height: 1.6;">
+                            <strong>The Destination Thailand (DTV) Visa</strong> is designed for individuals who wish to
+                            spend an <strong>extended period in Thailand while remaining professionally active or
+                                participating in cultural activities</strong>.
+                        </li>
+                        <li style="margin-bottom: 15px; line-height: 1.6;">
+                            <strong>Non-Immigrant Visa (For Work Permit)</strong> is designed for <strong>professionals,
+                                entrepreneurs, and employees seeking legal employment in Thailand</strong>. The
+                            process is an essential step toward working and conducting business lawfully.
+                        </li>
+                        <li style="margin-bottom: 15px; line-height: 1.6;">
+                            <strong>Permanent Residency and Citizenship Visa</strong> is an option for individuals
+                            seeking to <strong>establish long-term roots in Thailand</strong>. These pathways may offer
+                            greater stability, security, and long-term benefits without annual visa renewals.
+                        </li>
+                        <li style="margin-bottom: 15px; line-height: 1.6;">
+                            <strong>Family Support Visa</strong> options are intended to <strong>help spouses, children,
+                                parents, and dependents remain together legally while residing in Thailand</strong>.
+                        </li>
+                    </ul>
+
+                    <div style="margin-top: 40px; text-align: center;">
+                        <p style="font-weight: 700; margin-bottom: 20px; color: var(--primary-color);">Not certain where
+                            to begin?</p>
+
+                        <div style="margin-bottom: 25px;">
+                            <a href="contact.html" class="btn">Schedule a consultation</a>
+                        </div>
+
+                        <p
+                            style="color: var(--accent-gold); font-style: italic; font-weight: 600; font-size: 1.05rem; line-height: 1.6;">
+                            Schedule a consultation to discuss visa options and<br>
+                            determine the most suitable pathway for your stay<br>
+                            in Thailand.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="split-image-side" style="flex: 0.8;">
+                    <img src="picture/visa-travel.jpg" alt="Visa and Immigration Thailand"
+                        style="border-radius: 12px; box-shadow: 0 15px 40px rgba(0,0,0,0.08);">
+                </div>
+
+            </div>
+        </section>
+
+        <section class="tabs-section"
+            style="padding-top: 80px; padding-bottom: 80px; background-color: var(--bg-light-grey);">
+            <div class="woxa-container">
+
+                <h2 style="font-size: 2.5rem; color: var(--primary-color); margin-bottom: 40px; text-align: center;">
+                    Visa Pathways</h2>
+
+                <div class="tab-menu">
+                    <button class="tab-btn active" onclick="openTab(event, 'tab-ed')">ED Visa (Education)</button>
+                    <button class="tab-btn" onclick="openTab(event, 'tab-dtv')">DTV Visa (Destination Thailand)</button>
+                    <button class="tab-btn" onclick="openTab(event, 'tab-business')">Business Visa & Work
+                        Permits</button>
+                    <button class="tab-btn" onclick="openTab(event, 'tab-pr')">Permanent Residency &
+                        Citizenship</button>
+                    <button class="tab-btn" onclick="openTab(event, 'tab-family')">Family Support Visa</button>
+                </div>
+
+                <div id="tab-ed" class="tab-content active">
+                    <div class="tab-content-flex">
+                        <div class="circle-img-container">
+                            <img src="picture/visa-passport.jpg" alt="Student Visa">
+                        </div>
+                        <div class="text-side">
+                            <h3>ED VISA<br>(EDUCATION)</h3>
+                            <ul style="font-weight: 600; color: var(--primary-color);">
+                                <li>90-Day Stay (Extendable)</li>
+                                <li>For structured, full-time training</li>
+                                <li>Requires application abroad</li>
+                            </ul>
+
+                            <p>We provide professional legal coordination for students and individuals pursuing
+                                specialized training in Thailand. We manage the complex administrative requirements to
+                                ensure your stay is fully compliant with Thai immigration laws.</p>
+
+                            <ul style="padding-left: 0; list-style-type: none;">
+                                <li style="margin-bottom: 12px;"><strong
+                                        style="color: var(--primary-color);">Eligibility & Application
+                                        Strategy:</strong> Expert guidance on the initial 90-day extendable visa,
+                                    including application coordination from outside Thailand.</li>
+                                <li style="margin-bottom: 12px;"><strong style="color: var(--primary-color);">Structured
+                                        Training Coordination:</strong> Support for applicants requiring structured
+                                    training schedules and certified documentation from recognised institutions.</li>
+                                <li style="margin-bottom: 12px;"><strong style="color: var(--primary-color);">SAT
+                                        Verification:</strong> Facilitating mandatory Sports Authority of Thailand (SAT)
+                                    verification for specialised sports and self-defence training visas.</li>
+                                <li style="margin-bottom: 12px;"><strong style="color: var(--primary-color);">Certified
+                                        Documentation:</strong> Securing and organising all necessary training letters,
+                                    school certifications, and government-stamped documents.</li>
+                                <li style="margin-bottom: 12px;"><strong style="color: var(--primary-color);">Extension
+                                        Management:</strong> Proactive management of the periodic extension process to
+                                    ensure an uninterrupted stay for the duration of your studies.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="tab-dtv" class="tab-content">
+                    <div class="tab-content-flex">
+                        <div class="circle-img-container">
+                            <img src="picture/visa-stamp.jpg" alt="DTV Visa">
+                        </div>
+                        <div class="text-side">
+                            <h3>DTV VISA<br>(DESTINATION THAILAND)</h3>
+
+                            <div style="display: flex; gap: 40px; flex-wrap: wrap;">
+                                <div style="flex: 1; min-width: 280px;">
+                                    <ul style="font-weight: 600; color: var(--primary-color);">
+                                        <li>5-Year Validity (Multiple Entry)</li>
+                                        <li>180 Days Stay per Entry</li>
+                                        <li>180-Day Extension Available</li>
+                                        <li>Up to 1-Year Continuous Stay</li>
+                                        <li>Remote Work Allowed for Foreign Employers</li>
+                                        <li>500,000 THB Financial Requirement</li>
+                                        <li>Family Inclusion (Spouse & Children Under 20)</li>
+                                        <li>Visa Fee ~10,000 THB (≈400 USD), <strong>but may vary by Embassy.</strong>
+                                        </li>
+                                        <li>90-Day Reporting Required</li>
+                                        <li>Application via Thai e-Visa (Outside Thailand)</li>
+                                    </ul>
+
+                                    <h4>Category-specific documents:</h4>
+                                    <p style="margin-bottom: 10px; color: var(--primary-color);"><strong>Workation
+                                            (Remote work, freelancers, or business owners):</strong></p>
+                                    <ul style="margin-bottom: 20px;">
+                                        <li>Contract or client agreements</li>
+                                        <li>Certificate of employment or business registration</li>
+                                        <li>Payslips</li>
+                                        <li>Recent tax filings</li>
+                                        <li>Professional portfolio</li>
+                                    </ul>
+
+                                    <p style="margin-bottom: 10px; color: var(--primary-color);"><strong>Thai Soft Power
+                                            (Muay Thai, cooking classes, or medical treatments):</strong></p>
+                                    <ul style="margin-bottom: 20px;">
+                                        <li>Letter of acceptance from a recognized organization</li>
+                                        <li>Business registration document of the institution</li>
+                                        <li>Program duration must be at least six months</li>
+                                    </ul>
+
+                                    <p style="margin-bottom: 10px; color: var(--primary-color);"><strong>Dependents
+                                            (spouse or child under 20):</strong></p>
+                                    <ul>
+                                        <li>Marriage certificate for spouses</li>
+                                        <li>Birth certificate for children</li>
+                                    </ul>
+                                </div>
+
+                                <div style="flex: 1; min-width: 280px;">
+                                    <h4 style="margin-top: 0;">DTV Visa Eligibility Criteria</h4>
+                                    <ul>
+                                        <li style="margin-bottom: 15px;"><strong
+                                                style="color: var(--primary-color);">Minimum Age:</strong> 20 years</li>
+                                        <li style="margin-bottom: 15px;"><strong
+                                                style="color: var(--primary-color);">Immigration Record:</strong> Clean
+                                            history with Thai Immigration</li>
+                                        <li style="margin-bottom: 15px;"><strong
+                                                style="color: var(--primary-color);">Criminal Record:</strong> No
+                                            serious criminal convictions</li>
+                                        <li style="margin-bottom: 15px;"><strong
+                                                style="color: var(--primary-color);">Financial Requirement:</strong>
+                                            500,000 THB in a bank account</li>
+                                        <li style="margin-bottom: 15px;"><strong
+                                                style="color: var(--primary-color);">Funds Rule:</strong> Must show
+                                            funds during application and extensions</li>
+                                        <li style="margin-bottom: 15px;"><strong
+                                                style="color: var(--primary-color);">Not Accepted:</strong> Crypto or
+                                            investment portfolios</li>
+                                        <li style="margin-bottom: 15px;"><strong
+                                                style="color: var(--primary-color);">Application Location:</strong> Must
+                                            apply from outside Thailand</li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+                <div id="tab-business" class="tab-content">
+                    <div class="tab-content-flex">
+                        <div class="circle-img-container">
+                            <img src="picture/visa-business.jpg" alt="Business Visa">
+                        </div>
+                        <div class="text-side">
+                            <h3 style="text-transform: none;">Business Visa (Non-Immigrant "B" Visa)<br>& Work Permits
+                            </h3>
+                            <p>We provide end-to-end support for foreign professionals, entrepreneurs, and investors.
+                                Our services offer a full-cycle solution to navigate Thai regulatory requirements
+                                seamlessly:</p>
+
+                            <h4>Visa & Immigration Services</h4>
+                            <ul style="margin-bottom: 25px;">
+                                <li>Non-Immigrant "B" Visa: Comprehensive application support and coordination.</li>
+                                <li>Stay Compliance: Visa extensions, 90-day reporting, and re-entry permit processing.
+                                </li>
+                                <li>Compliance Reporting: Ongoing advisory to ensure all immigration requirements are
+                                    met.</li>
+                            </ul>
+
+                            <h4>Work Authorisation & Labour Coordination</h4>
+                            <ul style="margin-bottom: 25px;">
+                                <li>Work Permits: Full assistance with initial issuance, applications, and annual
+                                    renewals.</li>
+                                <li>Strategic Liaison: Direct coordination with the Ministry of Labour and the
+                                    Immigration Bureau to streamline approvals.</li>
+                            </ul>
+
+                            <h4>Specialised Business & BOI Support</h4>
+                            <ul style="margin-bottom: 25px;">
+                                <li>BOI Company Services: Specialised support for companies with Board of Investment
+                                    privileges.</li>
+                                <li>One-Stop Centre (OSOS): Expert navigation of 1-Stop-Centre services for faster
+                                    processing.</li>
+                            </ul>
+
+                            <h4>Corporate & Employment Documentation</h4>
+                            <ul>
+                                <li>Legal Drafting: Professional preparation of corporate structures and employment
+                                    documentation.</li>
+                                <li>Employee Support: Full-cycle lifecycle management for business owners and their
+                                    international staff.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="tab-pr" class="tab-content">
+                    <div class="tab-content-flex">
+                        <div class="circle-img-container">
+                            <img src="picture/visa-tukutk.jpg" alt="Permanent Residency">
+                        </div>
+                        <div class="text-side">
+                            <h3 style="text-transform: none;">Permanent Residency &<br>Citizenship</h3>
+                            <p>For those seeking the ultimate commitment to Thailand, we provide expert guidance through
+                                the most complex government processes. We offer a sophisticated, end-to-end service
+                                designed to manage every legal and administrative detail of your journey toward
+                                long-term security.</p>
+
+                            <h4>Permanent Residency (PR)</h4>
+                            <p>For those seeking a lifelong commitment to Thailand, we offer professional guidance
+                                through the PR application process:</p>
+                            <ul style="margin-bottom: 25px;">
+                                <li>Strategic Consultation: In-depth eligibility assessment and a tailored strategy for
+                                    your specific case.</li>
+                                <li>Meticulous Documentation: Expert preparation of all required supporting materials,
+                                    including translation and legalisation.</li>
+                                <li>Application Management: Comprehensive assistance with official PR application
+                                    submissions.</li>
+                                <li>Professional Coaching: Comprehensive interview preparation and coaching to ensure
+                                    you are fully prepared for government reviews.</li>
+                                <li>Active Advocacy: Proactive follow-up and coordination with the relevant government
+                                    authorities throughout the process.</li>
+                            </ul>
+
+                            <h4>Thai Citizenship Application</h4>
+                            <p>We guide qualified applicants through the complex journey of Thai naturalisation with
+                                legal precision:</p>
+                            <ul>
+                                <li>Legal Consultation: Initial eligibility assessment and specialized legal advice
+                                    regarding Thai nationality laws and requirements.</li>
+                                <li>Full Documentation Support: Meticulous preparation of all filing materials,
+                                    including certified translations.</li>
+                                <li>Application Lifecycle Management: Full assistance with citizenship filing and
+                                    complete management of the application process.</li>
+                                <li>Legal Procedure Guidance: Expert guidance on interviews and all required legal
+                                    procedures.</li>
+                                <li>End-to-End Follow-up: Strategic monitoring and follow-up with government bodies to
+                                    ensure progress.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="tab-family" class="tab-content">
+                    <div class="tab-content-flex">
+                        <div class="circle-img-container">
+                            <img src="picture/visa-family.jpg" alt="Family Support Visa">
+                        </div>
+                        <div class="text-side">
+                            <h3 style="text-transform: none;">Family Support Visa</h3>
+                            <p>We facilitate long-term residency for spouses and family members of both foreign
+                                nationals and Thai citizens, ensuring your family stays together with full legal peace
+                                of mind.</p>
+
+                            <h4>Marriage & Dependent Visas</h4>
+                            <ul style="margin-bottom: 25px;">
+                                <li>Marriage Visas (Non-Immigrant "O"): Comprehensive application support for spouses of
+                                    Thai nationals or foreign residents.</li>
+                                <li>Dependent Visa Applications: Dedicated support for children and extended family
+                                    members.</li>
+                                <li>Relocation Support: Full-cycle assistance to manage the complexities of family
+                                    relocation to Thailand.</li>
+                                <li>Renewal Management: Expert handling of visa extensions and annual renewals to ensure
+                                    uninterrupted residency.</li>
+                            </ul>
+
+                            <h4>Child Education Support</h4>
+                            <ul style="margin-bottom: 25px;">
+                                <li>Student Visa Coordination: Specialised visa support for children enrolled in Thai
+                                    educational institutions.</li>
+                                <li>Family Compliance: Ensuring that the visa status of all family members remains in
+                                    sync with educational requirements and annual renewals.</li>
+                            </ul>
+
+                            <h4>Essential Compliance & Legal Services</h4>
+                            <p style="margin-bottom: 10px;">In addition to core visa processing, we provide a full suite
+                                of administrative and legal support to maintain your status and facilitate your
+                                lifestyle in Thailand.</p>
+                            <ul>
+                                <li><strong>90-Day Reporting:</strong> Proactive management and filing of address
+                                    notifications.</li>
+                                <li><strong>Re-entry Permits:</strong> Fast-track applications to ensure your visa
+                                    remains valid while you travel internationally.</li>
+                                <li><strong>Legalisation & Translation:</strong> Professional certified translation and
+                                    government legalisation of official documents.</li>
+                                <li><strong>General Consultation:</strong> Strategic legal and immigration advice
+                                    tailored to your unique circumstances.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+    </main>
+
+    <div id="footer-placeholder"></div>
+
+    <script>
+        function openTab(evt, tabId) {
+            var tabContents = document.getElementsByClassName("tab-content");
+            for (var i = 0; i < tabContents.length; i++) {
+                tabContents[i].classList.remove("active");
+            }
+            var tabBtns = document.getElementsByClassName("tab-btn");
+            for (var i = 0; i < tabBtns.length; i++) {
+                tabBtns[i].classList.remove("active");
+            }
+            document.getElementById(tabId).classList.add("active");
+            evt.currentTarget.classList.add("active");
+        }
+    </script>
+
+    <script src="js/main.js"></script>
+</body>
+
+</html>

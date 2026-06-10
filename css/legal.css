@@ -1,0 +1,635 @@
+/* ==========================================================================
+   CATEGORY STYLES: LEGAL, LITIGATION & TAX (legal.css)
+   ========================================================================== */
+
+/* 1. Category Hero Banner (แบบมีภาพพื้นหลัง) */
+.hero-with-bg {
+    background-color: var(--bg-light-grey);
+    background-size: cover;
+    background-position: right center;
+    background-repeat: no-repeat;
+    padding: 120px 10% 80px;
+    /* ใช้ 10% ดันขอบให้ตรงกับ Navbar */
+    text-align: left;
+    color: var(--primary-color);
+}
+
+/* กล่องคุมเนื้อหาให้อยู่ตรงกลาง */
+.woxa-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 100%;
+}
+
+/* หัวข้อเล็กด้านบน (Subtitle สีทอง) */
+.hero-subtitle {
+    font-size: 0.9rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    color: var(--accent-gold);
+    text-transform: uppercase;
+    margin-bottom: 15px;
+    display: block;
+}
+
+.hero-with-bg h1 {
+    color: var(--primary-color);
+    font-size: 3.8rem;
+    margin-bottom: 20px;
+    max-width: 800px;
+    line-height: 1.15;
+}
+
+.hero-with-bg p {
+    font-size: 1.15rem;
+    color: var(--text-muted);
+    max-width: 700px;
+    margin: 0;
+    line-height: 1.6;
+}
+
+/* 2. Services Overview Section (หน้าสารบัญ) */
+.services-overview {
+    padding: 100px 10%;
+    background-color: var(--bg-light-grey);
+    /* พื้นหลังเทาอ่อนสลับกับ Hero */
+}
+
+.section-header {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.section-header h2 {
+    color: var(--primary-color);
+    font-size: 2.8rem;
+    margin-bottom: 15px;
+}
+
+.section-header p {
+    color: var(--text-muted);
+    font-size: 1.05rem;
+}
+
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.service-card {
+    background-color: var(--bg-white);
+    /* การ์ดสีขาวตัดกับพื้นหลังเทา */
+    padding: 40px 30px;
+    border-radius: 12px;
+    border: 1px solid var(--border-color);
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+}
+
+.service-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.08);
+    border-color: var(--accent-gold);
+    /* Hover ขอบทอง */
+}
+
+.service-card h3 {
+    color: var(--primary-color);
+    margin-bottom: 15px;
+    font-size: 1.3rem;
+}
+
+.service-card p {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    margin-bottom: 25px;
+    line-height: 1.6;
+    flex: 1;
+}
+
+.card-link {
+    color: var(--accent-gold);
+    font-weight: 600;
+    font-size: 0.95rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    transition: gap 0.3s ease;
+}
+
+.service-card:hover .card-link {
+    gap: 12px;
+}
+
+/* 3. Split Content Block (ซ้ายข้อความ - ขวารูปภาพ) */
+.split-content-section {
+    padding: 80px 10%;
+    background-color: var(--bg-white);
+}
+
+.split-content-block {
+    display: flex;
+    gap: 60px;
+    flex-wrap: wrap;
+    align-items: flex-start;
+}
+
+.split-text-side {
+    flex: 1;
+    min-width: 300px;
+}
+
+.split-text-side>p {
+    margin-bottom: 30px;
+    font-size: 1.05rem;
+    line-height: 1.8;
+    color: var(--text-muted);
+}
+
+.split-image-side {
+    flex: 1;
+    min-width: 300px;
+}
+
+.split-image-side img {
+    width: 100%;
+    border-radius: 12px;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.08);
+    object-fit: cover;
+}
+
+/* หัวข้อสำหรับพื้นหลังสีอ่อน (อัปเดตให้เป็นสีดำตามธีมใหม่) */
+.off-white-heading {
+    color: var(--primary-color);
+}
+
+/* 4. Feature Grid 2x2 (สำหรับส่วนเช็คลิสต์) */
+.feature-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 25px;
+    margin-bottom: 40px;
+}
+
+.feature-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 15px;
+}
+
+.feature-icon-svg {
+    width: 24px;
+    height: 24px;
+    flex-shrink: 0;
+    color: var(--primary-color);
+    /* เปลี่ยนไอคอนเป็นสีดำ */
+}
+
+.feature-item-text strong {
+    display: block;
+    font-size: 1.05rem;
+    color: var(--primary-color);
+    margin-bottom: 5px;
+}
+
+.feature-item-text span {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    line-height: 1.4;
+    display: block;
+}
+
+/* ปุ่มลิงก์เสริม */
+.button-group {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.btn-outline-blue {
+    background-color: transparent;
+    border: 2px solid var(--primary-color);
+    color: var(--primary-color);
+    padding: 12px 30px;
+    border-radius: 999px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.btn-outline-blue:hover {
+    background-color: var(--primary-color);
+    color: #FFF;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* 5. Detailed Services (การ์ด 6 ใบ) */
+.detailed-services-section {
+    padding: 80px 10%;
+    background-color: var(--bg-light-grey);
+}
+
+.detailed-services-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+}
+
+.detail-card {
+    background: #fff;
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    padding: 40px 30px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s;
+}
+
+.detail-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.05);
+    border-color: var(--accent-gold);
+}
+
+.detail-icon {
+    width: 35px;
+    height: 35px;
+    margin-bottom: 20px;
+    color: var(--primary-color);
+    /* สีดำ */
+}
+
+.detail-card h3 {
+    font-size: 1.15rem;
+    color: var(--primary-color);
+    margin-bottom: 15px;
+    line-height: 1.4;
+}
+
+.detail-card p {
+    font-size: 0.95rem;
+    color: var(--text-muted);
+    margin: 0;
+    line-height: 1.6;
+}
+
+/* 6. Bottom CTA Box */
+.cta-banner {
+    background-color: var(--bg-white);
+    border-radius: 12px;
+    padding: 40px 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 60px;
+    border: 1px solid var(--border-color);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.02);
+}
+
+.cta-banner-text {
+    flex: 1;
+    padding-right: 40px;
+}
+
+.cta-banner-text h3 {
+    font-size: 1.5rem;
+    color: var(--primary-color);
+    margin-bottom: 10px;
+}
+
+/* ==========================================================================
+   SPECIFIC COMPONENTS FOR TAXATION PAGE
+   ========================================================================== */
+.team-highlight-card {
+    background-color: #ffffff;
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.06);
+    border-top: 4px solid var(--accent-gold);
+    /* ขอบบนสีทอง */
+}
+
+.team-highlight-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 20px;
+    margin-bottom: 25px;
+}
+
+.team-highlight-header-text h4 {
+    font-size: 1.25rem;
+    color: var(--primary-color);
+    margin-bottom: 5px;
+}
+
+.team-highlight-header-text span {
+    color: var(--accent-gold);
+    font-size: 0.95rem;
+    font-weight: 600;
+}
+
+.team-highlight-img {
+    width: 110px;
+    height: 110px;
+    object-fit: cover;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.team-highlight-card p {
+    font-size: 0.95rem;
+    line-height: 1.7;
+    color: var(--text-muted);
+    margin-bottom: 25px;
+}
+
+.team-highlight-card ul {
+    padding-left: 20px;
+}
+
+.team-highlight-card ul li {
+    font-size: 0.9rem;
+    color: var(--primary-color);
+    margin-bottom: 8px;
+    font-weight: 500;
+    list-style-type: disc;
+}
+
+.large-svg-icon {
+    width: 100%;
+    max-width: 450px;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+    color: var(--primary-color);
+}
+
+/* ==========================================================================
+   SPECIFIC COMPONENTS FOR BOI PAGE & TABS
+   ========================================================================== */
+.tabs-section {
+    padding: 60px 10% 100px;
+    background-color: var(--bg-white);
+}
+
+.tab-menu {
+    display: flex;
+    gap: 30px;
+    border-bottom: 1px solid var(--border-color);
+    margin-bottom: 40px;
+    overflow-x: auto;
+    white-space: nowrap;
+    padding-bottom: 2px;
+    scrollbar-width: none;
+}
+
+.tab-menu::-webkit-scrollbar {
+    display: none;
+}
+
+.tab-btn {
+    background: none;
+    border: none;
+    font-size: 1rem;
+    color: var(--text-muted);
+    padding: 10px 0;
+    cursor: pointer;
+    font-family: var(--font-main);
+    font-weight: 500;
+    transition: color 0.3s;
+    position: relative;
+}
+
+.tab-btn:hover {
+    color: var(--accent-gold);
+}
+
+.tab-btn.active {
+    color: var(--primary-color);
+    font-weight: 600;
+}
+
+.tab-btn.active::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: var(--primary-color);
+    /* เส้นใต้แท็บสีดำ */
+}
+
+.tab-content {
+    display: none;
+    animation: fadeInTab 0.4s ease forwards;
+}
+
+.tab-content.active {
+    display: block;
+}
+
+@keyframes fadeInTab {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.boi-icon-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+    gap: 20px;
+    margin-top: 30px;
+    margin-bottom: 40px;
+}
+
+.boi-icon-card {
+    background: #fff;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 30px 20px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.02);
+    transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s;
+}
+
+.boi-icon-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+    border-color: var(--accent-gold);
+}
+
+.boi-icon-card svg {
+    width: 32px;
+    height: 32px;
+    color: var(--accent-gold);
+    /* ไอคอนสีทอง */
+    margin-bottom: 15px;
+}
+
+.boi-icon-card h4 {
+    font-size: 0.95rem;
+    color: var(--primary-color);
+    margin-bottom: 10px;
+    font-weight: 600;
+    line-height: 1.4;
+}
+
+.boi-icon-card p {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    margin: 0;
+    line-height: 1.5;
+}
+
+/* Timeline (ขั้นตอนการทำงาน) */
+.timeline-container {
+    max-width: 700px;
+    margin: 40px auto;
+    padding-left: 10px;
+}
+
+.timeline-item {
+    position: relative;
+    padding-left: 50px;
+    margin-bottom: 40px;
+}
+
+.timeline-item::before {
+    content: '';
+    position: absolute;
+    left: 14px;
+    top: 35px;
+    bottom: -40px;
+    width: 2px;
+    background-color: var(--border-color);
+}
+
+.timeline-item:last-child::before {
+    display: none;
+}
+
+.timeline-number {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 30px;
+    height: 30px;
+    background-color: var(--primary-color);
+    /* วงกลมสีดำ */
+    color: #fff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 0.9rem;
+    z-index: 2;
+}
+
+.timeline-item h4 {
+    font-size: 1.15rem;
+    color: var(--primary-color);
+    margin-bottom: 5px;
+}
+
+/* Sub-tabs (แท็บย่อยทรงแคปซูล) */
+.sub-tab-menu {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+    margin-bottom: 30px;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 25px;
+}
+
+.sub-tab-btn {
+    padding: 10px 24px;
+    border-radius: 50px;
+    /* แคปซูล */
+    border: 1px solid var(--primary-color);
+    background: transparent;
+    color: var(--primary-color);
+    cursor: pointer;
+    font-size: 0.95rem;
+    font-weight: 600;
+    transition: all 0.3s;
+}
+
+.sub-tab-btn.active,
+.sub-tab-btn:hover {
+    background: var(--primary-color);
+    /* Hover พื้นดำ */
+    color: #fff;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+}
+
+.sub-tab-content {
+    display: none;
+    animation: fadeInTab 0.4s ease forwards;
+}
+
+.sub-tab-content.active {
+    display: block;
+}
+
+.boi-icon-card.wide-card {
+    align-items: flex-start;
+    text-align: left;
+    padding: 30px 40px;
+}
+
+.boi-icon-card.wide-card svg {
+    margin-bottom: 20px;
+    width: 28px;
+    height: 28px;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 1024px) {
+    .detailed-services-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .cta-banner {
+        flex-direction: column;
+        text-align: center;
+        gap: 30px;
+    }
+
+    .cta-banner-text {
+        padding-right: 0;
+    }
+}
+
+@media (max-width: 768px) {
+
+    .hero-with-bg,
+    .split-content-section,
+    .detailed-services-section {
+        padding-left: 5%;
+        padding-right: 5%;
+    }
+
+    .hero-with-bg h1 {
+        font-size: 2.5rem;
+    }
+
+    .feature-grid,
+    .detailed-services-grid {
+        grid-template-columns: 1fr;
+    }
+}

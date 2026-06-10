@@ -1,0 +1,312 @@
+/* ==========================================================================
+   PAGE-SPECIFIC STYLES: HOME PAGE (home.css)
+   ========================================================================== */
+
+/* 1. Hero Section (พื้นหลังสีขาว) */
+.hero-wix {
+    display: flex;
+    min-height: calc(100vh - 70px);
+    background-color: var(--bg-white);
+    /* ธีมสีขาว */
+}
+
+.hero-wix-left {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 80px 10%;
+}
+
+/* เพิ่ม Subtitle สีทองเล็กๆ เหนือหัวข้อหลักให้ดูแพง */
+.hero-subtitle {
+    font-size: 0.9rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    color: var(--accent-gold);
+    text-transform: uppercase;
+    margin-bottom: 15px;
+    display: block;
+}
+
+.hero-wix-left h1 {
+    font-size: 3.5rem;
+    font-weight: 700;
+    line-height: 1.15;
+    color: var(--primary-color);
+    /* สีดำ */
+    margin-bottom: 25px;
+}
+
+.hero-wix-left p {
+    font-size: 1.15rem;
+    color: var(--text-muted);
+    margin-bottom: 40px;
+    line-height: 1.6;
+}
+
+.hero-wix-right {
+    flex: 1;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* 2. Intro Section (สลับเป็นพื้นหลังสีเทาอ่อน) */
+.intro-wix {
+    padding: 100px 10%;
+    background-color: var(--bg-light-grey);
+    /* ธีมสีเทาอ่อน */
+}
+
+.intro-wix-container {
+    display: flex;
+    align-items: center;
+    gap: 80px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.intro-wix-left,
+.intro-wix-right {
+    flex: 1;
+}
+
+.intro-wix-right h2 {
+    font-size: 2.8rem;
+    margin-bottom: 20px;
+    color: var(--primary-color);
+}
+
+.intro-wix-right p {
+    font-size: 1.05rem;
+    margin-bottom: 35px;
+    line-height: 1.8;
+    color: var(--text-muted);
+}
+
+/* 3. Expertise Grid 4x2 (สลับกลับมาเป็นพื้นหลังสีขาว) */
+.expertise-wix {
+    padding: 100px 5%;
+    background-color: var(--bg-white);
+    /* ธีมสีขาว */
+    text-align: center;
+}
+
+.expertise-header {
+    max-width: 800px;
+    margin: 0 auto 60px auto;
+}
+
+.expertise-header h2 {
+    font-size: 2.8rem;
+    margin-bottom: 20px;
+    color: var(--primary-color);
+}
+
+.expertise-header p {
+    color: var(--text-muted);
+    font-size: 1.05rem;
+    line-height: 1.8;
+}
+
+.wix-grid-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 30px;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.wix-card {
+    display: flex;
+    flex-direction: column;
+    background: #fff;
+    border-radius: 12px;
+    overflow: hidden;
+    transition: all 0.4s ease;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.04);
+    border: 1px solid var(--border-color);
+    /* กรอบสีเทาอ่อน */
+    text-decoration: none;
+}
+
+.wix-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.08);
+    border-color: var(--accent-gold);
+    /* Hover แล้วขอบเปลี่ยนเป็นสีทอง */
+}
+
+.wix-card-img {
+    height: 250px;
+    background-size: cover;
+    background-position: center;
+    width: 100%;
+}
+
+.wix-card-text {
+    padding: 25px 20px;
+    width: 100%;
+    text-align: center;
+    background: #fff;
+}
+
+.wix-card h3 {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--primary-color);
+    margin: 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* 4. Slider Section (สลับเป็นพื้นหลังสีเทาอ่อน) */
+.slider-section {
+    position: relative;
+    background-color: var(--bg-light-grey);
+    /* ธีมสีเทาอ่อน */
+    padding: 100px 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.slider-wrapper {
+    width: 80%;
+    max-width: 1200px;
+    overflow: hidden;
+}
+
+.slider-track {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+    width: 100%;
+}
+
+.slide-item {
+    min-width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 60px;
+}
+
+.slide-img-col {
+    flex: 1;
+    height: 450px;
+    background-size: cover;
+    background-position: center;
+    border-radius: 12px;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.08);
+}
+
+.slide-text-col {
+    flex: 1;
+    text-align: left;
+}
+
+.slide-text-col h2 {
+    font-size: 2.8rem;
+    color: var(--primary-color);
+    margin-bottom: 20px;
+    line-height: 1.2;
+}
+
+.slide-text-col p {
+    font-size: 1.1rem;
+    margin-bottom: 30px;
+    color: var(--text-muted);
+    line-height: 1.8;
+}
+
+.slide-link {
+    font-weight: 700;
+    color: var(--primary-color);
+    /* สีดำ */
+    text-decoration: underline;
+    text-underline-offset: 6px;
+    text-decoration-thickness: 2px;
+    text-decoration-color: var(--accent-gold);
+    /* เส้นใต้สีทอง */
+    transition: color 0.3s;
+    font-size: 1.05rem;
+}
+
+.slide-link:hover {
+    color: var(--accent-gold);
+    /* Hover เป็นสีทองทั้งคำ */
+}
+
+.slider-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: transparent;
+    border: none;
+    font-size: 3rem;
+    color: #CCC;
+    cursor: pointer;
+    z-index: 10;
+    transition: color 0.3s, transform 0.3s;
+}
+
+.slider-arrow:hover {
+    color: var(--primary-color);
+    transform: translateY(-50%) scale(1.1);
+}
+
+.prev-slide {
+    left: 5%;
+}
+
+.next-slide {
+    right: 5%;
+}
+
+/* 5. Responsive Design for Home Page */
+@media (max-width: 1200px) {
+    .wix-grid-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+
+    .hero-wix,
+    .intro-wix-container,
+    .slide-item {
+        flex-direction: column;
+        gap: 40px;
+    }
+
+    .hero-wix-left {
+        padding: 60px 5%;
+    }
+
+    .hero-wix-left h1 {
+        font-size: 2.5rem;
+    }
+
+    .intro-wix {
+        padding: 60px 5%;
+    }
+
+    .wix-grid-container {
+        grid-template-columns: 1fr;
+    }
+
+    .slider-section {
+        padding: 60px 0;
+    }
+
+    .slide-img-col {
+        height: 300px;
+        width: 100%;
+    }
+}

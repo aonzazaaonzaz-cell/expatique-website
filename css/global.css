@@ -1,0 +1,489 @@
+/* ==========================================================================
+   Expatique Master Global Stylesheet (global.css)
+   ========================================================================== */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+/* 1. Root Variables & Design Tokens (ธีม Luxury Minimalist) */
+:root {
+    --primary-color: #000000;
+    /* สีดำสนิท สำหรับปุ่มและหัวข้อหลัก */
+    --primary-blue: #000000;
+    /* (คงชื่อตัวแปรเดิมไว้ แต่เปลี่ยนค่าเป็นสีดำ เพื่อให้หน้าเก่าๆ เปลี่ยนสีอัตโนมัติ) */
+
+    --accent-gold: #B58529;
+    /* สีทองหรูหรา สำหรับจุดเน้นและเวลา Hover */
+    --accent-gold-light: #FDF9F1;
+    /* สีครีมอ่อนๆ สำหรับพื้นหลัง Hover เมนู */
+
+    --text-dark: #222222;
+    /* สีดำซอฟต์ สำหรับข้อความทั่วไปให้อ่านสบายตา */
+    --text-muted: #555555;
+    /* สีเทาเข้ม สำหรับข้อความอธิบาย */
+    --text-light: #FFFFFF;
+    /* สีขาว */
+
+    --bg-white: #FFFFFF;
+    /* พื้นหลังสีขาว (สำหรับ Content แรก หรือ Section คี่) */
+    --bg-light-grey: #F7F6F2;
+    /* พื้นหลังสีเทาอ่อนอมครีม (สำหรับสลับ Content ให้เป็น Zebra Striping) */
+
+    --border-color: #EAEAEA;
+    --font-main: 'Inter', sans-serif;
+    --transition-speed: 0.3s;
+}
+
+/* 2. Global Resets & Base Styles */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: var(--font-main);
+    color: var(--text-dark);
+    background-color: var(--bg-white);
+    line-height: 1.6;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: var(--font-main);
+    font-weight: 600;
+    color: var(--primary-color);
+    /* คุมให้หัวข้อหลักเป็นสีดำเสมอ */
+    margin-bottom: 15px;
+    line-height: 1.3;
+}
+
+p {
+    font-family: var(--font-main);
+    font-weight: 400;
+    line-height: 1.6;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+    transition: all var(--transition-speed) ease;
+}
+
+ul,
+ol {
+    list-style: none;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* ==========================================================================
+   3. Global Buttons UI (ปุ่มทรงแคปซูลยา ธีม ดำ-ทอง-ขาว)
+   ========================================================================== */
+.btn,
+.mega-btn,
+.btn-dark {
+    display: inline-block;
+    padding: 12px 32px;
+    /* เพิ่ม Padding ให้ปุ่มดูยาวยืดเป็นแคปซูลชัดเจน */
+    font-size: 0.95rem;
+    font-weight: 600;
+    border-radius: 999px !important;
+    /* บังคับโค้งสุดขอบ (Capsule) */
+    background-color: var(--primary-color);
+    /* พื้นหลังสีดำ */
+    color: #FFFFFF !important;
+    /* ตัวอักษรสีขาว */
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: 2px solid var(--primary-color);
+    line-height: normal;
+    white-space: nowrap;
+    min-width: auto;
+}
+
+.btn:hover,
+.mega-btn:hover,
+.btn-dark:hover {
+    background-color: var(--accent-gold);
+    /* Hover เปลี่ยนเป็นสีทอง */
+    color: #FFFFFF !important;
+    border-color: var(--accent-gold);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(181, 133, 41, 0.3);
+    /* แสงเงาสีทองเบาๆ */
+}
+
+/* ปุ่มแบบ Outline (ขอบดำ พื้นใส) */
+.btn-outline {
+    background-color: transparent !important;
+    color: var(--primary-color) !important;
+    /* ตัวอักษรดำ */
+    border: 2px solid var(--primary-color);
+    /* ขอบดำ */
+}
+
+.btn-outline:hover {
+    background-color: var(--primary-color) !important;
+    /* Hover แล้วเป็นพื้นดำ */
+    color: #FFFFFF !important;
+    border-color: var(--primary-color);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* ==========================================================================
+   4. Global Fixed Header 
+   ========================================================================== */
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 80px;
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    background-color: rgba(255, 255, 255, 0.95);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 10%;
+    z-index: 9999;
+    transition: all 0.3s ease;
+}
+
+.logo-container img {
+    height: 40px;
+    width: auto;
+}
+
+nav ul {
+    display: flex;
+    gap: 25px;
+    align-items: center;
+}
+
+nav ul li a.nav-item {
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: var(--text-dark);
+    padding: 8px 0;
+    position: relative;
+}
+
+nav ul li a.nav-item::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0;
+    height: 2px;
+    background-color: var(--accent-gold);
+    transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    transform: translateX(-50%);
+}
+
+nav ul li a.nav-item:hover::after,
+nav ul li a.nav-item.active::after {
+    width: 100%;
+}
+
+nav ul li a.nav-item:hover,
+nav ul li a.nav-item.active {
+    color: var(--accent-gold);
+}
+
+/* ==========================================================================
+   5. Universal Mega Menu System
+   ========================================================================== */
+nav ul li.mega-dropdown {
+    position: static;
+}
+
+.mega-menu {
+    position: absolute;
+    top: 80px;
+    left: 50%;
+    transform: translateX(-50%) translateY(15px);
+    width: 900px;
+    background-color: var(--bg-white);
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.12);
+    border-radius: 12px;
+    display: flex;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.4s cubic-bezier(0.23, 1, 0.32, 1), transform 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+    z-index: 2000;
+    overflow: hidden;
+    border: 1px solid var(--border-color);
+    text-align: left;
+    pointer-events: none;
+}
+
+nav ul li.mega-dropdown:hover .mega-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(-50%) translateY(0);
+    pointer-events: auto;
+}
+
+.mega-menu-left {
+    width: 45%;
+    background-color: #FDFDFD;
+    display: flex;
+    flex-direction: column;
+    border-right: 1px solid var(--border-color);
+}
+
+.mega-menu-link {
+    padding: 14px 25px;
+    border-bottom: 1px solid #F5F5F5;
+    border-left: 4px solid transparent;
+    display: block;
+    cursor: pointer;
+    transition: all 0.25s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.mega-menu-link:hover,
+.mega-menu-link.active,
+.mega-menu-link.active-hover {
+    background-color: var(--accent-gold-light);
+    border-left-color: var(--accent-gold);
+    padding-left: 32px;
+}
+
+.mega-menu-link h4 {
+    color: var(--accent-gold);
+    font-size: 0.95rem;
+    margin-bottom: 2px;
+    font-weight: 600;
+    transition: color 0.25s ease;
+}
+
+.mega-menu-link:hover h4,
+.mega-menu-link.active-hover h4 {
+    color: var(--primary-color);
+    /* เปลี่ยนตัวอักษรเป็นดำตอน Hover */
+}
+
+.mega-menu-link p {
+    color: #888888;
+    font-size: 0.8rem;
+    margin: 0;
+}
+
+.mega-menu-right {
+    width: 55%;
+    display: flex;
+    background-color: var(--bg-white);
+}
+
+.mega-content {
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.mega-tag {
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: #999999;
+    letter-spacing: 1.5px;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+}
+
+.mega-title {
+    color: var(--primary-color);
+    font-size: 1.6rem;
+    margin-bottom: 15px;
+    font-weight: 700;
+}
+
+.mega-desc {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    margin-bottom: 25px;
+}
+
+.mega-actions {
+    display: flex;
+    gap: 15px;
+}
+
+main {
+    margin-top: 70px;
+}
+
+/* ==========================================================================
+   6. Footer Layout & Style 
+   ========================================================================== */
+.main-footer {
+    background-color: #000000 !important;
+    color: #ffffff !important;
+    padding: 80px 10% 40px !important;
+    width: 100% !important;
+}
+
+.footer-container {
+    display: flex !important;
+    justify-content: space-between !important;
+    max-width: 1200px !important;
+    margin: 0 auto !important;
+    text-align: left !important;
+    gap: 50px !important;
+}
+
+.footer-col {
+    flex: 1 !important;
+    text-align: left !important;
+}
+
+.footer-col img {
+    filter: brightness(0) invert(1);
+    height: 50px !important;
+    margin-bottom: 15px !important;
+}
+
+.footer-col h4 {
+    font-size: 0.8rem !important;
+    letter-spacing: 2px !important;
+    color: var(--accent-gold) !important;
+    /* เปลี่ยนหัวข้อ Footer ให้เป็นสีทอง */
+    margin-bottom: 20px !important;
+    opacity: 0.9;
+}
+
+.footer-col p,
+.footer-col ul li a {
+    color: #aaaaaa !important;
+    font-size: 0.9rem !important;
+    line-height: 1.6 !important;
+    text-decoration: none !important;
+}
+
+.footer-bottom {
+    text-align: center;
+    margin-top: 60px;
+    padding-top: 20px;
+    border-top: 1px solid #333333;
+    font-size: 0.8rem;
+    color: #666666;
+}
+
+/* ==========================================================================
+   7. Cursor Spotlight Effect
+   ========================================================================== */
+.cursor-follower {
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 600px !important;
+    height: 600px !important;
+    background: radial-gradient(circle, rgba(181, 133, 41, 0.1) 0%, rgba(181, 133, 41, 0) 60%) !important;
+    /* เปลี่ยนเงาเมาส์เป็นสีทอง */
+    border-radius: 50% !important;
+    pointer-events: none !important;
+    z-index: 9999 !important;
+    transform: translate(-50%, -50%) !important;
+    opacity: 0 !important;
+    transition: opacity 0.5s ease !important;
+}
+
+body:hover .cursor-follower {
+    opacity: 1 !important;
+}
+
+/* ==========================================================================
+   8. Global Responsive 
+   ========================================================================== */
+@media (max-width: 1024px) {
+    .hamburger {
+        display: block !important;
+        cursor: pointer;
+        padding: 10px;
+    }
+
+    .hamburger span {
+        display: block;
+        width: 25px;
+        height: 3px;
+        background: #000;
+        margin: 5px 0;
+    }
+
+    .nav-menu {
+        display: none;
+        position: fixed;
+        top: 80px;
+        left: 0;
+        width: 100%;
+        background: #fff;
+        padding: 20px;
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        z-index: 9999;
+    }
+
+    .nav-menu.is-active {
+        display: block;
+    }
+
+    .nav-menu ul {
+        flex-direction: column;
+        align-items: flex-start !important;
+        gap: 20px !important;
+    }
+
+    .mega-menu {
+        position: relative !important;
+        top: 0 !important;
+        left: 0 !important;
+        transform: none !important;
+        width: 100% !important;
+        border: none !important;
+        box-shadow: none !important;
+        background: #fdfdfd !important;
+        display: none;
+    }
+
+    .mega-menu.is-active-mobile {
+        display: block !important;
+    }
+
+    .mega-menu-right {
+        display: none !important;
+    }
+
+    .mega-menu-left {
+        width: 100% !important;
+    }
+}
+
+@media (max-width: 768px) {
+    header {
+        padding: 0 5%;
+    }
+
+    .footer-container {
+        flex-direction: column !important;
+        text-align: center !important;
+    }
+
+    .footer-col {
+        text-align: center !important;
+    }
+
+    .footer-col img {
+        margin: 0 auto 15px auto;
+    }
+}

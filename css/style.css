@@ -1,0 +1,782 @@
+/* ==========================================================================
+   Expatique Master Global Stylesheet
+   ========================================================================== */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+/* ==========================================================================
+   PART 1: GLOBAL STYLES (ส่วนที่ใช้ร่วมกัน "ทุกหน้า" ของเว็บไซต์)
+   ========================================================================== */
+
+/* 1. Root Variables & Design Tokens (ระบบธีมสีและฟอนต์หลัก) */
+:root {
+    --primary-blue: #0A2F4B;
+    --accent-gold: #C28E64;
+    --accent-gold-light: #FFF9F5;
+    --text-dark: #333333;
+    --text-muted: #666666;
+    --text-light: #FFFFFF;
+    --bg-white: #FFFFFF;
+    --bg-light-grey: #F9F9F9;
+    --border-color: #EAEAEA;
+    --font-main: 'Inter', sans-serif;
+    --transition-speed: 0.3s;
+}
+
+/* 2. Global Resets & Base Styles (ล้างค่าเริ่มต้นเบราว์เซอร์) */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: var(--font-main);
+    color: var(--text-dark);
+    background-color: var(--bg-white);
+    line-height: 1.6;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+    /* ทำให้ฟอนต์ดูเนียนตาขึ้นบนหน้าจอ */
+}
+
+/* --- ควบคุมหัวข้อทั้งหมดให้ดูหนักแน่นและเป็นมืออาชีพ --- */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: var(--font-main);
+    font-weight: 600;
+    /* ความหนาระดับ Semi-bold */
+    color: var(--text-dark);
+    margin-bottom: 15px;
+    line-height: 1.3;
+}
+
+/* --- ควบคุมข้อความทั่วไป (พารากราฟ) --- */
+p {
+    font-family: var(--font-main);
+    font-weight: 400;
+    /* ความหนาระดับปกติ */
+    line-height: 1.6;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+    transition: all var(--transition-speed) ease;
+}
+
+ul,
+ol {
+    list-style: none;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* 3. Global Buttons UI (ปรับใหม่: ให้ปุ่มพอดีกับข้อความและกะทัดรัดขึ้น) */
+.btn {
+    display: inline-block;
+    padding: 10px 24px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    border-radius: 50px;
+    background-color: #000000;
+    color: #FFFFFF;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: none;
+    text-decoration: none;
+    line-height: normal;
+    white-space: nowrap;
+    min-width: auto;
+}
+
+.btn:hover {
+    background-color: var(--accent-gold);
+    color: #FFFFFF;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* 4. Global Fixed Header (Navbar แบบกระจกฝ้า) */
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 80px;
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    background-color: rgba(255, 255, 255, 0.92);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 10%;
+    z-index: 9999;
+    transition: all 0.3s ease;
+}
+
+.logo-container img {
+    height: 40px;
+    width: auto;
+}
+
+nav ul {
+    display: flex;
+    gap: 25px;
+    align-items: center;
+}
+
+nav ul li a.nav-item {
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: var(--text-dark);
+    padding: 8px 0;
+    position: relative;
+    border-bottom: none;
+}
+
+nav ul li a.nav-item::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0;
+    height: 2px;
+    background-color: var(--accent-gold);
+    transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    transform: translateX(-50%);
+}
+
+nav ul li a.nav-item:hover::after,
+nav ul li a.nav-item.active::after {
+    width: 100%;
+}
+
+nav ul li a.nav-item:hover,
+nav ul li a.nav-item.active {
+    color: var(--accent-gold);
+}
+
+/* 5. Universal Mega Menu System (ตู้เมนูสไลด์เด้ง) */
+nav ul li.mega-dropdown {
+    position: static;
+}
+
+.mega-menu {
+    position: absolute;
+    top: 80px;
+    left: 50%;
+    transform: translateX(-50%) translateY(15px);
+    width: 900px;
+    background-color: var(--bg-white);
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.12);
+    border-radius: 12px;
+    display: flex;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.4s cubic-bezier(0.23, 1, 0.32, 1), transform 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+    z-index: 2000;
+    overflow: hidden;
+    border: 1px solid var(--border-color);
+    text-align: left;
+    pointer-events: none;
+}
+
+nav ul li.mega-dropdown:hover .mega-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(-50%) translateY(0);
+    pointer-events: auto;
+}
+
+.mega-menu-left {
+    width: 45%;
+    background-color: #FDFDFD;
+    display: flex;
+    flex-direction: column;
+    border-right: 1px solid var(--border-color);
+}
+
+.mega-menu-link {
+    padding: 14px 25px;
+    border-bottom: 1px solid #F5F5F5;
+    border-left: 4px solid transparent;
+    display: block;
+    text-decoration: none;
+    cursor: pointer;
+    transition: all 0.25s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.mega-menu-link:hover,
+.mega-menu-link.active,
+.mega-menu-link.active-hover {
+    background-color: var(--accent-gold-light);
+    border-left-color: var(--accent-gold);
+    padding-left: 32px;
+}
+
+.mega-menu-link h4 {
+    color: var(--accent-gold);
+    font-size: 0.95rem;
+    margin-bottom: 2px;
+    font-weight: 600;
+    transition: color 0.25s ease;
+}
+
+.mega-menu-link:hover h4,
+.mega-menu-link.active-hover h4 {
+    color: var(--primary-blue);
+}
+
+.mega-menu-link p {
+    color: #888888;
+    font-size: 0.8rem;
+    margin: 0;
+}
+
+.mega-menu-right {
+    width: 55%;
+    display: flex;
+    background-color: var(--bg-white);
+}
+
+.mega-content {
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.mega-tag,
+.mega-title,
+.mega-desc {
+    transition: opacity 0.15s ease-in-out;
+}
+
+.mega-tag {
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: #999999;
+    letter-spacing: 1.5px;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+}
+
+.mega-title {
+    color: var(--primary-blue);
+    font-size: 1.6rem;
+    margin-bottom: 15px;
+    font-weight: 700;
+}
+
+.mega-desc {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    line-height: 1.6;
+    margin-bottom: 25px;
+}
+
+.mega-actions {
+    display: flex;
+    gap: 15px;
+}
+
+/* ปุ่มใน Mega Menu */
+.mega-btn {
+    padding: 10px 22px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    border-radius: 6px;
+    display: inline-block;
+    transition: all 0.25s ease;
+}
+
+.btn-dark {
+    background-color: #000000;
+    color: var(--text-light);
+}
+
+.btn-dark:hover {
+    background-color: var(--accent-gold);
+    color: var(--text-light);
+    transform: translateY(-2px);
+}
+
+.btn-outline {
+    border: 1px solid #CCCCCC;
+    color: var(--text-dark);
+}
+
+.btn-outline:hover {
+    background-color: #F5F5F5;
+    transform: translateY(-2px);
+}
+
+/* 6. Global Footer (ล้างของเก่า เพราะเรามี Footer แบบใหม่ด้านล่างแล้ว) */
+/* ย้ายทั้งหมดไปรวมกับ Footer Layout & Style (Final) ด้านล่าง */
+
+/* 7. Shared Layouts (สำหรับหน้าย่อย Sub-pages เช่น หน้า Legal ต่างๆ) */
+main {
+    margin-top: 70px;
+}
+
+.services-overview-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+}
+
+.services-overview-grid>div {
+    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+    border: 1px solid rgba(0, 0, 0, 0.03) !important;
+}
+
+.services-overview-grid>div:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+    border-color: var(--accent-gold) !important;
+}
+
+
+/* ==========================================================================
+   PART 2: PAGE-SPECIFIC STYLES (เฉพาะหน้า HOME ดีไซน์ใหม่)
+   ========================================================================== */
+
+/* Hero Section (Home) */
+.hero-wix {
+    display: flex;
+    min-height: calc(100vh - 70px);
+    background-color: var(--bg-white);
+}
+
+.hero-wix-left {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 80px 10%;
+}
+
+.hero-wix-left h1 {
+    font-size: 3.5rem;
+    font-weight: 700;
+    line-height: 1.1;
+    color: #000;
+    margin-bottom: 25px;
+}
+
+.hero-wix-left p {
+    font-size: 1.2rem;
+    color: var(--text-dark);
+    margin-bottom: 40px;
+}
+
+.hero-wix-right {
+    flex: 1;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Intro (Home - Who we are) */
+.intro-wix {
+    padding: 100px 10%;
+    background: #fff;
+}
+
+.intro-wix-container {
+    display: flex;
+    align-items: center;
+    gap: 80px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.intro-wix-left {
+    flex: 1;
+}
+
+.intro-wix-right {
+    flex: 1;
+}
+
+.intro-wix-right h2 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    color: #000;
+}
+
+.intro-wix-right p {
+    font-size: 1.05rem;
+    margin-bottom: 30px;
+    line-height: 1.8;
+}
+
+/* Expertise Grid 4x2 (Home) */
+.expertise-wix {
+    padding: 80px 5%;
+    background: #F8F8F8;
+    text-align: center;
+}
+
+.expertise-header {
+    max-width: 800px;
+    margin: 0 auto 60px auto;
+}
+
+.expertise-header h2 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    color: #000;
+}
+
+/* Expertise Grid - ปรับปรุงใหม่ให้หรูหราและจัดกลาง */
+.wix-grid-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 25px;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.wix-card {
+    display: flex;
+    flex-direction: column;
+    background: #fff;
+    border-radius: 12px;
+    overflow: hidden;
+    transition: all 0.4s ease;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    text-decoration: none;
+}
+
+.wix-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+}
+
+.wix-card-img {
+    height: 250px;
+    background-size: cover;
+    background-position: center;
+    width: 100%;
+}
+
+.wix-card-text {
+    padding: 20px 15px;
+    width: 100%;
+    text-align: center;
+    background: #fff;
+}
+
+.wix-card h3 {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #333;
+    margin: 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* Slider Section (Home) */
+.slider-section {
+    position: relative;
+    background-color: #F3E5D8;
+    padding: 60px 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.slider-wrapper {
+    width: 80%;
+    max-width: 1200px;
+    overflow: hidden;
+}
+
+.slider-track {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+    width: 100%;
+}
+
+.slide-item {
+    min-width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 50px;
+}
+
+.slide-img-col {
+    flex: 1;
+    height: 400px;
+    background-size: cover;
+    background-position: center;
+    border-radius: 8px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.slide-text-col {
+    flex: 1;
+    text-align: left;
+}
+
+.slide-text-col h2 {
+    font-size: 2.5rem;
+    color: #000;
+    margin-bottom: 20px;
+    line-height: 1.2;
+}
+
+.slide-text-col p {
+    font-size: 1.1rem;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.slide-link {
+    font-weight: bold;
+    color: #000;
+    text-decoration: underline;
+    text-underline-offset: 5px;
+}
+
+.slide-link:hover {
+    color: var(--accent-gold);
+}
+
+.slider-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: transparent;
+    border: none;
+    font-size: 3rem;
+    color: rgba(0, 0, 0, 0.3);
+    cursor: pointer;
+    z-index: 10;
+    transition: color 0.3s;
+}
+
+.slider-arrow:hover {
+    color: #000;
+}
+
+.prev-slide {
+    left: 5%;
+}
+
+.next-slide {
+    right: 5%;
+}
+
+
+/* ==========================================================================
+   PART 3: RESPONSIVE DESIGN (แก้ไขให้ถูกต้อง - เลิกซ้อน Media Query)
+   ========================================================================== */
+
+/* สำหรับ Tablet/Notebook ขนาด 1200px ลงมา */
+@media (max-width: 1200px) {
+    .wix-grid-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* สำหรับ Tablet/Mobile ขนาด 1024px ลงมา (แก้ Hamburger & Mega Menu) */
+@media (max-width: 1024px) {
+
+    /* แสดงปุ่ม Hamburger */
+    .hamburger {
+        display: block !important;
+        cursor: pointer;
+        padding: 10px;
+    }
+
+    .hamburger span {
+        display: block;
+        width: 25px;
+        height: 3px;
+        background: #000;
+        margin: 5px 0;
+    }
+
+    /* ยุบ Navbar */
+    .nav-menu {
+        display: none;
+        position: fixed;
+        top: 80px;
+        left: 0;
+        width: 100%;
+        background: #fff;
+        padding: 20px;
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        z-index: 9999;
+    }
+
+    .nav-menu.is-active {
+        display: block;
+    }
+
+    .nav-menu ul {
+        flex-direction: column;
+        align-items: flex-start !important;
+        gap: 20px !important;
+    }
+
+    /* แก้ Mega Menu ให้เรียงสวยบนมือถือ */
+    .mega-menu {
+        position: relative !important;
+        top: 0 !important;
+        left: 0 !important;
+        transform: none !important;
+        width: 100% !important;
+        border: none !important;
+        box-shadow: none !important;
+        background: #fdfdfd !important;
+        display: none;
+    }
+
+    .mega-menu.is-active-mobile {
+        display: block !important;
+    }
+
+    .mega-menu-right {
+        display: none !important;
+    }
+
+    .mega-menu-left {
+        width: 100% !important;
+    }
+}
+
+/* สำหรับมือถือขนาดเล็ก 768px ลงมา (ปรับ Layout เนื้อหา) */
+@media (max-width: 768px) {
+    header {
+        padding: 0 5%;
+    }
+
+    .hero-wix,
+    .intro-wix-container,
+    .slide-item {
+        flex-direction: column;
+        gap: 30px;
+    }
+
+    .hero-wix-left {
+        padding: 60px 5%;
+    }
+
+    .hero-wix-left h1 {
+        font-size: 2.2rem;
+    }
+
+    .wix-grid-container {
+        grid-template-columns: 1fr !important;
+    }
+}
+
+/* --- Footer Layout & Style (Final) --- */
+.main-footer {
+    background-color: #000000 !important;
+    color: #ffffff !important;
+    padding: 80px 10% 40px !important;
+    width: 100% !important;
+}
+
+.footer-container {
+    display: flex !important;
+    justify-content: space-between !important;
+    max-width: 1200px !important;
+    margin: 0 auto !important;
+    text-align: left !important;
+    gap: 50px !important;
+}
+
+.footer-col {
+    flex: 1 !important;
+    text-align: left !important;
+}
+
+/* --- เคล็ดลับ: ทำให้โลโก้กลายเป็นสีขาว --- */
+.footer-col img {
+    filter: brightness(0) invert(1);
+    height: 50px !important;
+    margin-bottom: 15px !important;
+}
+
+.footer-col h4 {
+    font-size: 0.8rem !important;
+    letter-spacing: 2px !important;
+    color: #ffffff !important;
+    margin-bottom: 20px !important;
+    opacity: 0.8;
+}
+
+.footer-col p,
+.footer-col ul li a {
+    color: #aaaaaa !important;
+    font-size: 0.9rem !important;
+    line-height: 1.6 !important;
+    text-decoration: none !important;
+}
+
+.footer-bottom {
+    text-align: center;
+    margin-top: 60px;
+    padding-top: 20px;
+    border-top: 1px solid #333333;
+    font-size: 0.8rem;
+    color: #666666;
+}
+
+/* ปรับมือถือให้เรียงแถวเดียว */
+@media (max-width: 768px) {
+    .footer-container {
+        flex-direction: column !important;
+        text-align: center !important;
+    }
+
+    .footer-col {
+        text-align: center !important;
+    }
+
+    .footer-col img {
+        margin: 0 auto 15px auto;
+    }
+}
+
+/* ==========================================================================
+   PART 4: CURSOR SPOTLIGHT EFFECT (เอฟเฟกต์แสงตามเมาส์แบบ Woxa)
+   ========================================================================== */
+.cursor-follower {
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 600px !important;
+    height: 600px !important;
+    background: radial-gradient(circle, rgba(194, 142, 100, 0.12) 0%, rgba(194, 142, 100, 0) 60%) !important;
+    border-radius: 50% !important;
+    pointer-events: none !important;
+    z-index: 9999 !important;
+    transform: translate(-50%, -50%) !important;
+    opacity: 0 !important;
+    transition: opacity 0.5s ease !important;
+}
+
+body:hover .cursor-follower {
+    opacity: 1 !important;
+}
