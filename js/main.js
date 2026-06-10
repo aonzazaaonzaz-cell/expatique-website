@@ -31,49 +31,49 @@ document.addEventListener("DOMContentLoaded", function () {
                                data-tag="LEGAL SERVICES" data-title="Legal & Litigation Support" 
                                data-desc="Expatique provides comprehensive legal support for businesses and individuals in Thailand. We help you navigate complex legal challenges with confidence." 
                                data-bullets="Experienced Team|Proven Success|Strategic Approach|Expert Representation"
-                               data-link="${path}legal-litigation-tax/legal-support.html" data-img="${path}picture/legal-bg.jpg">
+                               data-link="${path}legal-litigation-tax/legal-support.html" data-img="${path}picture/legal-litigation-tax/legal-support/legal.png">
                                <h4>Legal & Litigation Support</h4><p>Comprehensive legal advisory</p>
                             </a>
                             <a href="${path}legal-litigation-tax/probate-estate.html" class="mega-menu-link" 
                                data-tag="LEGAL SERVICES" data-title="Probate & Estate Support" 
                                data-desc="Assistance with wills, inheritance, and estate administration. We guide you through every step of probate proceedings in Thailand." 
                                data-bullets="Will Preparation|Inheritance Claims|Estate Administration|Asset Protection"
-                               data-link="${path}legal-litigation-tax/probate-estate.html" data-img="${path}picture/probate-estate.jpg">
+                               data-link="${path}legal-litigation-tax/probate-estate.html" data-img="${path}picture/legal-litigation-tax/probate-estate/Probate.png">
                                <h4>Probate and Estate Support</h4><p>Wills, inheritance & estate admin</p>
                             </a>
                             <a href="${path}legal-litigation-tax/family-law.html" class="mega-menu-link" 
                                data-tag="LEGAL SERVICES" data-title="Family Law & Domestic Litigation" 
                                data-desc="Guidance on divorce, custody, and family disputes. Compassionate legal support for sensitive family matters in Thailand." 
                                data-bullets="Divorce Proceedings|Child Custody|Prenuptial Agreements|Domestic Mediation"
-                               data-link="${path}legal-litigation-tax/family-law.html" data-img="${path}picture/family-law.jpg">
+                               data-link="${path}legal-litigation-tax/family-law.html" data-img="${path}picture/legal-litigation-tax/family-law/family-law.png">
                                <h4>Family Law & Domestic Litigation</h4><p>Divorce, custody & family disputes</p>
                             </a>
                             <a href="${path}legal-litigation-tax/immigration-law.html" class="mega-menu-link" 
                                data-tag="LEGAL SERVICES" data-title="Immigration Law & Residency" 
                                data-desc="Navigating immigration regulations and residency applications. Expert support for visas, work permits, and permanent residency in Thailand." 
                                data-bullets="Visa Applications|Residency Permits|Work Authorization|Compliance Advisory"
-                               data-link="${path}legal-litigation-tax/immigration-law.html" data-img="${path}picture/immigration-law.jpg">
+                               data-link="${path}legal-litigation-tax/immigration-law.html" data-img="${path}picture/legal-litigation-tax/immigration-law/immigration-law.png">
                                <h4>Immigration Law & Residency</h4><p>Immigration & residency applications</p>
                             </a>
                             <a href="${path}legal-litigation-tax/taxation.html" class="mega-menu-link" 
                                data-tag="TAX SERVICES" data-title="Taxation Support" 
                                data-desc="Tax planning, filing, and compliance advisory. We ensure your tax obligations are met efficiently while maximizing benefits." 
                                data-bullets="Tax Planning|Annual Filing|Compliance Review|Tax Optimization"
-                               data-link="${path}legal-litigation-tax/taxation.html" data-img="${path}picture/taxation-bg.jpg">
+                               data-link="${path}legal-litigation-tax/taxation.html" data-img="${path}picture/legal-litigation-tax/taxation/taxation.png">
                                <h4>Taxation Support</h4><p>Tax planning, filing & compliance</p>
                             </a>
                             <a href="${path}legal-litigation-tax/boi.html" class="mega-menu-link" 
                                data-tag="INVESTMENT SERVICES" data-title="Thailand Board Of Investment" 
                                data-desc="BOI promotion applications and incentive management. Maximize your investment benefits through Thailand's BOI programs." 
                                data-bullets="BOI Applications|Incentive Management|Compliance Support|Reporting Assistance"
-                               data-link="${path}legal-litigation-tax/boi.html" data-img="${path}picture/boi-bg.jpg">
+                               data-link="${path}legal-litigation-tax/boi.html" data-img="${path}picture/legal-litigation-tax/boi/boi.png">
                                <h4>Thailand Board Of Investment (BOI)</h4><p>BOI promotion & incentive management</p>
                             </a>
                             <a href="${path}legal-litigation-tax/eec.html" class="mega-menu-link" 
                                data-tag="INVESTMENT SERVICES" data-title="Eastern Economic Corridor" 
                                data-desc="Support for EEC zone investment and privileges. Leverage Thailand's premier economic zone for your business growth." 
                                data-bullets="Zone Registration|Tax Privileges|Land & Facilities|Permit Assistance"
-                               data-link="${path}legal-litigation-tax/eec.html" data-img="${path}picture/eec-bg.jpg">
+                               data-link="${path}legal-litigation-tax/eec.html" data-img="${path}picture/legal-litigation-tax/eec/eec.png">
                                <h4>Eastern Economic Corridor (EEC)</h4><p>EEC zone investment & privileges</p>
                             </a>
                         </div>
