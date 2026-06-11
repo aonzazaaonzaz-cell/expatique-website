@@ -203,7 +203,7 @@ nav ul li a.nav-item.active {
 }
 
 /* ==========================================================================
-   5. Universal Mega Menu System (อัปเดตใส่รูปภาพฝั่งขวา)
+   5. Universal Mega Menu System (อัปเดตระบบล็อกขนาดกล่องและซิงค์คลาสสลับสี)
    ========================================================================== */
 nav ul li.mega-dropdown {
     position: static;
@@ -214,8 +214,11 @@ nav ul li.mega-dropdown {
     top: 80px;
     left: 50%;
     transform: translateX(-50%) translateY(15px);
-    width: 1050px;
-    /* ขยายความกว้างให้พอดีกับรูปภาพ */
+
+    /* ล็อกขนาดเท่ากันเป๊ะทุกหมวดหมู่ */
+    width: 1150px;
+    height: 525px;
+
     background-color: var(--bg-white);
     box-shadow: 0 20px 50px rgba(0, 0, 0, 0.12);
     border-radius: 12px;
@@ -238,8 +241,8 @@ nav ul li.mega-dropdown:hover .mega-menu {
 }
 
 .mega-menu-left {
-    width: 38%;
-    /* ปรับสัดส่วนฝั่งซ้าย */
+    width: 32%;
+    height: 100%;
     background-color: #FDFDFD;
     display: flex;
     flex-direction: column;
@@ -247,7 +250,7 @@ nav ul li.mega-dropdown:hover .mega-menu {
 }
 
 .mega-menu-link {
-    padding: 16px 25px;
+    padding: 14px 25px;
     border-bottom: 1px solid #F5F5F5;
     border-left: 4px solid transparent;
     display: block;
@@ -255,9 +258,9 @@ nav ul li.mega-dropdown:hover .mega-menu {
     transition: all 0.25s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
-/* สีของเมนูซ้ายที่กำลัง Active อยู่ */
+/* ซิงค์ชื่อคลาส .active-hover ให้ตรงกับระบบ JS */
 .mega-menu-link:hover,
-.mega-menu-link.active {
+.mega-menu-link.active-hover {
     background-color: var(--accent-gold-light);
     border-left-color: var(--accent-gold);
     padding-left: 32px;
@@ -272,7 +275,7 @@ nav ul li.mega-dropdown:hover .mega-menu {
 }
 
 .mega-menu-link:hover h4,
-.mega-menu-link.active h4 {
+.mega-menu-link.active-hover h4 {
     color: var(--primary-color);
 }
 
@@ -282,9 +285,9 @@ nav ul li.mega-dropdown:hover .mega-menu {
     margin: 0;
 }
 
-/* ฝั่งขวา (แบ่งเป็นเนื้อหาและรูปภาพ) */
 .mega-menu-right {
-    width: 62%;
+    width: 68%;
+    height: 100%;
     display: flex;
     background-color: var(--bg-white);
 }
@@ -297,20 +300,20 @@ nav ul li.mega-dropdown:hover .mega-menu {
     justify-content: center;
 }
 
-/* ส่วนรูปภาพใน Mega Menu */
 .mega-image-container {
-    width: 260px;
-    /* ความกว้างของรูปภาพฝั่งขวาสุด */
+    width: 380px;
+    height: 100%;
     flex-shrink: 0;
+    overflow: hidden;
 }
 
 .mega-image-container img {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    transition: object-position 0.3s ease;
 }
 
-/* จุดเด่น (Bullet Points) ใน Mega Menu */
 .mega-bullet-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -333,7 +336,6 @@ nav ul li.mega-dropdown:hover .mega-menu {
     width: 6px;
     height: 6px;
     background-color: var(--accent-gold);
-    /* จุดสีทอง */
     border-radius: 50%;
 }
 

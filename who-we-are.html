@@ -21,7 +21,8 @@
 
     <main>
 
-        <section class="about-split">
+        <section class="about-split" style="background-color: var(--bg-white);">
+
             <div class="about-split-text">
                 <span class="about-subtitle">Who we are</span>
                 <h1>Your Trusted Partner for Expats Living in Thailand</h1>
@@ -55,7 +56,19 @@
             </div>
 
             <div class="about-split-image"
-                style="background-image: url('picture/who-we-are/Royal-Barge-Procession.png');"></div>
+                style="background-image: url('picture/who-we-are/Royal-Barge-Procession.png'); position: relative; overflow: hidden;">
+
+                <div style="position: absolute;
+                            top: 0;
+                            left: 0;
+                            width: 100%;
+                            height: 100%;
+                            background-image: linear-gradient(to right, rgba(255,255,255,1) 0%, rgba(255,255,255,0) 30%);
+                            pointer-events: none;
+                            z-index: 1;">
+                </div>
+            </div>
+
         </section>
 
         <section class="team-section">
@@ -243,7 +256,8 @@
                         <div class="team-details">
                             <h4>Expertise</h4>
                             <ul>
-                                <li>Admin & Finance: Office administration, financial tracking, and document management</li>
+                                <li>Admin & Finance: Office administration, financial tracking, and document management
+                                </li>
                                 <li>HR & Payroll: Payroll processing and Social Security administration</li>
                                 <li>Legal & Compliance: Foreign worker documentation and regulatory compliance</li>
                                 <li>Training Coordination: Employee training and government liaison support</li>

@@ -4,7 +4,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const activeId = typeof activeMenuId !== 'undefined' ? activeMenuId : "";
 
     // ==========================================
-    // 1. โค้ดสำหรับ NAVBAR และ FOOTER (อัปเดตข้อมูลตรงตามดีไซน์ล่าสุด)
+    // 1. โค้ดสำหรับ NAVBAR และ FOOTER 
     // ==========================================
     const navbarHTML = `
     <header id="main-header">
@@ -31,49 +31,56 @@ document.addEventListener("DOMContentLoaded", function () {
                                data-tag="LEGAL SERVICES" data-title="Legal & Litigation Support" 
                                data-desc="Expatique provides comprehensive legal support for businesses and individuals in Thailand. We help you navigate complex legal challenges with confidence." 
                                data-bullets="Experienced Team|Proven Success|Strategic Approach|Expert Representation"
-                               data-link="${path}legal-litigation-tax/legal-support.html" data-img="${path}picture/legal-litigation-tax/legal-support/legal.png">
+                               data-link="${path}legal-litigation-tax/legal-support.html" 
+                               data-img="${path}picture/legal-litigation-tax/legal-support/legal.png" data-position="right center">
                                <h4>Legal & Litigation Support</h4><p>Comprehensive legal advisory</p>
                             </a>
                             <a href="${path}legal-litigation-tax/probate-estate.html" class="mega-menu-link" 
                                data-tag="LEGAL SERVICES" data-title="Probate & Estate Support" 
                                data-desc="Assistance with wills, inheritance, and estate administration. We guide you through every step of probate proceedings in Thailand." 
                                data-bullets="Will Preparation|Inheritance Claims|Estate Administration|Asset Protection"
-                               data-link="${path}legal-litigation-tax/probate-estate.html" data-img="${path}picture/legal-litigation-tax/probate-estate/Probate.png">
+                               data-link="${path}legal-litigation-tax/probate-estate.html" 
+                               data-img="${path}picture/legal-litigation-tax/probate-estate/Probate.png" data-position="right center">
                                <h4>Probate and Estate Support</h4><p>Wills, inheritance & estate admin</p>
                             </a>
                             <a href="${path}legal-litigation-tax/family-law.html" class="mega-menu-link" 
                                data-tag="LEGAL SERVICES" data-title="Family Law & Domestic Litigation" 
                                data-desc="Guidance on divorce, custody, and family disputes. Compassionate legal support for sensitive family matters in Thailand." 
                                data-bullets="Divorce Proceedings|Child Custody|Prenuptial Agreements|Domestic Mediation"
-                               data-link="${path}legal-litigation-tax/family-law.html" data-img="${path}picture/legal-litigation-tax/family-law/family-law.png">
+                               data-link="${path}legal-litigation-tax/family-law.html" 
+                               data-img="${path}picture/legal-litigation-tax/family-law/family-law.png" data-position="center center">
                                <h4>Family Law & Domestic Litigation</h4><p>Divorce, custody & family disputes</p>
                             </a>
                             <a href="${path}legal-litigation-tax/immigration-law.html" class="mega-menu-link" 
                                data-tag="LEGAL SERVICES" data-title="Immigration Law & Residency" 
                                data-desc="Navigating immigration regulations and residency applications. Expert support for visas, work permits, and permanent residency in Thailand." 
                                data-bullets="Visa Applications|Residency Permits|Work Authorization|Compliance Advisory"
-                               data-link="${path}legal-litigation-tax/immigration-law.html" data-img="${path}picture/legal-litigation-tax/immigration-law/immigration-law.png">
+                               data-link="${path}legal-litigation-tax/immigration-law.html" 
+                               data-img="${path}picture/legal-litigation-tax/immigration-law/immigration-law.png" data-position="center center">
                                <h4>Immigration Law & Residency</h4><p>Immigration & residency applications</p>
                             </a>
                             <a href="${path}legal-litigation-tax/taxation.html" class="mega-menu-link" 
                                data-tag="TAX SERVICES" data-title="Taxation Support" 
                                data-desc="Tax planning, filing, and compliance advisory. We ensure your tax obligations are met efficiently while maximizing benefits." 
                                data-bullets="Tax Planning|Annual Filing|Compliance Review|Tax Optimization"
-                               data-link="${path}legal-litigation-tax/taxation.html" data-img="${path}picture/legal-litigation-tax/taxation/taxation.png">
+                               data-link="${path}legal-litigation-tax/taxation.html" 
+                               data-img="${path}picture/legal-litigation-tax/taxation/taxation.png" data-position="65% 50%">
                                <h4>Taxation Support</h4><p>Tax planning, filing & compliance</p>
                             </a>
                             <a href="${path}legal-litigation-tax/boi.html" class="mega-menu-link" 
                                data-tag="INVESTMENT SERVICES" data-title="Thailand Board Of Investment" 
                                data-desc="BOI promotion applications and incentive management. Maximize your investment benefits through Thailand's BOI programs." 
                                data-bullets="BOI Applications|Incentive Management|Compliance Support|Reporting Assistance"
-                               data-link="${path}legal-litigation-tax/boi.html" data-img="${path}picture/legal-litigation-tax/boi/boi.png">
+                               data-link="${path}legal-litigation-tax/boi.html" 
+                               data-img="${path}picture/legal-litigation-tax/boi/boi.png" data-position="center center">
                                <h4>Thailand Board Of Investment (BOI)</h4><p>BOI promotion & incentive management</p>
                             </a>
                             <a href="${path}legal-litigation-tax/eec.html" class="mega-menu-link" 
                                data-tag="INVESTMENT SERVICES" data-title="Eastern Economic Corridor" 
                                data-desc="Support for EEC zone investment and privileges. Leverage Thailand's premier economic zone for your business growth." 
                                data-bullets="Zone Registration|Tax Privileges|Land & Facilities|Permit Assistance"
-                               data-link="${path}legal-litigation-tax/eec.html" data-img="${path}picture/legal-litigation-tax/eec/eec.png">
+                               data-link="${path}legal-litigation-tax/eec.html" 
+                               data-img="${path}picture/legal-litigation-tax/eec/eec.png" data-position="right center">
                                <h4>Eastern Economic Corridor (EEC)</h4><p>EEC zone investment & privileges</p>
                             </a>
                         </div>
@@ -94,7 +101,7 @@ document.addEventListener("DOMContentLoaded", function () {
                                 </div>
                             </div>
                             <div class="mega-image-container">
-                                <img src="${path}picture/legal-bg.jpg" alt="Legal Services" class="mega-img">
+                                <img src="${path}picture/legal-litigation-tax/legal-support/legal.png" alt="Legal Services" class="mega-img" style="object-position: right center;">
                             </div>
                         </div>
                     </div>
@@ -111,14 +118,16 @@ document.addEventListener("DOMContentLoaded", function () {
                                data-tag="HEALTH SERVICES" data-title="Medical Assistance" 
                                data-desc="Hospital coordination, medical referrals, and healthcare navigation. We connect you with Thailand's best medical facilities." 
                                data-bullets="Hospital Coordination|Medical Referrals|Translation Services|Follow-up Care"
-                               data-link="${path}health-insurance/medical-assistance.html" data-img="${path}picture/medical-bg.jpg">
+                               data-link="${path}health-insurance/medical-assistance.html" 
+                               data-img="${path}picture/health-insurance/medical/medical-assistance.png" data-position="center center">
                                <h4>Medical Assistance</h4><p>Hospital coordination & referrals</p>
                             </a>
                             <a href="${path}health-insurance/insurance.html" class="mega-menu-link" 
                                data-tag="HEALTH SERVICES" data-title="Insurance Assistance" 
                                data-desc="Insurance claims support and policy advisory. We help you understand and maximize your insurance coverage in Thailand." 
                                data-bullets="Claims Processing|Policy Review|Coverage Advisory|Dispute Resolution"
-                               data-link="${path}health-insurance/insurance.html" data-img="${path}picture/insurance-bg.jpg">
+                               data-link="${path}health-insurance/insurance.html" 
+                               data-img="${path}picture/health-insurance/insurance/insurance-assistance.png" data-position="right center">
                                <h4>Insurance Assistance</h4><p>Claims support & policy advisory</p>
                             </a>
                         </div>
@@ -139,7 +148,7 @@ document.addEventListener("DOMContentLoaded", function () {
                                 </div>
                             </div>
                             <div class="mega-image-container">
-                                <img src="${path}picture/medical-bg.jpg" alt="Health Services" class="mega-img">
+                                <img src="${path}picture/health-insurance/medical/medical-assistance.png" alt="Health Services" class="mega-img" style="object-position: right center;">
                             </div>
                         </div>
                     </div>
@@ -153,14 +162,16 @@ document.addEventListener("DOMContentLoaded", function () {
                                data-tag="EDUCATION SERVICES" data-title="Study in Thailand" 
                                data-desc="Comprehensive educational support, institution matching, and ED Visa solutions." 
                                data-bullets="Global Recognition|Affordable Living|English Programs|Strong Support"
-                               data-link="${path}study-and-intern-in-thailand/index.html" data-img="${path}picture/study-bg.jpg">
+                               data-link="${path}study-and-intern-in-thailand/index.html" 
+                               data-img="${path}picture/study-and-intern-in-thailand/study-in-thailand/study-in-thailand.png" data-position="center center">
                                <h4>Study in Thailand</h4><p>University & School placement</p>
                             </a>
                             <a href="${path}study-and-intern-in-thailand/internship.html" class="mega-menu-link" 
                                data-tag="EDUCATION SERVICES" data-title="Internship Programs" 
                                data-desc="Internship placement and program coordination in Thailand. Gain professional experience in one of Southeast Asia's most dynamic markets." 
                                data-bullets="Placement Matching|Visa Coordination|Mentorship Programs|Career Development"
-                               data-link="${path}study-and-intern-in-thailand/internship.html" data-img="${path}picture/internship-bg.jpg">
+                               data-link="${path}study-and-intern-in-thailand/internship.html" 
+                               data-img="${path}picture/study-and-intern-in-thailand/internship/internship.png" data-position="right center">
                                <h4>Internship</h4><p>Placement & program coordination</p>
                             </a>
                         </div>
@@ -181,7 +192,7 @@ document.addEventListener("DOMContentLoaded", function () {
                                 </div>
                             </div>
                             <div class="mega-image-container">
-                                <img src="${path}picture/study-bg.jpg" alt="Study Services" class="mega-img">
+                                <img src="${path}picture/study-and-intern-in-thailand/study-in-thailand/study-in-thailand.png" alt="Study Services" class="mega-img" style="object-position: center center;">
                             </div>
                         </div>
                     </div>
@@ -288,7 +299,7 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
     // ==========================================
-    // 5. Mega Menu Hover Logic (สลับ รูป, ข้อความ, และจุด Bullets อัตโนมัติ)
+    // 5. Mega Menu Hover Logic
     // ==========================================
     const megaLinks = document.querySelectorAll('.mega-menu-link');
     let fadeTimers = new Map();
@@ -310,18 +321,22 @@ document.addEventListener("DOMContentLoaded", function () {
             if (fadeTimers.has(megaMenu)) clearTimeout(fadeTimers.get(megaMenu));
 
             const timerId = setTimeout(() => {
-                // อัปเดตข้อความทั่วไป
                 if (tag) tag.textContent = this.getAttribute('data-tag');
                 if (title) title.textContent = this.getAttribute('data-title');
                 if (desc) desc.textContent = this.getAttribute('data-desc');
                 if (linkBtn) linkBtn.href = this.getAttribute('data-link');
-                if (img && this.getAttribute('data-img')) img.src = this.getAttribute('data-img');
 
-                // อัปเดตจุด Bullet 4 ข้อ
+                if (img && this.getAttribute('data-img')) {
+                    img.src = this.getAttribute('data-img');
+                    // จัดการค่า object-position ที่ถูกอัปเดตใหม่
+                    const imgPos = this.getAttribute('data-position') || 'right center';
+                    img.style.objectPosition = imgPos;
+                }
+
                 const bulletsStr = this.getAttribute('data-bullets');
                 if (bulletGrid && bulletsStr) {
                     const bullets = bulletsStr.split('|');
-                    bulletGrid.innerHTML = ''; // ล้างข้อความเก่าออก
+                    bulletGrid.innerHTML = '';
                     bullets.forEach(b => {
                         const div = document.createElement('div');
                         div.className = 'mega-bullet-item';
@@ -333,7 +348,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
             fadeTimers.set(megaMenu, timerId);
 
-            // ไฮไลต์เมนูย่อยฝั่งซ้าย
             megaMenu.querySelectorAll('.mega-menu-link').forEach(l => l.classList.remove('active-hover'));
             this.classList.add('active-hover');
         });
