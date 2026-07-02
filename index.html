@@ -40,163 +40,169 @@
 
         </section>
 
-        <section class="intro-wix">
-            <div class="intro-wix-container">
-                <div class="intro-wix-left">
-                    <img src="picture/logo.png" alt="Expatique Logo"
-                        style="max-width: 300px; width: 100%; margin: 0 auto;">
+        <section class="services-tab-section">
+            <div class="services-header">
+                <h2>Overview of our services</h2>
+            </div>
+
+            <div class="tabs-container">
+                <div class="tabs-nav">
+                    <button class="tab-link active" onclick="openServiceTab(event, 'tab-legal')">Legal, Litigation & Tax</button>
+                    <button class="tab-link" onclick="openServiceTab(event, 'tab-invest')">Investment</button>
+                    <button class="tab-link" onclick="openServiceTab(event, 'tab-visa')">Visa & Work Permit</button>
+                    <button class="tab-link" onclick="openServiceTab(event, 'tab-health')">Health & Insurance</button>
+                    <button class="tab-link" onclick="openServiceTab(event, 'tab-edu')">Study and Intern in Thailand</button>
+                    <button class="tab-link" onclick="openServiceTab(event, 'tab-realestate')">Real Estate Services</button>
                 </div>
-                <div class="intro-wix-right">
-                    <h2>Who we are</h2>
-                    <p><strong>Expatique</strong> is a dedicated advisory service committed to supporting expats and
-                        businesses in Thailand. Our mission is to provide expert insights and tailor-made solutions to
-                        help our clients navigate the complexities of operating in a foreign market. Embracing a modern
-                        approach, our visual identity reflects the vibrancy of Thailand with a blend of contemporary and
-                        traditional elements.</p>
-                    <a href="who-we-are.html" class="btn btn-outline">Discover More</a>
+
+                <div class="tabs-content-area">
+
+                    <div id="tab-legal" class="tab-content" style="display: flex;">
+                        <div class="tab-text">
+                            <h3>Legal & Litigation Support</h3>
+                            <p>Expatique provides trusted legal, litigation, tax, and regulatory support for
+                                expatriates, foreign investors, families, and businesses in Thailand. Our network
+                                connects clients with experienced professionals who can assist with complex legal
+                                matters, compliance requirements, and cross-border advisory needs.</p>
+                            <ul class="tab-bullets">
+                                <li>Probate and Estate Support</li>
+                                <li>Family Law & Domestic Litigation Support</li>
+                                <li>Immigration Law & Residency Support</li>
+                                <li>Taxation</li>
+                                <li>Regulatory Compliance</li>
+                            </ul>
+                            <div>
+                                <a href="legal-litigation-tax/legal-support.html" class="btn">Learn More</a>
+                            </div>
+                        </div>
+                        <div class="tab-image">
+                            <img src="picture/home/Legal-Consultation.png" alt="Legal Support">
+                        </div>
+                    </div>
+
+                    <div id="tab-invest" class="tab-content">
+                        <div class="tab-text">
+                            <h3>Investment Opportunities</h3>
+                            <p>Backed by over 30 years of experience working with international investors, Expatique
+                                provides expert guidance across a wide range of sectors, including hotels, resorts,
+                                wellness centers, golf courses, mining projects, and other high-value investment
+                                opportunities.</p>
+
+                            <p>With Expatique as your trusted partner, navigate Thailand's investment landscape with
+                                confidence, from opportunity identification and market entry to long-term growth and
+                                success.</p>
+                            <ul class="tab-bullets">
+                                <li>Opportunity Analysis</li>
+                                <li>Network Connection</li>
+                                <li>Legal Coordination</li>
+                                <li>Market Entry Strategy</li>
+                                <li>Market Research</li>
+                                <li>Deal Structuring</li>
+                                <li>BOI & EEC Support</li>
+                                <li>Investment Structuring</li>
+                            </ul>
+                            <div>
+                                <a href="legal-litigation-tax/boi.html" class="btn">Learn More</a>
+                            </div>
+                        </div>
+                        <div class="tab-image">
+                            <img src="picture/home/BOI&EEC.avif" alt="Investment and BOI">
+                        </div>
+                    </div>
+
+                    <div id="tab-visa" class="tab-content">
+                        <div class="tab-text">
+                            <h3>Visa & Work Permit Support</h3>
+                            <p>At Expatique, we provide personalized consultation and guidance for individuals,
+                                families, students, professionals, and long-term residents seeking to build their lives
+                                in Thailand with clarity and confidence.</p>
+
+                            <p>We assist with educational visas, long-term stay options, work permit pathways, residency
+                                applications, and family-based support visas, helping clients understand the
+                                requirements, prepare documentation, and navigate each process with ease.</p>
+                            <ul class="tab-bullets">
+                                <li>The Education Visa</li>
+                                <li>Permanent Residency and Citizenship Support</li>
+                                <li>The Destination Thailand Visa</li>
+                                <li>Non-Immigrant Visa for Work Permit</li>
+                                <li>Family Support Visa</li>
+                            </ul>
+                            <div>
+                                <a href="visa-work-permit.html" class="btn">Learn More</a>
+                            </div>
+                        </div>
+                        <div class="tab-image">
+                            <img src="picture/home/Visa.png" alt="Visa Services">
+                        </div>
+                    </div>
+
+                    <div id="tab-health" class="tab-content">
+                        <div class="tab-text">
+                            <h3>Health & Insurance</h3>
+                            <p>Expatique provides practical support for expatriates seeking reliable medical assistance
+                                and insurance solutions in Thailand. We help clients understand available healthcare
+                                options, compare suitable insurance plans, and connect with trusted hospitals, clinics,
+                                and insurance providers based on their needs.</p>
+                            <ul class="tab-bullets">
+                                <li>Medical Assistance</li>
+                                <li>Insurance Assistance</li>
+                            </ul>
+                            <div>
+                                <a href="health-insurance/insurance.html" class="btn">Learn More</a>
+                            </div>
+                        </div>
+                        <div class="tab-image">
+                            <img src="picture/home/medical-assistance.png" alt="Health and Insurance">
+                        </div>
+                    </div>
+
+                    <div id="tab-edu" class="tab-content">
+                        <div class="tab-text">
+                            <h3>Study and Intern in Thailand</h3>
+                            <p>Expatique supports international students and families in navigating Thailand's education
+                                landscape by connecting them with trusted schools, universities, and academic support
+                                services. Whether you are exploring international schools, university programs, student
+                                visas, or relocation support, our team helps simplify every step of the educational
+                                journey in Thailand.</p>
+                            <ul class="tab-bullets">
+                                <li>School Selection</li>
+                                <li>Student Visas</li>
+                                <li>Enrollment Support</li>
+                                <li>University Guidance</li>
+                            </ul>
+                            <div>
+                                <a href="study-and-intern-in-thailand/index.html" class="btn">Learn More</a>
+                            </div>
+                        </div>
+                        <div class="tab-image">
+                            <img src="picture/home/studyinth.png" alt="Study in Thailand">
+                        </div>
+                    </div>
+
+                    <div id="tab-realestate" class="tab-content">
+                        <div class="tab-text">
+                            <h3>Real Estate Service</h3>
+                            <p>Expatique assists expatriates in navigating Thailand's real estate market with trusted
+                                guidance and personalized support. Whether you are searching for a condominium, family
+                                home, investment property, or commercial space, our network helps connect you with
+                                suitable opportunities across Thailand.</p>
+                            <ul class="tab-bullets">
+                                <li>Condominium Search</li>
+                                <li>Commercial Space Assistance</li>
+                                <li>Family Home Search</li>
+                                <li>Rental and Purchase Guidance</li>
+                            </ul>
+                            <div>
+                                <a href="real-estate.html" class="btn">Learn More</a>
+                            </div>
+                        </div>
+                        <div class="tab-image">
+                            <img src="picture/home/RealEstate.png" alt="Real Estate">
+                        </div>
+                    </div>
+
                 </div>
             </div>
-        </section>
-
-        <section class="expertise-wix">
-            <div class="expertise-header">
-                <h2>Our Expertise</h2>
-                <p>Adjusting to legal, administrative, and daily life in a new country can be challenging. Our services
-                    cater specifically to expats and foreign residents in Thailand, offering reliable assistance in
-                    legal matters, visa and immigration, healthcare, insurance, education, and will and estate planning.
-                    We merge professional knowledge with a deep understanding of the hurdles faced by international
-                    residents, delivering practical support to help you live, work, and confidently plan your future in
-                    Thailand.</p>
-            </div>
-
-            <div class="wix-grid-container">
-                <a href="legal-litigation-tax/legal-support.html" class="wix-card">
-                    <div class="wix-card-img"
-                        style="background-image: url('picture/legal-litigation-tax/legal-support/legal.png');"></div>
-                    <div class="wix-card-text">
-                        <h3>Legal & Litigation Support</h3>
-                    </div>
-                </a>
-                <a href="legal-litigation-tax/probate-estate.html" class="wix-card">
-                    <div class="wix-card-img"
-                        style="background-image: url('picture/legal-litigation-tax/probate-estate/Probate.png');"></div>
-                    <div class="wix-card-text">
-                        <h3>Probate and Estate Support</h3>
-                    </div>
-                </a>
-                <a href="health-insurance/insurance.html" class="wix-card">
-                    <div class="wix-card-img" style="background-image: url('picture/home/Insurance.png');"></div>
-                    <div class="wix-card-text">
-                        <h3>Insurance Support</h3>
-                    </div>
-                </a>
-                <a href="health-insurance/medical-assistance.html" class="wix-card">
-                    <div class="wix-card-img" style="background-image: url('picture/home/Medical.png');"></div>
-                    <div class="wix-card-text">
-                        <h3>Medical Assistance</h3>
-                    </div>
-                </a>
-
-                <a href="study-and-intern-in-thailand/index.html" class="wix-card">
-                    <div class="wix-card-img" style="background-image: url('picture/home/Study.png');"></div>
-                    <div class="wix-card-text">
-                        <h3>Study In Thailand</h3>
-                    </div>
-                </a>
-                <a href="visa-work-permit.html" class="wix-card">
-                    <div class="wix-card-img" style="background-image: url('picture/home/Visa.png');"></div>
-                    <div class="wix-card-text">
-                        <h3>Visa & Work Permit Support</h3>
-                    </div>
-                </a>
-                <a href="legal-litigation-tax/boi.html" class="wix-card">
-                    <div class="wix-card-img" style="background-image: url('picture/home/BOI&EEC.avif');"></div>
-                    <div class="wix-card-text">
-                        <h3>BOI & EEC</h3>
-                    </div>
-                </a>
-                <a href="real-estate.html" class="wix-card">
-                    <div class="wix-card-img" style="background-image: url('picture/home/RealEstate.png');"></div>
-                    <div class="wix-card-text">
-                        <h3>Real Estate Service</h3>
-                    </div>
-                </a>
-            </div>
-        </section>
-
-        <section class="slider-section">
-            <button class="slider-arrow prev-slide" onclick="moveSlide(-1)">&#10094;</button>
-
-            <div class="slider-wrapper">
-                <div class="slider-track" id="mainSlider">
-
-                    <div class="slide-item">
-                        <div class="slide-img-col"
-                            style="background-image: url('picture/home/Legal-Consultation.png');"></div>
-                        <div class="slide-text-col">
-                            <h2>Legal & Litigation Support</h2>
-                            <p>Professional legal guidance and support when navigating disputes or legal matters in
-                                Thailand.</p>
-                            <a href="legal-litigation-tax/legal-support.html" class="slide-link">Read more &rarr;</a>
-                        </div>
-                    </div>
-
-                    <div class="slide-item">
-                        <div class="slide-img-col" style="background-image: url('picture/home/Probate&Estate.png');">
-                        </div>
-                        <div class="slide-text-col">
-                            <h2>Probate & Estate Support</h2>
-                            <p>Helping protect your assets and ensure your wishes are clearly documented for the future.
-                            </p>
-                            <a href="legal-litigation-tax/probate-estate.html" class="slide-link">Read more &rarr;</a>
-                        </div>
-                    </div>
-
-                    <div class="slide-item">
-                        <div class="slide-img-col"
-                            style="background-image: url('picture/home/medical-assistance.png');"></div>
-                        <div class="slide-text-col">
-                            <h2>Medical Assistance</h2>
-                            <p>Reliable medical coordination and healthcare navigation to ensure you receive the best
-                                possible treatment.</p>
-                            <a href="health-insurance/medical-assistance.html" class="slide-link">Read more &rarr;</a>
-                        </div>
-                    </div>
-
-                    <div class="slide-item">
-                        <div class="slide-img-col"
-                            style="background-image: url('picture/home/insurance assistance.png');"></div>
-                        <div class="slide-text-col">
-                            <h2>Insurance Assistance</h2>
-                            <p>Expert Insurance Solutions for Expats in Thailand. Your Life in Thailand, Protected.</p>
-                            <a href="health-insurance/insurance.html" class="slide-link">Read more &rarr;</a>
-                        </div>
-                    </div>
-
-                    <div class="slide-item">
-                        <div class="slide-img-col" style="background-image: url('picture/home/studyinth.png');"></div>
-                        <div class="slide-text-col">
-                            <h2>Study In Thailand</h2>
-                            <p>Supporting students and families in exploring study opportunities with leading
-                                universities in Thailand.</p>
-                            <a href="study-and-intern-in-thailand/index.html" class="slide-link">Read more &rarr;</a>
-                        </div>
-                    </div>
-
-                    <div class="slide-item">
-                        <div class="slide-img-col" style="background-image: url('picture/home/ED&DTV.png');"></div>
-                        <div class="slide-text-col">
-                            <h2>Student (ED) & (DTV) Visa</h2>
-                            <p>Guidance and professional assistance for education visas, DTV visas, and long-term stays
-                                in Thailand.</p>
-                            <a href="visa-work-permit.html" class="slide-link">Read more &rarr;</a>
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-
-            <button class="slider-arrow next-slide" onclick="moveSlide(1)">&#10095;</button>
         </section>
 
     </main>
@@ -206,22 +212,23 @@
     <script src="js/main.js"></script>
 
     <script>
-        let currentSlide = 0;
-        function moveSlide(direction) {
-            const track = document.getElementById('mainSlider');
-            const slides = document.querySelectorAll('.slide-item');
-            const totalSlides = slides.length;
-
-            currentSlide += direction;
-
-            if (currentSlide < 0) {
-                currentSlide = totalSlides - 1;
-            } else if (currentSlide >= totalSlides) {
-                currentSlide = 0;
+        // ฟังก์ชันสำหรับเปิดปิด Tab
+        function openServiceTab(evt, tabName) {
+            // ซ่อนเนื้อหา Tab ทั้งหมด
+            const tabcontent = document.getElementsByClassName("tab-content");
+            for (let i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].style.display = "none";
             }
 
-            const slideWidth = 100;
-            track.style.transform = `translateX(-${currentSlide * slideWidth}%)`;
+            // ลบคลาส active ออกจากปุ่มทั้งหมด
+            const tablinks = document.getElementsByClassName("tab-link");
+            for (let i = 0; i < tablinks.length; i++) {
+                tablinks[i].classList.remove("active");
+            }
+
+            // แสดง Tab ที่ถูกคลิก และตั้งค่าปุ่มให้เป็น active
+            document.getElementById(tabName).style.display = "flex";
+            evt.currentTarget.classList.add("active");
         }
     </script>
 </body>

@@ -7,7 +7,6 @@
     display: flex;
     min-height: calc(100vh - 70px);
     background-color: var(--bg-white);
-    /* ธีมสีขาว */
 }
 
 .hero-wix-left {
@@ -18,7 +17,6 @@
     padding: 80px 10%;
 }
 
-/* เพิ่ม Subtitle สีทองเล็กๆ เหนือหัวข้อหลักให้ดูแพง */
 .hero-subtitle {
     font-size: 0.9rem;
     font-weight: 700;
@@ -34,7 +32,6 @@
     font-weight: 700;
     line-height: 1.15;
     color: var(--primary-color);
-    /* สีดำ */
     margin-bottom: 25px;
 }
 
@@ -59,7 +56,6 @@
 .intro-wix {
     padding: 100px 10%;
     background-color: var(--bg-light-grey);
-    /* ธีมสีเทาอ่อน */
 }
 
 .intro-wix-container {
@@ -88,199 +84,241 @@
     color: var(--text-muted);
 }
 
-/* 3. Expertise Grid 4x2 (สลับกลับมาเป็นพื้นหลังสีขาว) */
-.expertise-wix {
-    padding: 100px 5%;
-    background-color: var(--bg-white);
-    /* ธีมสีขาว */
+/* ==========================================================================
+   3. Services Vertical Tabs (แทนที่ Grid และ Slider เดิม)
+   ========================================================================== */
+.services-tab-section {
+    max-width: 1400px;
+    margin: 80px auto;
+    padding: 0 5%;
+}
+
+.services-header {
     text-align: center;
-}
-
-.expertise-header {
+    margin-bottom: 50px;
     max-width: 800px;
-    margin: 0 auto 60px auto;
+    margin-left: auto;
+    margin-right: auto;
 }
 
-.expertise-header h2 {
-    font-size: 2.8rem;
-    margin-bottom: 20px;
+.services-header h2 {
+    font-size: 2.5rem;
+    margin-bottom: 15px;
     color: var(--primary-color);
 }
 
-.expertise-header p {
+.services-header p {
     color: var(--text-muted);
     font-size: 1.05rem;
     line-height: 1.8;
 }
 
-.wix-grid-container {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 30px;
-    max-width: 1400px;
-    margin: 0 auto;
+.tabs-container {
+    display: flex;
+    background: var(--bg-white);
+    border: 1px solid var(--border-color);
+    border-radius: 20px;
+    overflow: hidden;
+    height: 650px;
+    /* ขยายกล่องใหญ่ 600px */
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.06);
 }
 
-.wix-card {
+.tabs-nav {
+    width: 25%;
+    background-color: var(--bg-light-grey);
     display: flex;
     flex-direction: column;
-    background: #fff;
-    border-radius: 12px;
-    overflow: hidden;
-    transition: all 0.4s ease;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.04);
-    border: 1px solid var(--border-color);
-    /* กรอบสีเทาอ่อน */
-    text-decoration: none;
+    border-right: 1px solid var(--border-color);
+    overflow-y: auto;
 }
 
-.wix-card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.08);
-    border-color: var(--accent-gold);
-    /* Hover แล้วขอบเปลี่ยนเป็นสีทอง */
-}
-
-.wix-card-img {
-    height: 250px;
-    background-size: cover;
-    background-position: center;
-    width: 100%;
-}
-
-.wix-card-text {
-    padding: 25px 20px;
-    width: 100%;
-    text-align: center;
-    background: #fff;
-}
-
-.wix-card h3 {
-    font-size: 1.1rem;
-    font-weight: 600;
-    color: var(--primary-color);
-    margin: 0;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-}
-
-/* 4. Slider Section (สลับเป็นพื้นหลังสีเทาอ่อน) */
-.slider-section {
-    position: relative;
-    background-color: var(--bg-light-grey);
-    /* ธีมสีเทาอ่อน */
-    padding: 100px 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    overflow: hidden;
-}
-
-.slider-wrapper {
-    width: 80%;
-    max-width: 1200px;
-    overflow: hidden;
-}
-
-.slider-track {
-    display: flex;
-    transition: transform 0.5s ease-in-out;
-    width: 100%;
-}
-
-.slide-item {
-    min-width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 60px;
-}
-
-.slide-img-col {
-    flex: 1;
-    height: 450px;
-    background-size: cover;
-    background-position: center;
-    border-radius: 12px;
-    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.08);
-}
-
-.slide-text-col {
-    flex: 1;
+.tab-link {
+    padding: 25px 30px;
     text-align: left;
-}
-
-.slide-text-col h2 {
-    font-size: 2.8rem;
-    color: var(--primary-color);
-    margin-bottom: 20px;
-    line-height: 1.2;
-}
-
-.slide-text-col p {
-    font-size: 1.1rem;
-    margin-bottom: 30px;
-    color: var(--text-muted);
-    line-height: 1.8;
-}
-
-.slide-link {
-    font-weight: 700;
-    color: var(--primary-color);
-    /* สีดำ */
-    text-decoration: underline;
-    text-underline-offset: 6px;
-    text-decoration-thickness: 2px;
-    text-decoration-color: var(--accent-gold);
-    /* เส้นใต้สีทอง */
-    transition: color 0.3s;
-    font-size: 1.05rem;
-}
-
-.slide-link:hover {
-    color: var(--accent-gold);
-    /* Hover เป็นสีทองทั้งคำ */
-}
-
-.slider-arrow {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    background: transparent;
+    background: none;
     border: none;
-    font-size: 3rem;
-    color: #CCC;
+    border-left: 4px solid transparent;
+    font-family: var(--font-main);
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: var(--text-muted);
     cursor: pointer;
-    z-index: 10;
-    transition: color 0.3s, transform 0.3s;
+    transition: all var(--transition-speed) ease;
 }
 
-.slider-arrow:hover {
+.tab-link:hover {
+    background-color: var(--bg-white);
     color: var(--primary-color);
-    transform: translateY(-50%) scale(1.1);
 }
 
-.prev-slide {
-    left: 5%;
+.tab-link.active {
+    background-color: var(--bg-white);
+    color: var(--accent-gold);
+    border-left-color: var(--accent-gold);
 }
 
-.next-slide {
-    right: 5%;
+.tabs-content-area {
+    width: 75%;
+    /* เพิ่มพื้นที่ฝั่งเนื้อหาเป็น 75% */
+    padding: 50px 60px;
+    /* เพิ่ม Padding ซ้ายขวาให้ดูโล่ง ไม่อึดอัด */
+    background-color: var(--bg-white);
+    height: 100%;
+    display: flex;
+    align-items: flex-start;
 }
 
-/* 5. Responsive Design for Home Page */
-@media (max-width: 1200px) {
-    .wix-grid-container {
-        grid-template-columns: repeat(2, 1fr);
+.tab-content {
+    display: none;
+    width: 100%;
+    gap: 40px;
+    align-items: flex-start;
+    /* รูปภาพและข้อความชิดขอบบนเสมอกัน */
+    animation: fadeEffect 0.5s ease;
+}
+
+.tab-text {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    padding-right: 20px;
+    /* เพิ่มพื้นที่ด้านขวา ไม่ให้ตัวหนังสือไหลไปชนขอบรูปภาพ */
+}
+
+.tab-text h3 {
+    font-size: 1.8rem;
+    color: var(--accent-gold);
+    margin-bottom: 15px;
+    line-height: 1.3;
+}
+
+.tab-text p {
+    font-size: 0.95rem;
+    color: var(--text-dark);
+    line-height: 1.6;
+    /* ทำให้พารากราฟอ่านง่ายขึ้น */
+}
+
+.tab-bullets {
+    margin-top: 20px;
+    margin-bottom: 40px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    /* แบ่ง 2 คอลัมน์ */
+    gap: 18px 20px;
+    /* [สำคัญ] แนวตั้งห่าง 18px / แนวนอนห่าง 40px ให้ช่องไฟสวยขึ้น */
+}
+
+.tab-bullets li {
+    position: relative;
+    padding-left: 22px;
+    /* ขยับตัวหนังสือให้ห่างจากจุดไข่ปลาอีกนิด */
+    margin-bottom: 0;
+    color: var(--text-dark);
+    font-size: 0.95rem;
+    line-height: 1.5;
+    /* [สำคัญ] เวลาตกบรรทัด บรรทัดที่ 2 จะได้ไม่ชิดบรรทัดแรกเกินไป */
+}
+
+.tab-bullets li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 9px;
+    /* ขยับจุดไข่ปลาลงมาให้อยู่กึ่งกลางของตัวอักษรบรรทัดแรกพอดี */
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background-color: var(--accent-gold);
+}
+
+.tab-image {
+    width: 30%;
+    /* ปรับขนาดรูปลงมาให้สมดุล */
+    height: 450px;
+    /* ลดความสูงรูปลง เพื่อให้เป็นสี่เหลี่ยมคล้าย Canva มากขึ้น */
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    flex-shrink: 0;
+}
+
+.tab-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+@keyframes fadeEffect {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ==========================================================================
+   4. Responsive Design for Home Page
+   ========================================================================== */
+@media (max-width: 900px) {
+    .tabs-container {
+        flex-direction: column;
+        height: auto;
+    }
+
+    .tabs-nav {
+        width: 100%;
+        flex-direction: row;
+        overflow-x: auto;
+        white-space: nowrap;
+        border-right: none;
+        border-bottom: 1px solid var(--border-color);
+        scrollbar-width: none;
+    }
+
+    .tabs-nav::-webkit-scrollbar {
+        display: none;
+    }
+
+    .tab-link {
+        padding: 15px 25px;
+        border-left: none;
+        border-bottom: 3px solid transparent;
+    }
+
+    .tab-link.active {
+        border-left-color: transparent;
+        border-bottom-color: var(--accent-gold);
+    }
+
+    .tabs-content-area {
+        width: 100%;
+        padding: 30px;
+        height: auto;
+    }
+
+    .tab-content {
+        flex-direction: column-reverse;
+        gap: 30px;
+    }
+
+    .tab-image {
+        width: 100%;
+        height: 250px;
     }
 }
 
 @media (max-width: 768px) {
 
     .hero-wix,
-    .intro-wix-container,
-    .slide-item {
+    .intro-wix-container {
         flex-direction: column;
         gap: 40px;
     }
@@ -295,18 +333,5 @@
 
     .intro-wix {
         padding: 60px 5%;
-    }
-
-    .wix-grid-container {
-        grid-template-columns: 1fr;
-    }
-
-    .slider-section {
-        padding: 60px 0;
-    }
-
-    .slide-img-col {
-        height: 300px;
-        width: 100%;
     }
 }
