@@ -1,5 +1,6 @@
 /* ==========================================================================
    CATEGORY STYLES: LEGAL, LITIGATION & TAX (legal.css)
+   Theme: Warm Minimalist Luxury (Slight Brown Cream)
    ========================================================================== */
 
 /* 1. Category Hero Banner (แบบมีภาพพื้นหลัง) */
@@ -9,7 +10,6 @@
     background-position: right center;
     background-repeat: no-repeat;
     padding: 120px 10% 80px;
-    /* ใช้ 10% ดันขอบให้ตรงกับ Navbar */
     text-align: left;
     color: var(--primary-color);
 }
@@ -52,7 +52,6 @@
 .services-overview {
     padding: 100px 10%;
     background-color: var(--bg-light-grey);
-    /* พื้นหลังเทาอ่อนสลับกับ Hero */
 }
 
 .section-header {
@@ -73,7 +72,7 @@
 
 .services-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
     gap: 30px;
     max-width: 1200px;
     margin: 0 auto;
@@ -81,20 +80,18 @@
 
 .service-card {
     background-color: var(--bg-white);
-    /* การ์ดสีขาวตัดกับพื้นหลังเทา */
     padding: 40px 30px;
     border-radius: 12px;
     border: 1px solid var(--border-color);
-    transition: all 0.3s ease;
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
     display: flex;
     flex-direction: column;
 }
 
 .service-card:hover {
     transform: translateY(-8px);
-    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.08);
+    box-shadow: 0 15px 30px rgba(196, 151, 101, 0.12);
     border-color: var(--accent-gold);
-    /* Hover ขอบทอง */
 }
 
 .service-card h3 {
@@ -162,7 +159,6 @@
     object-fit: cover;
 }
 
-/* หัวข้อสำหรับพื้นหลังสีอ่อน (อัปเดตให้เป็นสีดำตามธีมใหม่) */
 .off-white-heading {
     color: var(--primary-color);
 }
@@ -185,8 +181,8 @@
     width: 24px;
     height: 24px;
     flex-shrink: 0;
-    color: var(--primary-color);
-    /* เปลี่ยนไอคอนเป็นสีดำ */
+    color: var(--accent-gold);
+    /* เปลี่ยนไอคอนเช็คลิสต์เป็นสีทองอบอุ่น */
 }
 
 .feature-item-text strong {
@@ -227,7 +223,7 @@
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
 }
 
-/* 5. Detailed Services (การ์ด 6 ใบ) */
+/* 5. Detailed Services (การ์ด 6 ใบ - จัดเรียง 3 คอลัมน์) */
 .detailed-services-section {
     padding: 80px 10%;
     background-color: var(--bg-light-grey);
@@ -244,12 +240,12 @@
     border: 1px solid var(--border-color);
     border-radius: 12px;
     padding: 40px 30px;
-    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s;
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
 }
 
 .detail-card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.05);
+    box-shadow: 0 15px 30px rgba(196, 151, 101, 0.12);
     border-color: var(--accent-gold);
 }
 
@@ -257,8 +253,8 @@
     width: 35px;
     height: 35px;
     margin-bottom: 20px;
-    color: var(--primary-color);
-    /* สีดำ */
+    color: var(--accent-gold);
+    /* ไอคอนการ์ดสีทอง */
 }
 
 .detail-card h3 {
@@ -308,7 +304,6 @@
     border-radius: 12px;
     box-shadow: 0 15px 40px rgba(0, 0, 0, 0.06);
     border-top: 4px solid var(--accent-gold);
-    /* ขอบบนสีทอง */
 }
 
 .team-highlight-header {
@@ -384,6 +379,7 @@
     white-space: nowrap;
     padding-bottom: 2px;
     scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
 }
 
 .tab-menu::-webkit-scrollbar {
@@ -420,7 +416,6 @@
     width: 100%;
     height: 2px;
     background-color: var(--primary-color);
-    /* เส้นใต้แท็บสีดำ */
 }
 
 .tab-content {
@@ -444,40 +439,44 @@
     }
 }
 
-@media (max-width: 768px) {
-    .boi-icon-grid {
-        display: grid !important;
-        grid-template-columns: 1fr !important;
-        gap: 16px !important;
-    }
+/* 🔥 1. อัปเกรด BOI Icon Grid: จัดเรียง 4 คอลัมน์บนจอ Mac/PC ตามที่ต้องการ */
+.boi-icon-grid {
+    display: grid !important;
+    grid-template-columns: repeat(4, 1fr) !important;
+    gap: 20px !important;
+    margin-top: 30px !important;
+    margin-bottom: 40px !important;
 }
 
 .boi-icon-card {
     background: #fff;
     border: 1px solid var(--border-color);
-    border-radius: 8px;
-    padding: 30px 20px;
+    border-radius: 12px;
+    padding: 28px 20px;
     text-align: center;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: flex-start;
+    min-height: 180px;
+    /* ล็อกความสูงให้เป็นสัดส่วนสี่เหลี่ยมสมดุล */
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.02);
-    transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s;
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
 }
 
 .boi-icon-card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+    box-shadow: 0 10px 25px rgba(196, 151, 101, 0.15);
     border-color: var(--accent-gold);
 }
 
-.boi-icon-card svg {
-    width: 32px;
-    height: 32px;
+.boi-icon-card svg,
+.boi-icon-card img {
+    width: 36px;
+    height: 36px;
     color: var(--accent-gold);
-    /* ไอคอนสีทอง */
     margin-bottom: 15px;
+    flex-shrink: 0;
 }
 
 .boi-icon-card h4 {
@@ -493,6 +492,18 @@
     color: var(--text-muted);
     margin: 0;
     line-height: 1.5;
+}
+
+.boi-icon-card.wide-card {
+    align-items: flex-start;
+    text-align: left;
+    padding: 30px 40px;
+}
+
+.boi-icon-card.wide-card svg {
+    margin-bottom: 20px;
+    width: 28px;
+    height: 28px;
 }
 
 /* Timeline (ขั้นตอนการทำงาน) */
@@ -528,8 +539,8 @@
     top: 0;
     width: 30px;
     height: 30px;
-    background-color: var(--primary-color);
-    /* วงกลมสีดำ */
+    background-color: var(--accent-gold);
+    /* เปลี่ยนเลขลำดับเป็นสีทองให้ดูแพง */
     color: #fff;
     border-radius: 50%;
     display: flex;
@@ -546,10 +557,10 @@
     margin-bottom: 5px;
 }
 
-/* Sub-tabs (แท็บย่อยทรงแคปซูล) */
+/* 🔥 2. Sub-tabs (แท็บย่อยทรงแคปซูล ปรับเป็นโทนทอง Caramel Gold) */
 .sub-tab-menu {
     display: flex;
-    gap: 15px;
+    gap: 12px;
     flex-wrap: wrap;
     margin-bottom: 30px;
     border-bottom: 1px solid var(--border-color);
@@ -557,24 +568,30 @@
 }
 
 .sub-tab-btn {
-    padding: 10px 24px;
+    padding: 8px 22px;
     border-radius: 50px;
-    /* แคปซูล */
-    border: 1px solid var(--primary-color);
-    background: transparent;
-    color: var(--primary-color);
+    border: 1px solid var(--border-color);
+    background: var(--bg-white);
+    color: var(--text-dark);
     cursor: pointer;
-    font-size: 0.95rem;
-    font-weight: 600;
-    transition: all 0.3s;
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: all 0.25s ease;
 }
 
-.sub-tab-btn.active,
 .sub-tab-btn:hover {
-    background: var(--primary-color);
-    /* Hover พื้นดำ */
-    color: #fff;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+    border-color: var(--accent-gold);
+    color: var(--accent-gold);
+    transform: translateY(-2px);
+}
+
+.sub-tab-btn.active {
+    background: var(--accent-gold) !important;
+    /* หน้าปัจจุบันเป็นสีทองทึบ */
+    color: #fff !important;
+    border-color: var(--accent-gold) !important;
+    font-weight: 600;
+    box-shadow: 0 4px 15px rgba(196, 151, 101, 0.3);
 }
 
 .sub-tab-content {
@@ -586,24 +603,19 @@
     display: block;
 }
 
-.boi-icon-card.wide-card {
-    align-items: flex-start;
-    text-align: left;
-    padding: 30px 40px;
-}
+/* ==========================================================================
+   CONSOLIDATED RESPONSIVE RULES (ยุบรวมกฎหน้าจอทุกขนาดไว้ด้านล่างสุด)
+   ========================================================================== */
+@media (max-width: 1100px) {
 
-.boi-icon-card.wide-card svg {
-    margin-bottom: 20px;
-    width: 28px;
-    height: 28px;
-}
-
-/* Responsive Adjustments */
-@media (max-width: 1024px) {
+    /* ในโน้ตบุ๊กจอเล็ก หรือแท็บเล็ต ปรับ Grid BOI เหลือ 2 คอลัมน์ */
+    .boi-icon-grid,
     .detailed-services-grid {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: repeat(2, 1fr) !important;
     }
+}
 
+@media (max-width: 1024px) {
     .cta-banner {
         flex-direction: column;
         text-align: center;
@@ -619,17 +631,206 @@
 
     .hero-with-bg,
     .split-content-section,
-    .detailed-services-section {
-        padding-left: 5%;
-        padding-right: 5%;
+    .detailed-services-section,
+    .services-overview,
+    .tabs-section {
+        padding-left: 5% !important;
+        padding-right: 5% !important;
+        box-sizing: border-box !important;
     }
 
     .hero-with-bg h1 {
-        font-size: 2.5rem;
+        font-size: 2.4rem !important;
     }
 
+    /* ในมือถือ บังคับทุก Grid กลับมาเรียง 1 คอลัมน์แนวดิ่ง */
     .feature-grid,
-    .detailed-services-grid {
-        grid-template-columns: 1fr;
+    .detailed-services-grid,
+    .boi-icon-grid,
+    .services-grid {
+        grid-template-columns: 1fr !important;
+        gap: 16px !important;
     }
+
+    .boi-icon-card {
+        min-height: auto !important;
+        padding: 24px 18px !important;
+    }
+}
+
+/* ==========================================================================
+   Timeline & Numbered Cards Fix (แก้ไขปัญหาเลขลำดับซ้อนทับหัวข้อแบบเด็ดขาด)
+   Theme: Warm Minimalist Luxury (Slight Brown Cream)
+   ========================================================================== */
+
+/* 1. จัดโครงสร้างการ์ดขั้นตอนใหม่ ให้เรียงเนื้อหาจากบนลงล่าง (Flex Column) */
+.timeline-item,
+.boi-icon-card.timeline-item,
+.detail-card.timeline-item,
+[class*="timeline-item"] {
+    position: relative !important;
+    display: flex !important;
+    flex-direction: column !important;
+    /* 🔥 สั่งเรียงแนวตั้ง: เลขลำดับอยู่บน -> หัวข้ออยู่กลาง -> ข้อความอยู่ล่าง */
+    align-items: flex-start !important;
+    justify-content: flex-start !important;
+    padding: 28px 24px !important;
+    /* ล็อกระยะขอบกล่องให้สมดุลทั้งในคอมและมือถือ */
+    margin-bottom: 25px !important;
+    background-color: #ffffff !important;
+    border: 1px solid var(--border-color) !important;
+    border-radius: 12px !important;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.02) !important;
+    height: auto !important;
+    min-height: auto !important;
+}
+
+/* ยกเลิกเส้นขีดตรงกลางเดิมที่เกะกะเมื่อเปลี่ยนมาอยู่ในรูปแบบการ์ด */
+.timeline-item::before,
+[class*="timeline-item"]::before {
+    display: none !important;
+}
+
+/* 2. 🔥 หัวใจสำคัญ: ดึงวงกลมตัวเลขออกจากโหมด Absolute มาตั้งเป็นปุ่มลอยตัวแนวตั้ง ห้ามซ้อนทับเด็ดขาด! */
+.timeline-number,
+.boi-icon-card .timeline-number,
+[class*="timeline-"] [class*="number"],
+[class*="step-"] [class*="number"] {
+    position: relative !important;
+    /* 🔥 ยกเลิก absolute เดิมทิ้ง เพื่อไม่ให้ลอยไปทับตัวหนังสือ */
+    left: auto !important;
+    top: auto !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    width: 36px !important;
+    height: 36px !important;
+    background-color: var(--accent-gold) !important;
+    /* 🔥 เปลี่ยนวงกลมจากสีดำ เป็นสีทอง Caramel Gold ตามธีมใหม่ */
+    color: #ffffff !important;
+    border-radius: 50% !important;
+    font-weight: 700 !important;
+    font-size: 0.95rem !important;
+    margin-bottom: 16px !important;
+    /* 🔥 เว้นระยะด้านล่าง 16px ผลักหัวข้อลงไปให้ห่างเสมอ ไม่มีวันทับกันได้อีก! */
+    margin-right: 0 !important;
+    flex-shrink: 0 !important;
+    z-index: 5 !important;
+    box-shadow: 0 4px 10px rgba(196, 151, 101, 0.3) !important;
+    /* ใส่เงาสีทองเบาๆ ให้ดูพรีเมียม */
+}
+
+/* 3. จัดระยะหัวข้อและข้อความภายในให้เป็นระเบียบ อ่านง่ายสบายตา */
+.timeline-item h4,
+[class*="timeline-item"] h4 {
+    font-size: 1.05rem !important;
+    font-weight: 700 !important;
+    color: var(--primary-color) !important;
+    margin-top: 0 !important;
+    margin-bottom: 10px !important;
+    line-height: 1.4 !important;
+    width: 100% !important;
+}
+
+.timeline-item p,
+[class*="timeline-item"] p {
+    font-size: 0.9rem !important;
+    color: var(--text-muted) !important;
+    margin: 0 !important;
+    line-height: 1.6 !important;
+    width: 100% !important;
+}
+
+/* ตอนเอาเมาส์ชี้การ์ด -> ขอบและเงาเปลี่ยนเป็นสีทองอบอุ่น */
+.timeline-item:hover,
+[class*="timeline-item"]:hover {
+    border-color: var(--accent-gold) !important;
+    box-shadow: 0 10px 25px rgba(196, 151, 101, 0.15) !important;
+    transform: translateY(-3px);
+    transition: all 0.3s ease;
+}
+
+/* ==========================================================================
+   🔥 BULLETPROOF TIMELINE FIX (ล็อกเป้าหมายทะลวงถึง #tab-process โดยเฉพาะ)
+   ========================================================================== */
+
+/* 1. บังคับการ์ดทุกใบในแท็บ Process ให้เรียงเนื้อหาจาก "บนลงล่าง (Vertical Stack)" */
+#tab-process div[class*="item"],
+#tab-process div[class*="card"],
+#tab-process div[class*="step"],
+.timeline-item,
+.boi-stepper-bar {
+    position: relative !important;
+    display: flex !important;
+    flex-direction: column !important;
+    /* 🔥 หัวใจสำคัญ: สั่งเรียงแนวตั้ง เลขอยู่บน -> หัวข้ออยู่กลาง -> ข้อความอยู่ล่าง */
+    align-items: flex-start !important;
+    justify-content: flex-start !important;
+    padding: 28px 22px !important;
+    /* เว้นขอบกล่องให้สวยงามพอดีคำ */
+    margin-bottom: 20px !important;
+    background-color: #ffffff !important;
+    border: 1px solid var(--border-color, #EAEAEA) !important;
+    border-radius: 12px !important;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03) !important;
+    height: auto !important;
+    min-height: auto !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+}
+
+/* ยกเลิกเส้นขีดตรงกลางเดิมที่เกะกะทิ้งไป */
+#tab-process div[class*="item"]::before,
+#tab-process div[class*="card"]::before,
+.timeline-item::before {
+    display: none !important;
+}
+
+/* 2. 🔥 ปลดล็อกวงกลมตัวเลข (1,2,3,4) ออกจากโหมด Absolute และเปลี่ยนเป็นสีทองทันที! */
+#tab-process div[class*="number"],
+#tab-process div[class*="step-num"],
+#tab-process div>div:first-child[style*="border-radius: 50%"],
+.timeline-number,
+.boi-stepper-number {
+    position: relative !important;
+    /* 🔥 ฆ่าคำสั่ง absolute เดิมทิ้ง! ตัวเลขจะไม่ลอยไปทับใครอีกต่อไป */
+    left: auto !important;
+    top: auto !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    width: 38px !important;
+    height: 38px !important;
+    background-color: var(--accent-gold, #C49765) !important;
+    /* 🔥 บังคับเปลี่ยนเป็นสีทอง Caramel Gold */
+    color: #ffffff !important;
+    border-radius: 50% !important;
+    font-weight: 700 !important;
+    font-size: 0.95rem !important;
+    margin: 0 0 15px 0 !important;
+    /* 🔥 ดันข้อความด้านล่างให้หนีห่างออกไป 15px เสมอ! */
+    flex-shrink: 0 !important;
+    z-index: 10 !important;
+    box-shadow: 0 4px 10px rgba(196, 151, 101, 0.3) !important;
+}
+
+/* 3. จัดระเบียบหัวข้อและรายละเอียดข้างในไม่ให้ล้นหรือเบียดกัน */
+#tab-process h3,
+#tab-process h4,
+.timeline-item h4 {
+    font-size: 1.05rem !important;
+    font-weight: 700 !important;
+    color: var(--primary-color, #1A1A1A) !important;
+    margin: 0 0 8px 0 !important;
+    line-height: 1.4 !important;
+    width: 100% !important;
+}
+
+#tab-process p,
+.timeline-item p {
+    font-size: 0.9rem !important;
+    color: var(--text-muted, #666666) !important;
+    margin: 0 !important;
+    line-height: 1.6 !important;
+    width: 100% !important;
 }

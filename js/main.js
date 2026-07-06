@@ -10,9 +10,9 @@ document.addEventListener("DOMContentLoaded", function () {
     <header id="main-header">
         <div class="logo-container">
             <a href="${path}index.html" style="display: flex; align-items: center; gap: 10px; text-decoration: none;">
-                <img src="${path}picture/logo-unname.png" alt="Expatique Logo" id="navbar-logo" style="height: 36px; transition: all 0.4s ease;">
+                <img src="${path}picture/logo-unname.png" alt="Expatique Logo" id="navbar-logo" style="height: 64px; transition: all 0.4s ease;">
                 
-                <span class="navbar-brand-name" style="font-family: var(--font-main); font-size: 1.05rem; font-weight: 600; letter-spacing: 2px; color: var(--primary-color); text-transform: uppercase; transition: all 0.4s ease;">
+                <span class="navbar-brand-name" style="font-family: var(--font-main); font-size: 1.18rem; font-weight: 600; letter-spacing: 2px; color: var(--primary-color); text-transform: uppercase; transition: all 0.4s ease;">
                     EXPATIQUE
                 </span>
             </a>
@@ -297,7 +297,7 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
     // ==========================================
-    // 4. Scroll Animation (ย่อขนาดโลโก้และชื่อบริษัทตอนเลื่อนจอให้สมดุล)
+    // 4. Scroll Animation (ย่อขนาดโลโก้ที่ขยายใหม่ตอนเลื่อนหน้าจอ)
     // ==========================================
     window.addEventListener('scroll', function () {
         const header = document.getElementById('main-header');
@@ -306,12 +306,18 @@ document.addEventListener("DOMContentLoaded", function () {
 
         if (window.scrollY > 50) {
             header.classList.add('scrolled');
-            if (logo) logo.style.height = '30px'; // ย่อโลโก้ลงเหลือ 30px
-            if (brandName) brandName.style.fontSize = '0.95rem'; // ย่อชื่อบริษัทลงรับกัน
+            if (logo) logo.style.height = '48px'; // 🔥 ตอนเลื่อนจอลง ย่อรูปโลโก้เหลือ 48px (เดิม 32px)
+            if (brandName) {
+                brandName.style.fontSize = '1.05rem'; // ย่อตัวหนังสือลงรับกัน
+                brandName.style.color = '#FFFFFF';
+            }
         } else {
             header.classList.remove('scrolled');
-            if (logo) logo.style.height = '36px'; // ขนาดปกติ
-            if (brandName) brandName.style.fontSize = '1.05rem'; // ขนาดปกติ
+            if (logo) logo.style.height = '64px'; // 🔥 อยู่บนสุด ขยายใหญ่เต็มตาที่ 64px
+            if (brandName) {
+                brandName.style.fontSize = '1.18rem';
+                brandName.style.color = '#FFFFFF';
+            }
         }
     });
 
