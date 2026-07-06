@@ -249,9 +249,18 @@ document.addEventListener("DOMContentLoaded", function () {
     // ==========================================
     const hamburger = document.getElementById('hamburger');
     const navMenu = document.getElementById('nav-menu');
+
     hamburger.addEventListener('click', () => {
         navMenu.classList.toggle('is-active');
         hamburger.classList.toggle('is-active');
+
+        // 🔥 เพิ่มคำสั่งนี้: ถ้าเมนูหลักถูกปิด ให้สั่งปิดเมนูย่อย (Dropdown) ทั้งหมดด้วย
+        if (!navMenu.classList.contains('is-active')) {
+            const allMegaMenus = document.querySelectorAll('.mega-menu');
+            allMegaMenus.forEach(function (menu) {
+                menu.classList.remove('is-active-mobile');
+            });
+        }
     });
 
     // ==========================================
@@ -392,5 +401,36 @@ document.addEventListener("DOMContentLoaded", function () {
             }
         });
     }
+
+    // ==========================================
+    // 8. Mobile Menu & Dropdown Logic (เพิ่มใหม่)
+    // ==========================================
+    // เลือกปุ่มเมนูหลักเฉพาะตัวที่มี Dropdown
+    const mobileDropdownToggles = document.querySelectorAll('.mega-dropdown > a.nav-item');
+
+    mobileDropdownToggles.forEach(function (toggle) {
+        toggle.addEventListener('click', function (e) {
+            // เช็คว่าใช้งานอยู่บนหน้าจอมือถือ/แท็บเล็ต (กว้างไม่เกิน 1024px)
+            if (window.innerWidth <= 1024) {
+                // หยุดพฤติกรรมการคลิกลิงก์เปลี่ยนหน้า
+                e.preventDefault();
+
+                // หากล่องเมนูย่อย (mega-menu) ที่อยู่ถัดจากปุ่มที่กด
+                const megaMenu = this.nextElementSibling;
+
+                if (megaMenu && megaMenu.classList.contains('mega-menu')) {
+                    // หากเมนูอื่นๆ เปิดอยู่ ให้สั่งปิดก่อน (เพื่อให้แสดงผลแค่เมนูเดียว)
+                    document.querySelectorAll('.mega-menu').forEach(function (menu) {
+                        if (menu !== megaMenu) {
+                            menu.classList.remove('is-active-mobile');
+                        }
+                    });
+
+                    // สลับสถานะ กางออก/หุบเข้า ของเมนูที่กด
+                    megaMenu.classList.toggle('is-active-mobile');
+                }
+            }
+        });
+    });
 
 });

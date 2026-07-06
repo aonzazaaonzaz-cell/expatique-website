@@ -444,12 +444,12 @@
     }
 }
 
-.boi-icon-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
-    gap: 20px;
-    margin-top: 30px;
-    margin-bottom: 40px;
+@media (max-width: 768px) {
+    .boi-icon-grid {
+        display: grid !important;
+        grid-template-columns: 1fr !important;
+        gap: 16px !important;
+    }
 }
 
 .boi-icon-card {

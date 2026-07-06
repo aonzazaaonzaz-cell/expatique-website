@@ -4,7 +4,8 @@
 
 /* ปุ่มย้อนกลับ */
 .back-to-team {
-    margin-bottom: 20px; /* ปรับลดจาก 40px เป็น 20px */
+    margin-bottom: 20px;
+    /* ปรับลดจาก 40px เป็น 20px */
 }
 
 .back-to-team a {

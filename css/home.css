@@ -85,7 +85,7 @@
 }
 
 /* ==========================================================================
-   3. Services Vertical Tabs (แทนที่ Grid และ Slider เดิม)
+   3. Services Section - คอมพิวเตอร์ดูแบบ Tab / มือถือดูแบบ Card Grid
    ========================================================================== */
 .services-tab-section {
     max-width: 1400px;
@@ -113,14 +113,23 @@
     line-height: 1.8;
 }
 
+/* ตั้งค่าเริ่มต้น: โชว์เวอร์ชัน Desktop และซ่อนเวอร์ชัน Mobile */
+.desktop-only-view {
+    display: block;
+}
+
+.mobile-only-view {
+    display: none;
+}
+
+/* --- สไตล์ของฝั่ง Desktop (Tabs เหมือนเดิมเป๊ะ) --- */
 .tabs-container {
     display: flex;
     background: var(--bg-white);
     border: 1px solid var(--border-color);
     border-radius: 20px;
     overflow: hidden;
-    height: 650px;
-    /* ขยายกล่องใหญ่ 600px */
+    height: 600px;
     box-shadow: 0 15px 40px rgba(0, 0, 0, 0.06);
 }
 
@@ -160,9 +169,7 @@
 
 .tabs-content-area {
     width: 75%;
-    /* เพิ่มพื้นที่ฝั่งเนื้อหาเป็น 75% */
-    padding: 50px 60px;
-    /* เพิ่ม Padding ซ้ายขวาให้ดูโล่ง ไม่อึดอัด */
+    padding: 50px 50px 40px 50px;
     background-color: var(--bg-white);
     height: 100%;
     display: flex;
@@ -174,7 +181,6 @@
     width: 100%;
     gap: 40px;
     align-items: flex-start;
-    /* รูปภาพและข้อความชิดขอบบนเสมอกัน */
     animation: fadeEffect 0.5s ease;
 }
 
@@ -184,7 +190,6 @@
     flex-direction: column;
     justify-content: flex-start;
     padding-right: 20px;
-    /* เพิ่มพื้นที่ด้านขวา ไม่ให้ตัวหนังสือไหลไปชนขอบรูปภาพ */
 }
 
 .tab-text h3 {
@@ -198,28 +203,27 @@
     font-size: 0.95rem;
     color: var(--text-dark);
     line-height: 1.6;
-    /* ทำให้พารากราฟอ่านง่ายขึ้น */
+    margin-bottom: 18px;
+}
+
+.tab-text p:last-of-type {
+    margin-bottom: 5px;
 }
 
 .tab-bullets {
-    margin-top: 20px;
-    margin-bottom: 40px;
+    margin-top: 10px;
+    margin-bottom: 30px;
     display: grid;
     grid-template-columns: 1fr 1fr;
-    /* แบ่ง 2 คอลัมน์ */
     gap: 18px 20px;
-    /* [สำคัญ] แนวตั้งห่าง 18px / แนวนอนห่าง 40px ให้ช่องไฟสวยขึ้น */
 }
 
 .tab-bullets li {
     position: relative;
-    padding-left: 22px;
-    /* ขยับตัวหนังสือให้ห่างจากจุดไข่ปลาอีกนิด */
-    margin-bottom: 0;
+    padding-left: 20px;
     color: var(--text-dark);
     font-size: 0.95rem;
     line-height: 1.5;
-    /* [สำคัญ] เวลาตกบรรทัด บรรทัดที่ 2 จะได้ไม่ชิดบรรทัดแรกเกินไป */
 }
 
 .tab-bullets li::before {
@@ -227,7 +231,6 @@
     position: absolute;
     left: 0;
     top: 9px;
-    /* ขยับจุดไข่ปลาลงมาให้อยู่กึ่งกลางของตัวอักษรบรรทัดแรกพอดี */
     width: 6px;
     height: 6px;
     border-radius: 50%;
@@ -235,10 +238,8 @@
 }
 
 .tab-image {
-    width: 30%;
-    /* ปรับขนาดรูปลงมาให้สมดุล */
+    width: 35%;
     height: 450px;
-    /* ลดความสูงรูปลง เพื่อให้เป็นสี่เหลี่ยมคล้าย Canva มากขึ้น */
     border-radius: 12px;
     overflow: hidden;
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
@@ -249,7 +250,6 @@
     width: 100%;
     height: 100%;
     object-fit: cover;
-    object-position: center;
 }
 
 @keyframes fadeEffect {
@@ -265,53 +265,90 @@
 }
 
 /* ==========================================================================
-   4. Responsive Design for Home Page
+   4. RESPONSIVE SWITCHER (สลับหน้าตาตอนจอมือถือต่ำกว่า 900px)
    ========================================================================== */
 @media (max-width: 900px) {
-    .tabs-container {
+
+    /* สั่งซ่อนระบบ Tab ของคอมพิวเตอร์ และเปิดระบบ Card Grid ของมือถือ */
+    .desktop-only-view {
+        display: none !important;
+    }
+
+    .mobile-only-view {
+        display: block !important;
+    }
+
+    /* สไตล์จัดหน้าตาแบบ Card Grid บนมือถือตามแบบ 62842.jpg */
+    .services-mobile-grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        /* เรียงลงมาทีละการ์ดแนวตั้งเพื่อให้อ่านง่าย */
+        gap: 25px;
+        padding: 10px 0;
+    }
+
+    .service-mobile-card {
+        display: flex;
         flex-direction: column;
-        height: auto;
+        background: var(--bg-white);
+        border-radius: 16px;
+        overflow: hidden;
+        border: 1px solid var(--border-color);
+        box-shadow: 0 6px 18px rgba(0, 0, 0, 0.03);
+        transition: transform 0.3s ease;
     }
 
-    .tabs-nav {
+    .card-mobile-img {
+        height: 200px;
+        background-size: cover;
+        background-position: center;
         width: 100%;
-        flex-direction: row;
-        overflow-x: auto;
-        white-space: nowrap;
-        border-right: none;
-        border-bottom: 1px solid var(--border-color);
-        scrollbar-width: none;
     }
 
-    .tabs-nav::-webkit-scrollbar {
-        display: none;
+    .card-mobile-content {
+        padding: 25px 20px;
+        text-align: center;
+        /* จัดตัวหนังสือให้อยู่ตรงกลางตามแบบ Reference */
+        display: flex;
+        flex-direction: column;
+        align-items: center;
     }
 
-    .tab-link {
-        padding: 15px 25px;
-        border-left: none;
-        border-bottom: 3px solid transparent;
+    .card-mobile-content h3 {
+        font-size: 1.3rem;
+        color: var(--accent-gold);
+        /* หัวข้อสีทองพรีเมียม */
+        margin-bottom: 12px;
+        font-weight: 600;
     }
 
-    .tab-link.active {
-        border-left-color: transparent;
-        border-bottom-color: var(--accent-gold);
+    .card-mobile-content p {
+        font-size: 0.9rem;
+        color: var(--text-muted);
+        line-height: 1.5;
+        margin-bottom: 20px;
+        max-width: 90%;
     }
 
-    .tabs-content-area {
-        width: 100%;
-        padding: 30px;
-        height: auto;
+    /* ปุ่มกรอบมนขอบทองตามดีไซน์หรูหรา */
+    .btn-mobile-link {
+        display: inline-block;
+        padding: 10px 30px;
+        font-size: 0.85rem;
+        font-weight: 600;
+        letter-spacing: 1px;
+        color: var(--accent-gold);
+        border: 1.5px solid var(--accent-gold);
+        border-radius: 999px;
+        /* ดีไซน์แคปซูล */
+        text-transform: uppercase;
+        background: transparent;
+        transition: all 0.3s ease;
     }
 
-    .tab-content {
-        flex-direction: column-reverse;
-        gap: 30px;
-    }
-
-    .tab-image {
-        width: 100%;
-        height: 250px;
+    .btn-mobile-link:hover {
+        background: var(--accent-gold);
+        color: white;
     }
 }
 
