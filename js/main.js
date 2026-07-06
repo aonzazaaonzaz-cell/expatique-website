@@ -9,8 +9,12 @@ document.addEventListener("DOMContentLoaded", function () {
     const navbarHTML = `
     <header id="main-header">
         <div class="logo-container">
-            <a href="${path}index.html">
-                <img src="${path}picture/logo.png" alt="Expatique Logo" id="navbar-logo" style="height: 50px; transition: all 0.4s ease;">
+            <a href="${path}index.html" style="display: flex; align-items: center; gap: 10px; text-decoration: none;">
+                <img src="${path}picture/logo-unname.png" alt="Expatique Logo" id="navbar-logo" style="height: 36px; transition: all 0.4s ease;">
+                
+                <span class="navbar-brand-name" style="font-family: var(--font-main); font-size: 1.05rem; font-weight: 600; letter-spacing: 2px; color: var(--primary-color); text-transform: uppercase; transition: all 0.4s ease;">
+                    EXPATIQUE
+                </span>
             </a>
         </div>
         
@@ -293,17 +297,21 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
     // ==========================================
-    // 4. Scroll Animation 
+    // 4. Scroll Animation (ย่อขนาดโลโก้และชื่อบริษัทตอนเลื่อนจอให้สมดุล)
     // ==========================================
     window.addEventListener('scroll', function () {
         const header = document.getElementById('main-header');
         const logo = document.getElementById('navbar-logo');
+        const brandName = document.querySelector('.navbar-brand-name');
+
         if (window.scrollY > 50) {
             header.classList.add('scrolled');
-            if (logo) logo.style.height = '35px';
+            if (logo) logo.style.height = '30px'; // ย่อโลโก้ลงเหลือ 30px
+            if (brandName) brandName.style.fontSize = '0.95rem'; // ย่อชื่อบริษัทลงรับกัน
         } else {
             header.classList.remove('scrolled');
-            if (logo) logo.style.height = '50px';
+            if (logo) logo.style.height = '36px'; // ขนาดปกติ
+            if (brandName) brandName.style.fontSize = '1.05rem'; // ขนาดปกติ
         }
     });
 
@@ -372,7 +380,7 @@ document.addEventListener("DOMContentLoaded", function () {
             link.rel = 'icon';
             document.head.appendChild(link);
         }
-        link.href = `${path}picture/logo.png`;
+        link.href = `${path}picture/logo-unname.png`;
     };
     setFavicon();
 
