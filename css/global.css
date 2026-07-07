@@ -618,37 +618,16 @@ body:hover .cursor-follower {
 }
 
 /* ==========================================================================
-   Global Mobile Padding (ป้องกันเนื้อหาชิดขอบทุกหน้าอัตโนมัติ)
+   🔥 MASTER MOBILE RESPONSIVE RULES (ฉบับยุบรวม Clean Code ไม่ซ้ำซ้อน)
+   * ธีม: WOXA Full-Bleed Background + Left-Aligned Text (24px Padding) + Centered Buttons
    ========================================================================== */
+
+/* 1. ระบบแถบเมนู Tab แนวนอน เลื่อนปัดด้วยนิ้วได้ (Swipeable Tabs) */
 @media (max-width: 768px) {
 
-    /* สั่งให้ทุกๆ Section หรือ Main content มีช่องไฟด้านข้าง 5% เสมอ */
-    main,
-    section {
-        padding-left: 5% !important;
-        padding-right: 5% !important;
-        box-sizing: border-box;
-    }
-
-    /* ข้อยกเว้น: ถ้ามีคลาสไหนที่เราอยากให้ภาพพื้นหลังกว้างเต็มจอ (ไม่ติด Padding) 
-       ให้มาเขียนยกเว้นตรงนี้ เช่น .hero-wix */
-    .hero-wix,
-    .slider-section {
-        padding-left: 0 !important;
-        padding-right: 0 !important;
-    }
-}
-
-/* ==========================================================================
-   Global Swipeable Horizontal Tabs for Mobile (ใช้ร่วมกันทุกหน้า)
-   ========================================================================== */
-@media (max-width: 768px) {
-
-    /* คุมแถบเมนู Tab ให้เรียงแนวนอนและใช้นิ้วปัดซ้าย-ขวาได้ */
     .tab-menu,
     [id^="tab-menu"],
     .health-tab-menu {
-        /* คุณสามารถเพิ่มชื่อคลาสของหน้าอื่นๆ มาคั่นด้วยคอมมาตรงนี้ได้ */
         display: flex !important;
         flex-wrap: nowrap !important;
         overflow-x: auto;
@@ -658,7 +637,6 @@ body:hover .cursor-follower {
         margin-bottom: 25px;
         border-bottom: 1px solid var(--border-color);
         scrollbar-width: none;
-        /* ซ่อน Scrollbar */
         -ms-overflow-style: none;
     }
 
@@ -667,7 +645,6 @@ body:hover .cursor-follower {
         display: none;
     }
 
-    /* ปรับปุ่มข้างในไม่ให้โดนบีบและไม่ตกบรรทัด */
     .tab-menu button,
     .tab-menu a,
     [id^="tab-menu"]>*,
@@ -680,92 +657,344 @@ body:hover .cursor-follower {
     }
 }
 
-/* ==========================================================================
-   MASTER MOBILE RESPONSIVE RULES (คุมทุกหน้าในเว็บไซต์อัตโนมัติ)
-   ========================================================================== */
+/* 2. ระบบพื้นหลังเต็มจอ 100% + ระยะเว้นข้อความปลอดภัย 24px + จัดชิดซ้าย */
 @media (max-width: 768px) {
 
-    /* 1. ป้องกันเนื้อหาชิดขอบจอในทุกๆ หน้า (Global Safe Area) */
+    /* 🔥 สั่งให้พื้นหลัง Section ทุกอัน "ยืดสุดขอบจอ 100%" (ไม่มี Padding ขอบขาวขวางกั้น) */
     main,
-    section:not(.hero-wix):not(.slider-section),
-    [class*="-container"],
+    section,
+    .hero-wix,
+    .hero-with-bg,
+    .split-content-section,
+    .detailed-services-section,
+    .services-overview,
+    .tabs-section,
     [class*="-section"] {
-        padding-left: 5% !important;
-        padding-right: 5% !important;
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+        width: 100% !important;
+        max-width: 100% !important;
         box-sizing: border-box !important;
     }
 
-    /* ข้อยกเว้น: ให้แบนเนอร์หรือรูปภาพหลักด้านบนสุดขยายเต็ม 100% ไม่ติดขอบ */
+    /* 🔥 ครอบ Padding (24px) ให้เฉพาะ "กล่องข้อความและเนื้อหาด้านใน" ไม่ให้ชิดขอบจอ */
+    .woxa-container,
+    .hero-wix-left,
+    .hero-wix-right,
+    .split-text-side,
+    .split-image-side,
+    .cta-banner,
+    .section-header,
+    .services-grid,
+    .detailed-services-grid,
+    .boi-stepper-list,
+    .timeline-container,
+    .tab-menu,
+    .sub-tab-menu {
+        padding-left: 24px !important;
+        padding-right: 24px !important;
+        box-sizing: border-box !important;
+        width: 100% !important;
+    }
+
+    /* การ์ดที่อยู่ข้างใน Grid ไม่ต้องเว้นขอบซ้ำซ้อน แต่ให้เว้นข้างในตัวมันเองแทน */
+    .service-card,
+    .detail-card,
+    .boi-icon-card,
+    .timeline-item {
+        padding-left: 20px !important;
+        padding-right: 20px !important;
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+        width: 100% !important;
+    }
+
+    /* 🔥 บังคับให้หัวข้อและข้อความ (Text) จัดชิดซ้ายอ่านง่ายตามแนวสายตา */
+    .hero-wix-left h1,
+    .hero-wix-left p,
+    .hero-with-bg h1,
+    .hero-with-bg p,
+    .split-text-side h3,
+    .split-text-side p,
+    .cta-banner h3,
+    .cta-banner p,
+    [class*="hero-"] h1,
+    [class*="hero-"] p {
+        text-align: left !important;
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+        width: 100% !important;
+    }
+
+    /* ปรับขนาดหัวข้อในมือถือให้ใหญ่ คมชัด เต็มตา */
+    .hero-wix h1,
+    .hero-with-bg h1 {
+        font-size: 2.5rem !important;
+        line-height: 1.2 !important;
+        margin-bottom: 15px !important;
+    }
+
+    .hero-wix p,
+    .hero-with-bg p {
+        font-size: 1.05rem !important;
+        line-height: 1.6 !important;
+        margin-bottom: 25px !important;
+    }
+}
+
+/* 3. ระบบบังคับเฉพาะ "ปุ่ม CTA" ให้อยู่ตรงกลางหน้าจอมือถือ */
+@media (max-width: 768px) {
+
+    /* 🔥 บังคับเฉพาะปุ่ม ให้ดีดตัวเองไปตั้งอยู่ตรงกลางหน้าจออย่างสมดุล */
+    .btn,
+    .btn-primary,
+    .btn-outline,
+    .btn-outline-blue,
+    .btn-dark,
+    .schedule-btn,
+    .mega-btn {
+        display: flex !important;
+        justify-content: center !important;
+        align-items: center !important;
+        margin-top: 25px !important;
+        margin-bottom: 15px !important;
+
+        /* ดันซ้าย-ขวาอัตโนมัติ เพื่อดึงเฉพาะปุ่มมาอยู่ตรงกลางโดยไม่ดึงตัวหนังสือตามมา! */
+        margin-left: auto !important;
+        margin-right: auto !important;
+        align-self: center !important;
+
+        text-align: center !important;
+        width: fit-content !important;
+        min-width: 220px !important;
+        /* ขยายปุ่มให้นิ้วโป้งกดโดนง่าย */
+        max-width: 90% !important;
+    }
+
+    /* กล่องครอบกลุ่มปุ่ม ให้จัดเรียงซ้อนกันตรงกลาง */
+    .button-group,
+    .cta-banner-actions,
+    .hero-wix-left>div:last-child {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        justify-content: center !important;
+        width: 100% !important;
+        margin-top: 15px !important;
+    }
+}
+
+/* ==========================================================================
+   🔥 MASTER MOBILE UI/UX FIX: ควบคุม "ทุกส่วนของเว็บไซต์" ให้สวยเป๊ะเป็นระบบเดียว
+   * 1. พื้นหลัง Section ยืดสุดขอบจอ 100% (Full-Bleed)
+   * 2. ข้อความทุกส่วนมี Safe Padding 24px และจัดชิดซ้ายอ่านง่าย
+   * 3. ปลดล็อกความสูงทุกกล่อง (height: auto) ห้ามยืดห่างกันเอง + ใช้ gap จัดช่องไฟ
+   * 4. ปุ่ม CTA ทุกชนิดอยู่ตรงกลางจออย่างสมดุล
+   ========================================================================== */
+@media (max-width: 768px) {
+
+    /* ==========================================================================
+       PART 1: ระบบพื้นหลังเต็มจอ 100% + ปลดล็อกความสูงทุก Section
+       ========================================================================== */
+    main,
+    section,
     .hero-wix,
-    .slider-section,
-    [class*="-hero-bg"] {
+    .hero-with-bg,
+    .split-content-section,
+    .detailed-services-section,
+    .services-overview,
+    .tabs-section,
+    .cta-banner,
+    [class*="-section"] {
         padding-left: 0 !important;
         padding-right: 0 !important;
+        margin-left: 0 !important;
+        margin-right: 0 !important;
         width: 100% !important;
+        max-width: 100% !important;
+        min-height: auto !important;
+        /* 🔥 ยกเลิกความสูงขั้นต่ำทุกส่วน ไม่ให้กล่องยืดเทอะทะ */
+        height: auto !important;
+        box-sizing: border-box !important;
     }
 
-    /* 2. เปลี่ยนเมนู Tab ทุกหน้าให้เป็น "แถบเลื่อนแนวนอนด้วยนิ้ว" (Swipeable Tabs) */
+    /* จัดระยะเว้นบน-ล่างของ Section ทั่วไป (ที่ไม่ใช่ Hero) ให้มีพื้นที่หายใจกำลังดี */
+    section:not(.hero-wix):not(.hero-with-bg),
+    .split-content-section,
+    .detailed-services-section,
+    .services-overview,
+    .tabs-section {
+        padding-top: 50px !important;
+        padding-bottom: 50px !important;
+    }
+
+    /* ==========================================================================
+       PART 2: ระบบ Safe Padding (24px) สำหรับข้อความและเนื้อหา "ทุกส่วน"
+       ========================================================================== */
+    .woxa-container,
+    .hero-wix-left,
+    .hero-wix-right,
+    .split-text-side,
+    .split-image-side,
+    .cta-banner,
+    .section-header,
+    .services-grid,
+    .detailed-services-grid,
+    .boi-stepper-list,
+    .timeline-container,
     .tab-menu,
-    [class*="tab-menu"],
-    [id^="tab-menu"],
-    .tabs-nav {
-        display: flex !important;
-        flex-direction: row !important;
-        flex-wrap: nowrap !important;
-        /* ห้ามปุ่มตกลงมาบรรทัดใหม่ */
-        overflow-x: auto !important;
-        /* เปิดระบบเลื่อนแนวนอน */
-        -webkit-overflow-scrolling: touch;
-        /* ให้ปัดใน iPhone/iPad ลื่นๆ */
-        gap: 12px !important;
-        padding-bottom: 12px !important;
-        margin-bottom: 25px !important;
-        border-right: none !important;
-        border-bottom: 1px solid var(--border-color) !important;
+    .sub-tab-menu {
+        padding-left: 24px !important;
+        /* 🔥 เว้นระยะซ้าย 24px ให้ข้อความทุกส่วนอ่านสบายตา */
+        padding-right: 24px !important;
+        /* 🔥 เว้นระยะขวา 24px */
         width: 100% !important;
-        scrollbar-width: none;
-        /* ซ่อน Scrollbar (Firefox) */
-        -ms-overflow-style: none;
-        /* ซ่อน Scrollbar (IE/Edge) */
+        box-sizing: border-box !important;
     }
 
-    .tab-menu::-webkit-scrollbar,
-    [class*="tab-menu"]::-webkit-scrollbar,
-    [id^="tab-menu"]::-webkit-scrollbar,
-    .tabs-nav::-webkit-scrollbar {
-        display: none !important;
-        /* ซ่อน Scrollbar (Chrome/Safari/Edge) */
+    /* การ์ดที่อยู่ข้างใน Grid ให้เว้นระยะข้างในตัวมันเอง ไม่ให้ซ้อนทับ */
+    .service-card,
+    .detail-card,
+    .boi-icon-card,
+    .timeline-item,
+    .boi-stepper-bar {
+        padding: 24px 20px !important;
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+        width: 100% !important;
+        box-sizing: border-box !important;
     }
 
-    /* คุมปุ่มใน Tab ไม่ให้โดนบีบ และข้อความห้ามตกบรรทัด */
-    .tab-menu button,
-    .tab-menu a,
-    [class*="tab-menu"]>*,
-    [id^="tab-menu"]>*,
-    .tabs-nav>* {
-        flex: 0 0 auto !important;
-        /* รักษาขนาดปุ่มตามเนื้อหาจริง */
-        white-space: nowrap !important;
-        /* ห้ามข้อความถูกตัดขึ้นบรรทัดใหม่ */
-        padding: 10px 18px !important;
-        font-size: 0.95rem !important;
-        border-radius: 999px !important;
-        /* ทรงแคปซูล */
+    /* ==========================================================================
+       PART 3: 🔥 ปลดล็อกความสูงกล่องเนื้อหา "ทุกชนิด" ไม่ให้ยืดห่าง + ใช้ Gap จัดช่องไฟ
+       ========================================================================== */
+    .hero-wix-left,
+    .hero-with-bg>.woxa-container,
+    .hero-with-bg>div,
+    .split-text-side,
+    .cta-banner,
+    .cta-banner-text,
+    .section-header,
+    .service-card,
+    .detail-card,
+    .boi-icon-card,
+    .timeline-item {
+        min-height: auto !important;
+        /* 🔥 ห้ามยืดความสูงเด็ดขาด ปล่อยตามเนื้อหาจริง */
+        height: auto !important;
+        display: flex !important;
+        flex-direction: column !important;
+        justify-content: flex-start !important;
+        /* 🔥 สั่งเรียงชิดบนเสมอ ไม่ให้โดนถีบแยกบน-ล่าง */
+        gap: 12px !important;
+        /* 🔥 ช่องไฟระหว่างหัวข้อ-ข้อความพอดีสวยงามทั้งเว็บ (12-14px) */
     }
 
-    /* 3. ปรับขนาดฟอนต์หัวข้อหลัก (H1, H2) ในมือถือไม่ให้ล้นจอ */
-    h1 {
-        font-size: 2.2rem !important;
+    /* ล้างค่า Margin เก่าที่เคยดันกันเองทิ้ง ให้ทุกอย่างพึ่งพาระบบ Gap ด้านบน */
+    .hero-wix-left h1,
+    .hero-wix-left p,
+    .hero-wix-left span,
+    .hero-with-bg h1,
+    .hero-with-bg p,
+    .hero-with-bg span,
+    .split-text-side h2,
+    .split-text-side h3,
+    .split-text-side p,
+    .cta-banner h2,
+    .cta-banner h3,
+    .cta-banner p,
+    .section-header h2,
+    .section-header p,
+    .service-card h3,
+    .service-card p,
+    .detail-card h3,
+    .detail-card p,
+    .timeline-item h4,
+    .timeline-item p {
+        margin: 0 !important;
+        text-align: left !important;
+        /* จัดข้อความชิดซ้ายทั้งหมดเพื่อการอ่านที่ดีที่สุด */
+        width: 100% !important;
+    }
+
+    /* ปรับขนาดฟอนต์หัวข้อของ Section ต่างๆ ให้พอดีจอมือถือ ไม่ใหญ่ล้นจอ */
+    .section-header h2,
+    .split-text-side h2,
+    .cta-banner h3 {
+        font-size: 1.8rem !important;
+        line-height: 1.3 !important;
+        color: var(--primary-color) !important;
+    }
+
+    /* ==========================================================================
+       PART 4: HERO SECTION (เว้นบน 100px พ้น Navigator พอดีเป๊ะ)
+       ========================================================================== */
+    .hero-wix,
+    .hero-with-bg {
+        padding-top: 100px !important;
+        /* ดันลงมาพ้น Header 80px + พื้นที่หายใจ 20px */
+        padding-bottom: 40px !important;
+        background-position: center bottom !important;
+        /* ดึงวิวตึกมาไว้ด้านล่าง */
+    }
+
+    .hero-wix h1,
+    .hero-with-bg h1 {
+        font-size: 2.3rem !important;
         line-height: 1.25 !important;
     }
 
-    h2 {
-        font-size: 1.8rem !important;
-        line-height: 1.3 !important;
+    .hero-wix {
+        background-image: linear-gradient(180deg,
+                rgba(255, 255, 255, 1) 0%,
+                rgba(255, 255, 255, 0.95) 70%,
+                rgba(255, 255, 255, 0.25) 100%), url('../picture/Town.png') !important;
+        background-size: cover !important;
     }
 
-    h3 {
-        font-size: 1.4rem !important;
-        line-height: 1.35 !important;
+    /* ==========================================================================
+       PART 5: 🔥 บังคับเฉพาะ "ปุ่ม CTA ทุกปุ่มทั้งเว็บไซต์" ให้อยู่ตรงกลางจอ
+       ========================================================================== */
+    .btn,
+    .btn-primary,
+    .btn-outline,
+    .btn-outline-blue,
+    .btn-dark,
+    .schedule-btn,
+    .mega-btn,
+    .card-link,
+    [class*="btn-"],
+    [class*="-btn"] {
+        display: flex !important;
+        justify-content: center !important;
+        align-items: center !important;
+        margin-top: 20px !important;
+        margin-bottom: 10px !important;
+
+        /* 🔥 ดันซ้าย-ขวาอัตโนมัติ เพื่อดึงเฉพาะปุ่มมาอยู่ตรงกลางโดยไม่ดึงตัวหนังสือตามมา! */
+        margin-left: auto !important;
+        margin-right: auto !important;
+        align-self: center !important;
+
+        text-align: center !important;
+        width: fit-content !important;
+        min-width: 220px !important;
+        /* ขยายปุ่มให้นิ้วโป้งกดโดนง่าย */
+        max-width: 90% !important;
+    }
+
+    /* กล่องครอบกลุ่มปุ่ม ให้จัดเรียงซ้อนกันตรงกลาง */
+    .button-group,
+    .cta-banner-actions,
+    .hero-wix-left>div:last-child {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        justify-content: center !important;
+        width: 100% !important;
+        margin-top: 15px !important;
+        gap: 12px !important;
     }
 }
