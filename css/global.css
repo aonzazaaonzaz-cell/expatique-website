@@ -397,59 +397,228 @@ nav ul li.mega-dropdown:hover .mega-menu {
 }
 
 /* ==========================================================================
-   6. Footer Layout & Style 
+   6. Footer Layout & Style (Theme: Executive Navy Blue - สีเดียวกับ Navigator)
    ========================================================================== */
 .main-footer {
-    background-color: #000000 !important;
-    color: #ffffff !important;
+    /* 🔥 เปลี่ยนเป็นสี var(--bg-header-navy) หรือ #0A121E โทนเดียวกับ Navigator ด้านบนเป๊ะ! */
+    background-color: var(--bg-header-navy, #0A121E) !important;
+    color: #FFFFFF !important;
     padding: 80px 10% 40px !important;
     width: 100% !important;
+    border-top: 1px solid rgba(196, 151, 101, 0.25) !important;
+    /* เส้นคั่นบนสีทองคาราเมลบางๆ */
+    position: relative;
+    z-index: 10;
 }
 
+/* กล่องคุมการจัดเรียงคอลัมน์ใน Footer */
 .footer-container {
     display: flex !important;
     justify-content: space-between !important;
+    align-items: flex-start !important;
     max-width: 1200px !important;
     margin: 0 auto !important;
     text-align: left !important;
     gap: 50px !important;
+    flex-wrap: wrap;
 }
 
 .footer-col {
     flex: 1 !important;
+    min-width: 200px;
     text-align: left !important;
 }
 
+/* 1. โลโก้ใน Footer */
 .footer-col img {
-    filter: brightness(0) invert(1);
-    height: 50px !important;
-    margin-bottom: 15px !important;
-}
-
-.footer-col h4 {
-    font-size: 0.8rem !important;
-    letter-spacing: 2px !important;
-    color: var(--accent-gold) !important;
-    /* เปลี่ยนหัวข้อ Footer ให้เป็นสีทอง */
+    height: 45px !important;
     margin-bottom: 20px !important;
-    opacity: 0.9;
+    transition: transform 0.3s ease;
 }
 
+.footer-col img:hover {
+    transform: scale(1.05);
+}
+
+/* 2. หัวข้อในแต่ละคอลัมน์ (H4) -> สีทอง Caramel Gold */
+.footer-col h4 {
+    font-size: 0.85rem !important;
+    font-weight: 700 !important;
+    letter-spacing: 2px !important;
+    color: var(--accent-gold, #C49765) !important;
+    margin-bottom: 22px !important;
+    text-transform: uppercase !important;
+    opacity: 0.95;
+}
+
+/* 3. รายละเอียดและลิงก์ต่างๆ -> สีเทาอมฟ้าสว่าง อ่านง่ายบนพื้น Navy */
 .footer-col p,
 .footer-col ul li a {
-    color: #aaaaaa !important;
-    font-size: 0.9rem !important;
-    line-height: 1.6 !important;
+    color: #D1D7E0 !important;
+    font-size: 0.92rem !important;
+    line-height: 1.8 !important;
     text-decoration: none !important;
+    display: inline-block;
+    transition: all 0.25s cubic-bezier(0.25, 0.8, 0.25, 1) !important;
 }
 
+.footer-col ul li {
+    margin-bottom: 10px !important;
+}
+
+/* เอาเมาส์ชี้ลิงก์ใน Footer แล้วเปลี่ยนเป็นสีทอง + สไลด์ขวาเบาๆ */
+.footer-col ul li a:hover {
+    color: var(--accent-gold, #C49765) !important;
+    transform: translateX(6px);
+}
+
+/* 4. แถบลิขสิทธิ์ด้านล่างสุด */
 .footer-bottom {
     text-align: center;
     margin-top: 60px;
-    padding-top: 20px;
-    border-top: 1px solid #333333;
-    font-size: 0.8rem;
-    color: #666666;
+    padding-top: 25px;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    font-size: 0.82rem;
+    color: #8A95A5;
+    letter-spacing: 0.5px;
+}
+
+/* ==========================================================================
+   🔥 FOOTER MOBILE RESPONSIVE
+   ========================================================================== */
+@media (max-width: 768px) {
+    .main-footer {
+        padding: 60px 0 30px 0 !important;
+    }
+
+    .footer-container {
+        flex-direction: column !important;
+        align-items: flex-start !important;
+        gap: 35px !important;
+        padding-left: 24px !important;
+        padding-right: 24px !important;
+        width: 100% !important;
+        box-sizing: border-box !important;
+    }
+
+    .footer-col {
+        width: 100% !important;
+        text-align: left !important;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        padding-bottom: 25px;
+    }
+
+    .footer-col:last-child {
+        border-bottom: none;
+        padding-bottom: 0;
+    }
+
+    .footer-col img {
+        margin: 0 0 15px 0 !important;
+    }
+
+    .footer-bottom {
+        margin-top: 40px;
+        padding-left: 24px;
+        padding-right: 24px;
+        text-align: center;
+    }
+}
+
+/* ==========================================================================
+   🔥 FOOTER MOBILE RESPONSIVE (ฉบับ WOXA Style: ชิดซ้ายเป็นระเบียบ เรียบหรู)
+   ========================================================================== */
+@media (max-width: 768px) {
+    .main-footer {
+        padding: 60px 0 30px 0 !important;
+        background-color: var(--bg-header-navy, #0A121E) !important;
+    }
+
+    .footer-container {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: flex-start !important;
+        /* 🔥 หัวใจสำคัญ: บังคับทุกคอลัมน์ชิดซ้ายตามแบบ WOXA */
+        justify-content: flex-start !important;
+        gap: 35px !important;
+        /* ระยะห่างระหว่างหมวดหมู่กำลังดี ไม่ห่างเกินไป */
+        padding-left: 24px !important;
+        /* เว้น Safe Padding 24px ให้ตรงกับเนื้อหาส่วนอื่น */
+        padding-right: 24px !important;
+        width: 100% !important;
+        box-sizing: border-box !important;
+    }
+
+    .footer-col {
+        width: 100% !important;
+        text-align: left !important;
+        /* 🔥 ข้อความทุกหมวดหมู่จัดชิดซ้ายทั้งหมด */
+        border-bottom: 1px solid rgba(255, 255, 255, 0.08) !important;
+        /* เส้นคั่นบางๆ ระหว่างหมวด */
+        padding-bottom: 28px !important;
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: flex-start !important;
+        /* จัดอิลิเมนต์ภายในกล่องให้ชิดซ้าย */
+    }
+
+    .footer-col:last-child {
+        border-bottom: none !important;
+        padding-bottom: 0 !important;
+    }
+
+    /* 🔥 แก้ไขโลโก้: จัดชิดซ้ายบนสุด ขนาดเด่นชัด พร้อมเว้นระยะด้านล่างสวยงาม */
+    .footer-col img {
+        display: block !important;
+        margin: 0 0 18px 0 !important;
+        /* ชิดซ้าย เว้นระยะล่าง 18px ไม่ลอยสะเปะสะปะ */
+        height: 48px !important;
+        /* ขนาดพอดีตา ไม่เล็กจิ๋วหรือใหญ่ล้น */
+        width: auto !important;
+    }
+
+    /* จัดระเบียบหัวข้อ COMPANY, CONTACT ให้ชิดซ้าย ตัวอักษรสีทอง Caramel Gold */
+    .footer-col h4 {
+        text-align: left !important;
+        margin-bottom: 16px !important;
+        color: var(--accent-gold, #C49765) !important;
+        font-size: 0.85rem !important;
+        letter-spacing: 2px !important;
+        text-transform: uppercase !important;
+        width: 100% !important;
+    }
+
+    /* จัดข้อความอธิบายบริษัท และลิงก์เมนูต่างๆ ให้ชิดซ้าย อ่านง่ายสบายตา */
+    .footer-col p,
+    .footer-col ul,
+    .footer-col ul li,
+    .footer-col ul li a {
+        text-align: left !important;
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+        width: 100% !important;
+        color: #D1D7E0 !important;
+        /* สีเทาอมฟ้าสว่าง อ่านชัดบนพื้น Navy */
+        line-height: 1.7 !important;
+    }
+
+    .footer-col ul li {
+        margin-bottom: 12px !important;
+        /* ช่องไฟระหว่างเมนู (เช่น Who We Are กับ Legal) */
+    }
+
+    /* แถบลิขสิทธิ์ด้านล่างสุด จัดชิดซ้ายให้คุมโทนเดียวกับเนื้อหาด้านบน */
+    .footer-bottom {
+        margin-top: 40px !important;
+        padding-left: 24px !important;
+        padding-right: 24px !important;
+        text-align: left !important;
+        /* จัดชิดซ้ายตามสไตล์โมเดิร์น */
+        border-top: 1px solid rgba(255, 255, 255, 0.08) !important;
+        padding-top: 25px !important;
+        width: 100% !important;
+        box-sizing: border-box !important;
+    }
 }
 
 /* ==========================================================================

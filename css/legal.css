@@ -1,6 +1,6 @@
 /* ==========================================================================
    CATEGORY STYLES: LEGAL, LITIGATION & TAX (legal.css)
-   Theme: Warm Minimalist Luxury (Slight Brown Cream)
+   Theme: Warm Minimalist Luxury (Slight Brown Cream / Executive Navy)
    ========================================================================== */
 
 /* 1. Category Hero Banner (แบบมีภาพพื้นหลัง) */
@@ -14,14 +14,12 @@
     color: var(--primary-color);
 }
 
-/* กล่องคุมเนื้อหาให้อยู่ตรงกลาง */
 .woxa-container {
     max-width: 1200px;
     margin: 0 auto;
     width: 100%;
 }
 
-/* หัวข้อเล็กด้านบน (Subtitle สีทอง) */
 .hero-subtitle {
     font-size: 0.9rem;
     font-weight: 700;
@@ -182,7 +180,6 @@
     height: 24px;
     flex-shrink: 0;
     color: var(--accent-gold);
-    /* เปลี่ยนไอคอนเช็คลิสต์เป็นสีทองอบอุ่น */
 }
 
 .feature-item-text strong {
@@ -254,7 +251,6 @@
     height: 35px;
     margin-bottom: 20px;
     color: var(--accent-gold);
-    /* ไอคอนการ์ดสีทอง */
 }
 
 .detail-card h3 {
@@ -439,7 +435,7 @@
     }
 }
 
-/* 🔥 1. อัปเกรด BOI Icon Grid: จัดเรียง 4 คอลัมน์บนจอ Mac/PC ตามที่ต้องการ */
+/* BOI Icon Grid: จัดเรียง 4 คอลัมน์บนจอ Mac/PC */
 .boi-icon-grid {
     display: grid !important;
     grid-template-columns: repeat(4, 1fr) !important;
@@ -459,7 +455,6 @@
     align-items: center;
     justify-content: flex-start;
     min-height: 180px;
-    /* ล็อกความสูงให้เป็นสัดส่วนสี่เหลี่ยมสมดุล */
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.02);
     transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
 }
@@ -506,58 +501,14 @@
     height: 28px;
 }
 
-/* Timeline (ขั้นตอนการทำงาน) */
+/* Timeline (ขั้นตอนการทำงาน - จอคอม) */
 .timeline-container {
     max-width: 700px;
     margin: 40px auto;
     padding-left: 10px;
 }
 
-.timeline-item {
-    position: relative;
-    padding-left: 50px;
-    margin-bottom: 40px;
-}
-
-.timeline-item::before {
-    content: '';
-    position: absolute;
-    left: 14px;
-    top: 35px;
-    bottom: -40px;
-    width: 2px;
-    background-color: var(--border-color);
-}
-
-.timeline-item:last-child::before {
-    display: none;
-}
-
-.timeline-number {
-    position: absolute;
-    left: 0;
-    top: 0;
-    width: 30px;
-    height: 30px;
-    background-color: var(--accent-gold);
-    /* เปลี่ยนเลขลำดับเป็นสีทองให้ดูแพง */
-    color: #fff;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-weight: 700;
-    font-size: 0.9rem;
-    z-index: 2;
-}
-
-.timeline-item h4 {
-    font-size: 1.15rem;
-    color: var(--primary-color);
-    margin-bottom: 5px;
-}
-
-/* 🔥 2. Sub-tabs (แท็บย่อยทรงแคปซูล ปรับเป็นโทนทอง Caramel Gold) */
+/* Sub-tabs (แท็บย่อยทรงแคปซูล โทนทอง Caramel Gold) */
 .sub-tab-menu {
     display: flex;
     gap: 12px;
@@ -587,7 +538,6 @@
 
 .sub-tab-btn.active {
     background: var(--accent-gold) !important;
-    /* หน้าปัจจุบันเป็นสีทองทึบ */
     color: #fff !important;
     border-color: var(--accent-gold) !important;
     font-weight: 600;
@@ -604,11 +554,107 @@
 }
 
 /* ==========================================================================
-   CONSOLIDATED RESPONSIVE RULES (ยุบรวมกฎหน้าจอทุกขนาดไว้ด้านล่างสุด)
+   🔥 MASTER TIMELINE & NUMBERED CARDS FIX (ยุบรวมกฎตัวเลขให้เป็นก้อนเดียวที่ทรงพลัง)
+   ========================================================================== */
+.timeline-item,
+.boi-icon-card.timeline-item,
+.detail-card.timeline-item,
+#tab-process div[class*="item"],
+#tab-process div[class*="card"],
+#tab-process div[class*="step"],
+.boi-stepper-bar,
+[class*="timeline-item"] {
+    position: relative !important;
+    display: flex !important;
+    flex-direction: column !important;
+    /* 🔥 สั่งเรียงแนวตั้ง: เลขอยู่บน -> หัวข้ออยู่กลาง -> ข้อความอยู่ล่าง */
+    align-items: flex-start !important;
+    justify-content: flex-start !important;
+    padding: 28px 24px !important;
+    margin-bottom: 20px !important;
+    background-color: #ffffff !important;
+    border: 1px solid var(--border-color, #EAEAEA) !important;
+    border-radius: 12px !important;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03) !important;
+    height: auto !important;
+    min-height: auto !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+}
+
+/* ยกเลิกเส้นตรงกลางที่เกะกะ */
+.timeline-item::before,
+#tab-process div[class*="item"]::before,
+#tab-process div[class*="card"]::before,
+[class*="timeline-item"]::before {
+    display: none !important;
+}
+
+/* 🔥 ดึงวงกลมตัวเลขออกจากโหมด Absolute มาเป็นปุ่มลอยตัวแนวตั้ง เปลี่ยนเป็นสีทอง Карамеล! */
+.timeline-number,
+.boi-stepper-number,
+#tab-process div[class*="number"],
+#tab-process div[class*="step-num"],
+#tab-process div>div:first-child[style*="border-radius: 50%"],
+[class*="timeline-"] [class*="number"],
+[class*="step-"] [class*="number"] {
+    position: relative !important;
+    /* 🔥 ฆ่าคำสั่ง absolute เดิมทิ้ง ห้ามลอยไปทับข้อความ */
+    left: auto !important;
+    top: auto !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    width: 38px !important;
+    height: 38px !important;
+    background-color: var(--accent-gold, #C49765) !important;
+    /* 🔥 สีทอง Caramel Gold */
+    color: #ffffff !important;
+    border-radius: 50% !important;
+    font-weight: 700 !important;
+    font-size: 0.95rem !important;
+    margin: 0 0 15px 0 !important;
+    /* 🔥 ดันข้อความด้านล่างให้หนีห่างออกไป 15px เสมอ! */
+    flex-shrink: 0 !important;
+    z-index: 10 !important;
+    box-shadow: 0 4px 10px rgba(196, 151, 101, 0.3) !important;
+}
+
+.timeline-item h4,
+#tab-process h3,
+#tab-process h4,
+[class*="timeline-item"] h4 {
+    font-size: 1.05rem !important;
+    font-weight: 700 !important;
+    color: var(--primary-color, #1A1A1A) !important;
+    margin: 0 0 8px 0 !important;
+    line-height: 1.4 !important;
+    width: 100% !important;
+}
+
+.timeline-item p,
+#tab-process p,
+[class*="timeline-item"] p {
+    font-size: 0.9rem !important;
+    color: var(--text-muted, #666666) !important;
+    margin: 0 !important;
+    line-height: 1.6 !important;
+    width: 100% !important;
+}
+
+.timeline-item:hover,
+[class*="timeline-item"]:hover {
+    border-color: var(--accent-gold) !important;
+    box-shadow: 0 10px 25px rgba(196, 151, 101, 0.15) !important;
+    transform: translateY(-3px);
+    transition: all 0.3s ease;
+}
+
+/* ==========================================================================
+   CONSOLIDATED RESPONSIVE RULES (ยุบรวมกฎหน้าจอขนาดกลาง)
    ========================================================================== */
 @media (max-width: 1100px) {
 
-    /* ในโน้ตบุ๊กจอเล็ก หรือแท็บเล็ต ปรับ Grid BOI เหลือ 2 คอลัมน์ */
     .boi-icon-grid,
     .detailed-services-grid {
         grid-template-columns: repeat(2, 1fr) !important;
@@ -627,23 +673,33 @@
     }
 }
 
+/* ==========================================================================
+   🔥 LEGAL MOBILE MASTER FIX: ควบคุมมือถือให้สวยคลีน จบครบในก้อนเดียว
+   ========================================================================== */
 @media (max-width: 768px) {
 
+    /* 1. 🔥 ป้องกัน Navbar บังเนื้อหาด้านบน (Safe Area 100px) */
     .hero-with-bg,
     .split-content-section,
     .detailed-services-section,
     .services-overview,
     .tabs-section {
-        padding-left: 5% !important;
-        padding-right: 5% !important;
+        padding-top: 100px !important;
+        /* 🔥 ดันลงมาพ้น Header 80px + พื้นที่หายใจ 20px */
+        padding-bottom: 50px !important;
+        padding-left: 0 !important;
+        /* พื้นหลังยืดสุดขอบจอ 100% */
+        padding-right: 0 !important;
+        width: 100% !important;
         box-sizing: border-box !important;
     }
 
     .hero-with-bg h1 {
-        font-size: 2.4rem !important;
+        font-size: 2.3rem !important;
+        line-height: 1.25 !important;
     }
 
-    /* ในมือถือ บังคับทุก Grid กลับมาเรียง 1 คอลัมน์แนวดิ่ง */
+    /* บังคับ Grid ทุกหมวดกลับมาเรียง 1 คอลัมน์แนวดิ่ง */
     .feature-grid,
     .detailed-services-grid,
     .boi-icon-grid,
@@ -656,181 +712,204 @@
         min-height: auto !important;
         padding: 24px 18px !important;
     }
+
+    /* 2. 🔥 บังคับข้อความอยู่บนสุด และดันรูปภาพลงไปแสดงด้านล่างสุดเสมอ (Mobile Order Fix) */
+    .split-content-block,
+    .hero-with-bg .woxa-container,
+    [class*="split-"],
+    [class*="content-block"] {
+        display: flex !important;
+        flex-direction: column !important;
+        /* 🔥 สั่งเรียงซ้อนกันแนวตั้ง */
+        align-items: center !important;
+        justify-content: flex-start !important;
+        gap: 25px !important;
+        /* ช่องไฟระหว่างข้อความกับรูปภาพด้านล่าง */
+        width: 100% !important;
+        padding-left: 24px !important;
+        /* Safe Padding 24px ให้ตัวหนังสือไม่อึดอัด */
+        padding-right: 24px !important;
+        box-sizing: border-box !important;
+    }
+
+    /* ล็อกลำดับที่ 1: "โซนข้อความ" อยู่ด้านบนสุดเสมอ */
+    .split-text-side,
+    .hero-content,
+    [class*="-text"] {
+        order: 1 !important;
+        /* บังคับให้อยู่ลำดับแรกสุด (บนสุด) */
+        width: 100% !important;
+        text-align: left !important;
+        /* จัดชิดซ้ายอ่านง่าย */
+        padding: 0 !important;
+    }
+
+    /* ล็อกลำดับที่ 2: ดัน "โซนรูปภาพ" ให้ตกลงไปแสดงด้านล่างสุดเสมอ */
+    .split-image-side,
+    .hero-image,
+    [class*="-image"] {
+        order: 2 !important;
+        /* บังคับให้ลงไปอยู่ลำดับสอง (ล่างสุด) */
+        width: 100% !important;
+        margin-top: 10px !important;
+        margin-bottom: 20px !important;
+        display: flex !important;
+        justify-content: center !important;
+    }
+
+    /* รูปภาพสวยคลีน ไม่สูงเทอะทะ */
+    .split-image-side img,
+    [class*="-image"] img {
+        width: 100% !important;
+        height: auto !important;
+        max-height: 380px !important;
+        /* 🔥 ล็อกความสูงรูปในมือถือ */
+        object-fit: cover !important;
+        border-radius: 16px !important;
+        /* โค้งมนสวยหรู */
+        box-shadow: 0 12px 30px rgba(11, 19, 32, 0.12) !important;
+    }
+
+    /* จัดปุ่ม CTA ในมือถือให้อยู่ตรงกลางอย่างสมดุล */
+    .split-text-side .btn,
+    .split-text-side [class*="btn"],
+    .button-group {
+        display: flex !important;
+        justify-content: center !important;
+        align-items: center !important;
+        margin-top: 20px !important;
+        margin-bottom: 10px !important;
+        margin-left: auto !important;
+        margin-right: auto !important;
+        width: fit-content !important;
+        min-width: 220px !important;
+    }
 }
 
 /* ==========================================================================
-   Timeline & Numbered Cards Fix (แก้ไขปัญหาเลขลำดับซ้อนทับหัวข้อแบบเด็ดขาด)
-   Theme: Warm Minimalist Luxury (Slight Brown Cream)
+   🔥 BACKGROUND FEATURE SECTION (MOBILE FIX)
+   แก้ปัญหารูปพื้นหลังกวนตัวหนังสือ บังคับโชว์รูปไว้ด้านล่างสุดของ Section
    ========================================================================== */
+@media (max-width: 768px) {
+    .background-feature-section {
+        /* 1. 🔥 เขียนทับ Inline Style: เปลี่ยนการไล่สีเป็น "บนลงล่าง (180deg)" */
+        /* หมายเหตุ: ใส่ !important เพื่อบังคับชนะโค้ด style="..." ใน HTML */
+        background-image: linear-gradient(180deg,
+                rgba(255, 255, 255, 1) 0%,
+                /* ด้านบนขาวทึบ 100% อ่านข้อความชัดเจน */
+                rgba(255, 255, 255, 0.95) 55%,
+                /* คลุมขาวลงมาถึงช่วงกลางๆ */
+                rgba(255, 255, 255, 0) 100%
+                /* ด้านล่างสุดโปร่งใส เพื่อโชว์รูปค้อนเต็มๆ */
+            ), url('../picture/legal-litigation-tax/legal-support/legal.png') !important;
 
-/* 1. จัดโครงสร้างการ์ดขั้นตอนใหม่ ให้เรียงเนื้อหาจากบนลงล่าง (Flex Column) */
-.timeline-item,
-.boi-icon-card.timeline-item,
-.detail-card.timeline-item,
-[class*="timeline-item"] {
-    position: relative !important;
-    display: flex !important;
-    flex-direction: column !important;
-    /* 🔥 สั่งเรียงแนวตั้ง: เลขลำดับอยู่บน -> หัวข้ออยู่กลาง -> ข้อความอยู่ล่าง */
-    align-items: flex-start !important;
-    justify-content: flex-start !important;
-    padding: 28px 24px !important;
-    /* ล็อกระยะขอบกล่องให้สมดุลทั้งในคอมและมือถือ */
-    margin-bottom: 25px !important;
-    background-color: #ffffff !important;
-    border: 1px solid var(--border-color) !important;
-    border-radius: 12px !important;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.02) !important;
-    height: auto !important;
-    min-height: auto !important;
-}
+        /* 2. ดันรูปภาพ (ค้อน) ให้ไปเกาะอยู่ตรงกลาง-ขอบล่างสุดของหน้าจอ */
+        background-position: center bottom !important;
+        background-size: cover !important;
 
-/* ยกเลิกเส้นขีดตรงกลางเดิมที่เกะกะเมื่อเปลี่ยนมาอยู่ในรูปแบบการ์ด */
-.timeline-item::before,
-[class*="timeline-item"]::before {
-    display: none !important;
-}
-
-/* 2. 🔥 หัวใจสำคัญ: ดึงวงกลมตัวเลขออกจากโหมด Absolute มาตั้งเป็นปุ่มลอยตัวแนวตั้ง ห้ามซ้อนทับเด็ดขาด! */
-.timeline-number,
-.boi-icon-card .timeline-number,
-[class*="timeline-"] [class*="number"],
-[class*="step-"] [class*="number"] {
-    position: relative !important;
-    /* 🔥 ยกเลิก absolute เดิมทิ้ง เพื่อไม่ให้ลอยไปทับตัวหนังสือ */
-    left: auto !important;
-    top: auto !important;
-    display: inline-flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-    width: 36px !important;
-    height: 36px !important;
-    background-color: var(--accent-gold) !important;
-    /* 🔥 เปลี่ยนวงกลมจากสีดำ เป็นสีทอง Caramel Gold ตามธีมใหม่ */
-    color: #ffffff !important;
-    border-radius: 50% !important;
-    font-weight: 700 !important;
-    font-size: 0.95rem !important;
-    margin-bottom: 16px !important;
-    /* 🔥 เว้นระยะด้านล่าง 16px ผลักหัวข้อลงไปให้ห่างเสมอ ไม่มีวันทับกันได้อีก! */
-    margin-right: 0 !important;
-    flex-shrink: 0 !important;
-    z-index: 5 !important;
-    box-shadow: 0 4px 10px rgba(196, 151, 101, 0.3) !important;
-    /* ใส่เงาสีทองเบาๆ ให้ดูพรีเมียม */
-}
-
-/* 3. จัดระยะหัวข้อและข้อความภายในให้เป็นระเบียบ อ่านง่ายสบายตา */
-.timeline-item h4,
-[class*="timeline-item"] h4 {
-    font-size: 1.05rem !important;
-    font-weight: 700 !important;
-    color: var(--primary-color) !important;
-    margin-top: 0 !important;
-    margin-bottom: 10px !important;
-    line-height: 1.4 !important;
-    width: 100% !important;
-}
-
-.timeline-item p,
-[class*="timeline-item"] p {
-    font-size: 0.9rem !important;
-    color: var(--text-muted) !important;
-    margin: 0 !important;
-    line-height: 1.6 !important;
-    width: 100% !important;
-}
-
-/* ตอนเอาเมาส์ชี้การ์ด -> ขอบและเงาเปลี่ยนเป็นสีทองอบอุ่น */
-.timeline-item:hover,
-[class*="timeline-item"]:hover {
-    border-color: var(--accent-gold) !important;
-    box-shadow: 0 10px 25px rgba(196, 151, 101, 0.15) !important;
-    transform: translateY(-3px);
-    transition: all 0.3s ease;
+        /* 3. 🔥 ถ่างกล่องด้านล่างให้กว้างขึ้น เพื่อให้มีพื้นที่โชว์รูปค้อนโดยไม่มีตัวหนังสือบัง */
+        padding-top: 100px !important;
+        /* พ้นระยะ Navbar */
+        padding-bottom: 280px !important;
+        /* 🔥 เว้นที่ว่างด้านล่าง 280px ให้รูปโชว์เด่นๆ */
+    }
 }
 
 /* ==========================================================================
-   🔥 BULLETPROOF TIMELINE FIX (ล็อกเป้าหมายทะลวงถึง #tab-process โดยเฉพาะ)
+   🔥 TAXATION PAGE MOBILE SPECIFIC FIX
+   * จัดระเบียบการ์ดทีมผู้เชี่ยวชาญด้านภาษี (Team Highlight) และจัดรูปทรงให้เข้ากับมือถือ
    ========================================================================== */
+@media (max-width: 768px) {
 
-/* 1. บังคับการ์ดทุกใบในแท็บ Process ให้เรียงเนื้อหาจาก "บนลงล่าง (Vertical Stack)" */
-#tab-process div[class*="item"],
-#tab-process div[class*="card"],
-#tab-process div[class*="step"],
-.timeline-item,
-.boi-stepper-bar {
-    position: relative !important;
-    display: flex !important;
-    flex-direction: column !important;
-    /* 🔥 หัวใจสำคัญ: สั่งเรียงแนวตั้ง เลขอยู่บน -> หัวข้ออยู่กลาง -> ข้อความอยู่ล่าง */
-    align-items: flex-start !important;
-    justify-content: flex-start !important;
-    padding: 28px 22px !important;
-    /* เว้นขอบกล่องให้สวยงามพอดีคำ */
-    margin-bottom: 20px !important;
-    background-color: #ffffff !important;
-    border: 1px solid var(--border-color, #EAEAEA) !important;
-    border-radius: 12px !important;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03) !important;
-    height: auto !important;
-    min-height: auto !important;
-    width: 100% !important;
-    box-sizing: border-box !important;
-}
+    /* 1. 🔥 ปรับการ์ดผู้เชี่ยวชาญ (.team-highlight-card) ให้เรียงแนวตั้ง ขยายเต็มจอ */
+    .team-highlight-card {
+        padding: 30px 20px !important;
+        width: 100% !important;
+        box-sizing: border-box !important;
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: flex-start !important;
+        gap: 20px !important;
+        border-top: 4px solid var(--accent-gold) !important;
+        background-color: #ffffff !important;
+    }
 
-/* ยกเลิกเส้นขีดตรงกลางเดิมที่เกะกะทิ้งไป */
-#tab-process div[class*="item"]::before,
-#tab-process div[class*="card"]::before,
-.timeline-item::before {
-    display: none !important;
-}
+    /* 2. จัดส่วนหัวของการ์ด ให้รูปเด้งขึ้นไปอยู่ด้านบน และข้อความชื่ออยู่ด้านล่างรูป */
+    .team-highlight-header {
+        display: flex !important;
+        flex-direction: column !important;
+        /* 🔥 สั่งให้รูปอยู่บน ข้อความอยู่ล่าง */
+        align-items: flex-start !important;
+        gap: 15px !important;
+        width: 100% !important;
+        margin-bottom: 5px !important;
+    }
 
-/* 2. 🔥 ปลดล็อกวงกลมตัวเลข (1,2,3,4) ออกจากโหมด Absolute และเปลี่ยนเป็นสีทองทันที! */
-#tab-process div[class*="number"],
-#tab-process div[class*="step-num"],
-#tab-process div>div:first-child[style*="border-radius: 50%"],
-.timeline-number,
-.boi-stepper-number {
-    position: relative !important;
-    /* 🔥 ฆ่าคำสั่ง absolute เดิมทิ้ง! ตัวเลขจะไม่ลอยไปทับใครอีกต่อไป */
-    left: auto !important;
-    top: auto !important;
-    display: inline-flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-    width: 38px !important;
-    height: 38px !important;
-    background-color: var(--accent-gold, #C49765) !important;
-    /* 🔥 บังคับเปลี่ยนเป็นสีทอง Caramel Gold */
-    color: #ffffff !important;
-    border-radius: 50% !important;
-    font-weight: 700 !important;
-    font-size: 0.95rem !important;
-    margin: 0 0 15px 0 !important;
-    /* 🔥 ดันข้อความด้านล่างให้หนีห่างออกไป 15px เสมอ! */
-    flex-shrink: 0 !important;
-    z-index: 10 !important;
-    box-shadow: 0 4px 10px rgba(196, 151, 101, 0.3) !important;
-}
+    /* 🔥 ปรับขนาดรูปผู้เชี่ยวชาญด้านภาษี ให้สมดุล ไม่เบี้ยว และดูพรีเมียม */
+    .team-highlight-img {
+        width: 90px !important;
+        height: 90px !important;
+        object-fit: cover !important;
+        border-radius: 50% !important;
+        /* ปรับเป็นวงกลมให้ดูโมเดิร์นและเป็นมิตรมากขึ้น */
+        box-shadow: 0 6px 15px rgba(11, 19, 32, 0.1) !important;
+        margin-left: 0 !important;
+    }
 
-/* 3. จัดระเบียบหัวข้อและรายละเอียดข้างในไม่ให้ล้นหรือเบียดกัน */
-#tab-process h3,
-#tab-process h4,
-.timeline-item h4 {
-    font-size: 1.05rem !important;
-    font-weight: 700 !important;
-    color: var(--primary-color, #1A1A1A) !important;
-    margin: 0 0 8px 0 !important;
-    line-height: 1.4 !important;
-    width: 100% !important;
-}
+    .team-highlight-header-text {
+        width: 100% !important;
+    }
 
-#tab-process p,
-.timeline-item p {
-    font-size: 0.9rem !important;
-    color: var(--text-muted, #666666) !important;
-    margin: 0 !important;
-    line-height: 1.6 !important;
-    width: 100% !important;
+    .team-highlight-header-text h4 {
+        font-size: 1.2rem !important;
+        color: var(--primary-color) !important;
+        margin-bottom: 4px !important;
+        text-align: left !important;
+    }
+
+    .team-highlight-header-text span {
+        font-size: 0.9rem !important;
+        color: var(--accent-gold) !important;
+        display: block !important;
+        text-align: left !important;
+    }
+
+    /* 3. จัดระเบียบจุด Bullet รายละเอียดความเชี่ยวชาญด้านภาษีให้อ่านง่าย */
+    .team-highlight-card p {
+        font-size: 0.95rem !important;
+        line-height: 1.6 !important;
+        color: var(--text-muted) !important;
+        text-align: left !important;
+        margin-bottom: 15px !important;
+    }
+
+    .team-highlight-card ul {
+        padding-left: 16px !important;
+        /* เว้นระยะเยื้องของ Bullet ให้พอดี ไม่หลุดขอบหน้าจอ */
+        width: 100% !important;
+        box-sizing: border-box !important;
+    }
+
+    .team-highlight-card ul li {
+        font-size: 0.9rem !important;
+        color: var(--primary-color) !important;
+        line-height: 1.5 !important;
+        margin-bottom: 10px !important;
+        text-align: left !important;
+        list-style-type: disc !important;
+        /* คงความเป็นจุดกลมพรีเมียมไว้ */
+    }
+
+    /* 4. จัดการรูปภาพประกอบขนาดใหญ่ (ถ้าหน้า Taxation มีภาพประกอบตึกหรือกราฟิก SVG) */
+    .large-svg-icon,
+    .tax-illustration-img {
+        width: 100% !important;
+        max-width: 320px !important;
+        /* ล็อกไม่ให้ใหญ่เกินหน้าจอมือถือ */
+        height: auto !important;
+        margin: 20px auto !important;
+        /* จัดให้อยู่กึ่งกลางหน้าจอแนวนอน */
+        display: block !important;
+        opacity: 0.95;
+    }
 }

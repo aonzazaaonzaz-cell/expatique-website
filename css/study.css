@@ -6,7 +6,6 @@
 .partner-logos-section {
     padding: 60px 10%;
     background-color: var(--bg-light-grey);
-    /* เปลี่ยนเป็นสีเทาอ่อนตามระบบ Zebra */
     text-align: center;
 }
 
@@ -24,14 +23,12 @@
     width: auto;
     object-fit: contain;
     filter: grayscale(100%) opacity(0.7);
-    /* ทำให้โลโก้เป็นสีเทาคลีนๆ */
     transition: all 0.3s ease;
 }
 
 .partner-logos-grid img:hover {
     transform: scale(1.05);
     filter: grayscale(0%) opacity(1);
-    /* ชี้แล้วมีสีสัน */
 }
 
 /* 2. Grid แบบ 2 คอลัมน์ ไม่สมมาตร (Why Choose Thailand) */
@@ -51,7 +48,6 @@
 .study-feature-side h3 {
     font-size: 1.3rem;
     color: var(--primary-color);
-    /* สีดำ */
     margin-bottom: 10px;
     line-height: 1.4;
 }
@@ -59,7 +55,6 @@
 .study-feature-side p {
     font-size: 1rem;
     color: var(--text-muted);
-    /* สีเทาเข้ม */
     margin-bottom: 25px;
     line-height: 1.6;
 }
@@ -100,7 +95,6 @@
     transform: translateY(-8px);
     box-shadow: 0 15px 30px rgba(0, 0, 0, 0.08);
     border-color: var(--accent-gold);
-    /* ชี้แล้วขอบทอง */
 }
 
 .uni-card img {
@@ -129,21 +123,6 @@
     line-height: 1.6;
 }
 
-/* Responsive */
-@media (max-width: 768px) {
-    .study-feature-grid {
-        gap: 30px;
-    }
-
-    .uni-cards-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .partner-logos-grid img {
-        height: 50px;
-    }
-}
-
 /* ==========================================================================
    SPECIFIC COMPONENTS FOR INTERNSHIP PAGE
    ========================================================================== */
@@ -160,7 +139,6 @@
     background: #fff;
     border: 1px solid var(--border-color);
     border-radius: 12px;
-    /* ขอบมน */
     padding: 30px 20px;
     text-align: center;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.02);
@@ -174,7 +152,6 @@
 .intern-icon-card:hover {
     transform: translateY(-5px);
     border-color: var(--accent-gold);
-    /* ขอบทอง */
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
 }
 
@@ -182,7 +159,6 @@
     width: 32px;
     height: 32px;
     color: var(--primary-color);
-    /* ไอคอนสีดำ */
     margin-bottom: 15px;
 }
 
@@ -194,7 +170,7 @@
     line-height: 1.4;
 }
 
-/* 2. Timeline (Application Process - 5 ขั้นตอน) */
+/* 2. Timeline (Application Process - 5 ขั้นตอนสำหรับจอคอม) */
 .intern-process-grid {
     display: grid;
     grid-template-columns: repeat(5, 1fr);
@@ -211,7 +187,6 @@
     width: 45px;
     height: 45px;
     background-color: var(--primary-color);
-    /* วงกลมสีดำ */
     color: #fff;
     border-radius: 50%;
     display: flex;
@@ -243,22 +218,184 @@
     font-weight: 500;
 }
 
+/* ==========================================================================
+   🔥 STUDY & INTERN MOBILE MASTER FIX (ยุบรวมกฎมือถือไว้ที่เดียว สวยเป๊ะไม่ล้นจอ)
+   ========================================================================== */
 @media (max-width: 768px) {
-    .intern-icon-grid {
-        grid-template-columns: repeat(2, 1fr);
+
+    /* --- 1. 🔥 ป้องกันหน้าจอล้นแนวนอน 100% --- */
+    body,
+    html,
+    main {
+        overflow-x: hidden !important;
+        width: 100% !important;
+        max-width: 100% !important;
     }
 
+    /* --- 2. หน้าจอหลัก และ SAFE AREA (เว้นบน 100px พ้น Navbar + ซ้ายขวา 24px) --- */
+    main,
+    section,
+    .partner-logos-section,
+    .hero-with-bg,
+    [class*="-section"],
+    [id*="section"] {
+        padding-top: 100px !important;
+        /* ดันลงมาพ้น Header 80px */
+        padding-bottom: 50px !important;
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        min-height: auto !important;
+        height: auto !important;
+        box-sizing: border-box !important;
+    }
+
+    /* กล่องข้อความและ Grid ภายใน เว้น Safe Area 24px ซ้าย-ขวาเสมอ */
+    .woxa-container,
+    .study-feature-grid,
+    .uni-cards-grid,
+    .intern-icon-grid,
+    .intern-process-grid,
+    .partner-logos-grid {
+        padding-left: 24px !important;
+        padding-right: 24px !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        box-sizing: border-box !important;
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+    }
+
+    /* --- 3. แก้ไข GRID มหาวิทยาลัย และ WHY CHOOSE THAILAND --- */
+    .study-feature-grid {
+        flex-direction: column !important;
+        gap: 30px !important;
+    }
+
+    .study-feature-side {
+        width: 100% !important;
+        min-width: 100% !important;
+    }
+
+    .uni-cards-grid {
+        grid-template-columns: 1fr !important;
+        /* 🔥 บังคับเรียง 1 คอลัมน์ ไม่ให้ล้นจอ */
+        gap: 20px !important;
+    }
+
+    .uni-card {
+        width: 100% !important;
+    }
+
+    .uni-card img {
+        height: 180px !important;
+        /* ย่อความสูงรูปมหาลัยลงนิดนึงให้สมดุลพอดีตา */
+    }
+
+    .uni-card-content {
+        padding: 24px 20px !important;
+    }
+
+    /* --- 4. 🔥 แก้ไข INTERN ICON GRID (รูป image_6a5a59.png ที่เคยเบียดล้น) --- */
+    .intern-icon-grid {
+        display: grid !important;
+        grid-template-columns: repeat(2, 1fr) !important;
+        /* 🔥 จัด 2 คอลัมน์พอดีจอ */
+        gap: 12px !important;
+        /* ลดช่องไฟลงไม่ให้ดันจอทะลุ */
+    }
+
+    .intern-icon-card {
+        padding: 20px 12px !important;
+        /* ย่อขอบด้านในลง ให้การ์ดดูคลีนไม่อึดอัด */
+        min-width: 0 !important;
+        /* ปลดล็อก minmax 160px เดิมที่เคยทำให้ล้นจอ */
+        width: 100% !important;
+        box-sizing: border-box !important;
+    }
+
+    .intern-icon-card svg {
+        width: 28px !important;
+        height: 28px !important;
+        margin-bottom: 10px !important;
+    }
+
+    .intern-icon-card p {
+        font-size: 0.85rem !important;
+        /* ปรับขนาดฟอนต์ให้พอดีการ์ด ไม่ล้นบรรทัด */
+        line-height: 1.3 !important;
+    }
+
+    /* --- 5. 🔥 อัปเกรด 5 ขั้นตอนการสมัคร ให้เป็นไทม์ไลน์แนวตั้งอ่านง่าย --- */
     .intern-process-grid {
-        grid-template-columns: 1fr;
-        text-align: left;
-        row-gap: 30px;
+        display: flex !important;
+        flex-direction: column !important;
+        /* เรียงซ้อนแนวตั้ง */
+        gap: 16px !important;
+    }
+
+    .intern-process-step {
+        display: flex !important;
+        /* 🔥 วางเลขขั้นตอนไว้ซ้าย ข้อความไว้ขวา */
+        align-items: flex-start !important;
+        gap: 16px !important;
+        text-align: left !important;
+        width: 100% !important;
+        background: #ffffff !important;
+        padding: 18px 20px !important;
+        border: 1px solid var(--border-color, rgba(11, 19, 32, 0.08)) !important;
+        border-radius: 12px !important;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.02) !important;
+        box-sizing: border-box !important;
     }
 
     .intern-process-step:not(:last-child)::after {
-        display: none;
+        display: none !important;
+        /* ปิดเส้นเชื่อมแนวนอนของจอคอม */
     }
 
     .intern-process-num {
-        margin: 0 0 10px 0;
+        margin: 0 !important;
+        /* ลบ margin เก่าทิ้ง */
+        flex-shrink: 0 !important;
+        /* ห้ามวงกลมตัวเลขถูกบีบเล็กลง */
+        width: 38px !important;
+        height: 38px !important;
+        font-size: 0.95rem !important;
+        background-color: var(--accent-gold, #C49765) !important;
+        /* 🔥 เปลี่ยนเลขเป็นสีทองหรูหรา */
+    }
+
+    .intern-process-step p {
+        font-size: 0.92rem !important;
+        line-height: 1.5 !important;
+        margin: 0 !important;
+        padding-top: 6px !important;
+        /* จัดให้อยู่ระดับเดียวกับตัวเลข */
+    }
+
+    /* --- 6. โลโก้พาร์ทเนอร์ และปุ่ม CTA --- */
+    .partner-logos-grid {
+        gap: 25px !important;
+    }
+
+    .partner-logos-grid img {
+        height: 40px !important;
+        /* ย่อขนาดโลโก้ลงให้เรียงสวยในมือถือ */
+    }
+
+    /* ปุ่ม CTA ทุกปุ่มอยู่ตรงกลางจอ */
+    .btn,
+    .btn-primary,
+    .btn-outline,
+    [class*="btn-"] {
+        display: flex !important;
+        justify-content: center !important;
+        align-items: center !important;
+        margin: 20px auto 10px auto !important;
+        width: fit-content !important;
+        min-width: 220px !important;
+        max-width: 90% !important;
     }
 }

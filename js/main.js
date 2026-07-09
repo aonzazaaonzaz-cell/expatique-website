@@ -213,7 +213,7 @@ document.addEventListener("DOMContentLoaded", function () {
     <footer class="main-footer">
         <div class="footer-container">
             <div class="footer-col">
-                <img src="${path}picture/logo.png" alt="Expatique Logo" style="height: 50px; margin-bottom: 15px;">
+                <img src="${path}picture/logo-unname.png" alt="Expatique Logo" style="height: 50px; margin-bottom: 15px;">
                 <p>Expatique is a dedicated advisory service committed to supporting expats and businesses in Thailand.</p>
             </div>
 

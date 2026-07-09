@@ -70,7 +70,7 @@
     line-height: 1.6;
 }
 
-/* 4. Services Grid & Cards (ปรับ minmax เป็น 320px เพื่อให้รองรับแท็บเล็ตได้สวยขึ้น) */
+/* 4. Services Grid & Cards */
 .health-services-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
@@ -274,95 +274,285 @@
 }
 
 /* ==========================================================================
-   CONSOLIDATED MOBILE RESPONSIVE (ยุบรวมกฎจอมือถือทั้งหมดไว้ที่นี่ที่เดียว)
+   🔥 HEALTH & INSURANCE MOBILE MASTER FIX (ฉบับยุบรวม แก้หน้าจอล้น & การ์ดใหญ่คับจอ)
    ========================================================================== */
 @media (max-width: 768px) {
 
-    /* 1. จัดการ Padding ขอบจอและ Hero Section */
+    /* --- 1. ล็อกหน้าจอห้ามล้นแนวนอน --- */
+    body,
+    html,
+    main {
+        overflow-x: hidden !important;
+        width: 100% !important;
+        max-width: 100% !important;
+    }
+
+    /* --- 2. HERO BANNER --- */
     .health-hero-bg {
-        padding: 100px 5% 60px !important;
+        padding: 100px 24px 50px 24px !important;
+        box-sizing: border-box !important;
+        width: 100% !important;
+        background-position: center bottom !important;
+    }
+
+    .health-subtitle {
+        font-size: 0.85rem !important;
+        letter-spacing: 1.5px !important;
+        margin-bottom: 10px !important;
     }
 
     .health-hero-bg h1 {
-        font-size: 2.4rem !important;
-        line-height: 1.25 !important;
+        font-size: 1.85rem !important;
+        line-height: 1.3 !important;
+        margin-bottom: 15px !important;
+        width: 100% !important;
     }
 
+    .health-hero-bg p {
+        font-size: 0.95rem !important;
+        line-height: 1.6 !important;
+    }
+
+    /* --- 3. SECTION ทั่วไป --- */
     .health-overview-section,
     .tabs-section,
     .background-feature-section,
     section[class*="health-"],
-    section[style*="padding: 100px"] {
-        padding: 60px 5% !important;
-        height: auto !important;
-        min-height: auto !important;
+    section[class*="-section"] {
+        padding: 60px 24px !important;
         box-sizing: border-box !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        min-height: auto !important;
+        height: auto !important;
     }
 
-    /* 2. ปรับ Grid และ Container ให้เต็มพอดีจอ */
-    .health-services-grid {
-        grid-template-columns: 1fr;
+    .health-header h2 {
+        font-size: 1.8rem !important;
+        line-height: 1.3 !important;
     }
 
-    .health-container,
-    [class*="health-container"],
-    .background-feature-section>div {
+    /* --- 4. แก้ไข GRID --- */
+    .health-services-grid,
+    .package-grid,
+    .agent-grid,
+    .insurance-grid,
+    [class*="-grid"] {
+        display: grid !important;
+        grid-template-columns: 1fr !important;
+        gap: 20px !important;
         width: 100% !important;
         max-width: 100% !important;
         margin: 0 auto !important;
-        padding: 0 !important;
+        box-sizing: border-box !important;
     }
 
-    /* 3. ปรับพื้นหลังไล่สี (Gradient) ในมือถือให้อ่านข้อความง่าย ไม่จมไปกับภาพ */
-    .background-feature-section {
-        background-image: linear-gradient(to bottom,
-                rgba(255, 255, 255, 0.95) 0%,
-                rgba(255, 255, 255, 0.90) 60%,
-                rgba(255, 255, 255, 0.80) 100%), url('../picture/health-insurance/medical/medical-content-1.png') !important;
-        background-position: center !important;
-        background-size: cover !important;
+    /* --- 5. 🔥 ปรับการ์ดผู้เชี่ยวชาญ/ตัวแทน ให้เหมือนหน้า Taxation (รูปอยู่บน - ชื่ออยู่ใต้ภาพ) --- */
+    .agent-card,
+    .advisor-card,
+    .insurance-card,
+    .team-card,
+    .health-card,
+    [class*="agent-"],
+    [class*="advisor-"],
+    div[class*="card"]:has(img),
+    div[class*="card"]>div:first-child {
+        display: flex !important;
+        flex-direction: column !important;
+        /* 🔥 เรียงแนวตั้ง: รูปอยู่บน -> ชื่ออยู่ใต้ภาพ 100% */
+        align-items: flex-start !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        height: auto !important;
+        padding: 24px 20px !important;
+        margin: 0 0 25px 0 !important;
+        box-sizing: border-box !important;
+        border-radius: 12px !important;
+        /* โค้งมนแบบ Taxation */
+        background-color: #ffffff !important;
+        border: 1px solid var(--border-color, rgba(11, 19, 32, 0.08)) !important;
+        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.05) !important;
     }
 
-    /* 4. ปรับ Layout ภาพวงกลมและกล่อง Tab ในหน้า Insurance */
+    /* ปรับรูปภาพให้เป็นทรงสี่เหลี่ยมโค้งมน มีกรอบทองเบาๆ เหมือนหน้า Taxation เป๊ะ */
+    .agent-card img,
+    .advisor-card img,
+    .insurance-card img,
+    [class*="agent-"] img,
+    [class*="advisor-"] img,
+    div[class*="card"] img {
+        width: 100% !important;
+        /* ขยายเต็มความกว้างการ์ด */
+        height: 280px !important;
+        /* ความสูงกำลังพอดีเหมือน Dr. Thiraset */
+        object-fit: cover !important;
+        object-position: top center !important;
+        border-radius: 12px !important;
+        /* โค้งมน 12px */
+        border: 1px solid var(--accent-gold, #C49765) !important;
+        /* กรอบทองเบาๆ */
+        margin: 0 0 16px 0 !important;
+        /* 🔥 เว้นระยะล่าง 16px ดันชื่อลงไปอยู่ใต้ภาพ */
+    }
+
+    /* จัดระเบียบชื่อและตำแหน่งให้อยู่ใต้ภาพ ชิดซ้ายอ่านง่าย */
+    .agent-info,
+    [class*="-info"],
+    div[class*="card"] h3,
+    div[class*="card"] h4 {
+        width: 100% !important;
+        text-align: left !important;
+        margin: 0 0 6px 0 !important;
+        font-size: 1.25rem !important;
+        font-weight: 700 !important;
+        color: var(--primary-color, #0B1320) !important;
+    }
+
+    /* ตัวหนังสือสีทอง Expat Insurance Consultant */
+    .agent-info span,
+    [class*="-info"] span,
+    div[class*="card"] span:not(.badge) {
+        width: 100% !important;
+        text-align: left !important;
+        display: block !important;
+        margin-bottom: 12px !important;
+        font-size: 0.95rem !important;
+        color: var(--accent-gold, #C49765) !important;
+        font-weight: 600 !important;
+    }
+
+    div[class*="card"] p {
+        font-size: 0.92rem !important;
+        line-height: 1.6 !important;
+        color: var(--text-muted, #5A6472) !important;
+        margin-bottom: 15px !important;
+        width: 100% !important;
+        text-align: left !important;
+    }
+
+    /* --- 6. TAB & CIRCLE IMAGE ในหน้า INSURANCE --- */
     .tab-content-flex {
-        padding: 30px 20px !important;
-        justify-content: center;
-        text-align: center;
-        gap: 30px;
-    }
-
-    .tab-content-flex .text-side {
-        min-width: 100%;
+        padding: 24px 18px !important;
+        gap: 20px !important;
+        text-align: left !important;
+        flex-direction: column !important;
     }
 
     .circle-img-container {
-        width: 180px;
-        height: 180px;
-        margin: 0 auto 15px;
+        width: 140px !important;
+        height: 140px !important;
+        margin: 0 auto 10px auto !important;
     }
 
-    .tab-content-flex ul {
-        text-align: left;
+    .tab-content-flex h3 {
+        font-size: 1.5rem !important;
+        text-align: center !important;
     }
 
-    /* 5. ปรับขนาดฟอนต์หัวข้อและเนื้อหาให้พอดีสายตา */
-    .health-subtitle,
-    span[class*="subtitle"] {
-        font-size: 0.85rem !important;
-        letter-spacing: 1.5px !important;
+    .tab-content-flex h4 {
+        font-size: 1.05rem !important;
+        text-align: center !important;
     }
 
-    .health-container h1,
-    .background-feature-section h1,
-    .background-feature-section h2 {
-        font-size: 2rem !important;
+    /* --- 7. ปุ่ม CTA ทุกปุ่มให้อยู่กึ่งกลางจอ --- */
+    .btn,
+    .btn-primary,
+    .btn-outline,
+    .schedule-btn,
+    [class*="btn-"] {
+        display: flex !important;
+        justify-content: center !important;
+        align-items: center !important;
+        margin: 20px auto 10px auto !important;
+        width: fit-content !important;
+        min-width: 220px !important;
+        max-width: 90% !important;
+    }
+}
+
+/* ==========================================================================
+   🔥 TARGETED FIX: การ์ดตัวแทนในหน้า Insurance ให้เป็น "Taxation Style" เป๊ะๆ
+   (ดักจับกล่องที่ซ่อนอยู่ใน .split-image-side โดยตรง)
+   ========================================================================== */
+@media (max-width: 768px) {
+
+    /* 1. ทะลวงเข้าไประเบิดกล่องการ์ด บังคับให้เรียง "บนลงล่าง" (รูปอยู่บน ข้อความอยู่ล่าง) */
+    .split-image-side>div,
+    .split-image-side>div[style] {
+        display: flex !important;
+        flex-direction: column !important;
+        /* 🔥 หัวใจสำคัญ: บังคับเรียงแนวตั้ง! */
+        align-items: flex-start !important;
+        justify-content: flex-start !important;
+        width: 100% !important;
+        height: auto !important;
+        padding: 30px 24px !important;
+        margin-bottom: 20px !important;
+        background-color: #ffffff !important;
+        border-radius: 12px !important;
+
+        /* 🔥 ใส่เส้นคั่นบนสีทอง Caramel Gold แบบหน้า Taxation */
+        border: 1px solid var(--border-color, rgba(11, 19, 32, 0.08)) !important;
+        border-top: 4px solid var(--accent-gold, #C49765) !important;
+        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.06) !important;
+        box-sizing: border-box !important;
+    }
+
+    /* 2. 🔥 เปลี่ยนรูปคุณจินนารัตน์ให้เป็น "วงกลม 90px" แล้วเด้งไปอยู่บนสุด */
+    .split-image-side>div>img,
+    .split-image-side>div>div>img {
+        width: 90px !important;
+        height: 90px !important;
+        border-radius: 50% !important;
+        /* ปรับเป็นวงกลมพรีเมียม */
+        object-fit: cover !important;
+        object-position: top center !important;
+        margin: 0 0 16px 0 !important;
+        /* ดันข้อความด้านล่างให้หนีห่าง 16px */
+        border: 2px solid #fff !important;
+        box-shadow: 0 4px 15px rgba(11, 19, 32, 0.1) !important;
+        align-self: flex-start !important;
+    }
+
+    /* 3. จัดระเบียบกล่องข้อความ (ชื่อ, ตำแหน่ง, รายละเอียด) ให้อ่านง่ายชิดซ้าย */
+    .split-image-side>div>div {
+        width: 100% !important;
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: flex-start !important;
+        text-align: left !important;
+        padding: 0 !important;
+        margin: 0 !important;
+    }
+
+    /* ชื่อตัวแทนประกัน */
+    .split-image-side>div h3,
+    .split-image-side>div h4,
+    .split-image-side>div strong:first-child {
+        font-size: 1.2rem !important;
+        font-weight: 700 !important;
+        color: var(--primary-color, #0B1320) !important;
+        margin: 0 0 5px 0 !important;
         line-height: 1.3 !important;
-        margin-bottom: 15px !important;
+        width: 100% !important;
     }
 
-    .health-container p,
-    .background-feature-section p {
-        font-size: 0.95rem !important;
+    /* ตำแหน่ง Expat Insurance Consultant สีทอง */
+    .split-image-side>div span,
+    .split-image-side>div p:first-of-type span {
+        font-size: 0.9rem !important;
+        color: var(--accent-gold, #C49765) !important;
+        display: block !important;
+        margin-bottom: 12px !important;
+        font-weight: 600 !important;
+    }
+
+    /* รายละเอียดความเชี่ยวชาญ และ License No. */
+    .split-image-side>div p {
+        font-size: 0.92rem !important;
         line-height: 1.6 !important;
+        color: var(--text-muted, #5A6472) !important;
+        margin-bottom: 10px !important;
+        width: 100% !important;
     }
 }

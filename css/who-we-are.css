@@ -215,3 +215,65 @@
         font-size: 2.5rem;
     }
 }
+
+/* ==========================================================================
+       🔥 WHO WE ARE: MOBILE BG DISPLAY (ทำ BG พื้นหลังให้แสดงผลแบบ Legal.css เป๊ะ!)
+       * วางต่อท้ายสุดในกรอบ @media (max-width: 768px) ของไฟล์ who-we-are.css
+       ========================================================================== */
+
+/* 1. 🔥 ควบคุม Section ที่มีรูปพื้นหลัง (Background-Image) ทุกจุดในหน้า Who We Are
+          ให้ดันรูปไปอยู่ขอบล่างสุด และถ่างพื้นที่ด้านล่าง 280px เพื่อเปิดโชว์รูปภาพ */
+.background-feature-section,
+.hero-with-bg,
+.about-bg-section,
+.about-split,
+[class*="bg-feature"],
+[class*="feature-section"] {
+    position: relative !important;
+    background-position: center bottom !important;
+    /* 🔥 ผลักรูป BG ไปอยู่ขอบล่างสุดของจอ */
+    background-size: cover !important;
+    background-repeat: no-repeat !important;
+    padding-top: 100px !important;
+    /* เว้นระยะบนหนีแถบ Navbar */
+    padding-bottom: 280px !important;
+    /* 🔥 ถ่างพื้นที่ด้านล่าง 280px ให้รูป BG โชว์สวยๆ */
+    z-index: 1 !important;
+}
+
+/* 2. 🔥 เทคนิคขั้นสุด: สร้างฟิล์มขาวไล่เฉดบนลงล่าง (180deg) คลุมทับบนรูป BG อัตโนมัติ 
+          โดยไม่ต้องไปยุ่งกับ URL รูปภาพที่เพื่อนเขียนไว้ใน HTML (style="background-image: ...") */
+.background-feature-section::before,
+.hero-with-bg::before,
+.about-bg-section::before,
+.about-split::before,
+[class*="bg-feature"]::before,
+[class*="feature-section"]::before {
+    content: "" !important;
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    background: linear-gradient(180deg,
+            rgba(255, 255, 255, 1) 0%,
+            /* ด้านบนสุดขาวทึบ 100% ตัวหนังสืออ่านชัดกริบ */
+            rgba(255, 255, 255, 0.95) 55%,
+            /* คลุมขาวลงมาถึงช่วงกลางเนื้อหา */
+            rgba(255, 255, 255, 0) 100%
+            /* 🔥 ด้านล่างสุดโปร่งใส เผยให้เห็นรูป BG ด้านล่างเต็มตา! */
+        ) !important;
+    z-index: -1 !important;
+    /* ให้อยู่เหนือรูป BG แต่อยู่ใต้ตัวหนังสือ */
+}
+
+/* 3. บังคับให้ข้อความ หัวข้อ และปุ่มกด ลอยเด่นอยู่เหนือฟิล์มสีขาวเสมอ */
+.background-feature-section>*,
+.hero-with-bg>*,
+.about-bg-section>*,
+.about-split>*,
+[class*="bg-feature"]>*,
+[class*="feature-section"]>* {
+    position: relative !important;
+    z-index: 2 !important;
+}

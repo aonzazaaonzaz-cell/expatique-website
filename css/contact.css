@@ -202,17 +202,141 @@
     gap: 20px;
 }
 
-/* Responsive */
+/* ==========================================================================
+   🔥 CONTACT MOBILE MASTER FIX (V.2)
+   * แก้ปัญหา Contact Us โดนบังมิดแบบเด็ดขาด (ใช้ Margin ดันข้อความลงมาตรงๆ)
+   ========================================================================== */
 @media (max-width: 768px) {
-    .contact-hero h1 {
-        font-size: 3.5rem;
+
+    /* --- 1. ป้องกันหน้าจอล้นแนวนอน 100% --- */
+    body,
+    html,
+    main {
+        overflow-x: hidden !important;
+        width: 100% !important;
+        max-width: 100% !important;
     }
 
-    .careers-cta h2 {
-        font-size: 2.8rem;
+    /* --- 2. 🔥 HERO SECTION (ท่าไม้ตาย: ดันเนื้อหาหนี Navbar) --- */
+    .contact-hero {
+        /* บังคับให้ Hero มีพื้นที่ด้านบนเยอะๆ */
+        padding-top: 130px !important;
+        padding-bottom: 60px !important;
+        padding-left: 24px !important;
+        padding-right: 24px !important;
+        width: 100% !important;
+        min-height: auto !important;
+        height: auto !important;
+        box-sizing: border-box !important;
+
+        /* 🔥 ถ้าของเดิมเป็น flex ให้บังคับเรียงแนวตั้งและอยู่ตรงกลาง */
+        display: flex !important;
+        flex-direction: column !important;
+        justify-content: flex-start !important;
+        align-items: center !important;
+    }
+
+    /* 🔥 ดันคำว่า WRITE TO US / CONTACT US ลงมาให้ห่างขอบบนสุดๆ */
+    .contact-label {
+        font-size: 0.85rem !important;
+        margin-top: 40px !important;
+        /* 🔥 ดันตัวเองลงมา 40px หนี Navbar ชัวร์ๆ */
+        margin-bottom: 20px !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        width: 100% !important;
+    }
+
+    .contact-label::before,
+    .contact-label::after {
+        width: 20px !important;
+    }
+
+    .contact-hero h1 {
+        font-size: 3.2rem !important;
+        line-height: 1.1 !important;
+        margin-bottom: 20px !important;
+        margin-top: 0 !important;
+        /* ล้าง margin-top เผื่อมันตีกัน */
+    }
+
+    .contact-hero p {
+        font-size: 1.05rem !important;
+        line-height: 1.6 !important;
+    }
+
+    /* --- 3. SAFE AREA สำหรับ Section อื่นๆ ทั่วไป --- */
+    .form-section,
+    .office-section,
+    .careers-cta {
+        padding-top: 80px !important;
+        padding-bottom: 60px !important;
+        padding-left: 24px !important;
+        padding-right: 24px !important;
+        width: 100% !important;
+        box-sizing: border-box !important;
+    }
+
+    .form-header h2 {
+        font-size: 2.2rem !important;
+        line-height: 1.2 !important;
     }
 
     .office-info h2 {
-        font-size: 2.5rem;
+        font-size: 2.2rem !important;
+        line-height: 1.2 !important;
+    }
+
+    .careers-cta h2 {
+        font-size: 2.5rem !important;
+        line-height: 1.2 !important;
+    }
+
+    /* --- 4. FORM SECTION (ฟอร์มส่งข้อความ) --- */
+    .form-container {
+        width: 100% !important;
+        padding: 0 !important;
+    }
+
+    .expatique-form input,
+    .expatique-form textarea {
+        width: 100% !important;
+        box-sizing: border-box !important;
+    }
+
+    /* --- 5. OFFICE & MAP SECTION (เรียงแนวตั้ง) --- */
+    .office-grid {
+        flex-direction: column !important;
+        gap: 40px !important;
+    }
+
+    .office-info,
+    .office-map {
+        min-width: 0 !important;
+        width: 100% !important;
+    }
+
+    .office-map {
+        height: 350px !important;
+    }
+
+    /* --- 6. BUTTONS & CTA (ปุ่มสมัครงาน/ติดต่อ) --- */
+    .careers-actions {
+        flex-direction: column !important;
+        align-items: center !important;
+        gap: 15px !important;
+    }
+
+    .btn,
+    .btn-outline,
+    .careers-actions a {
+        display: flex !important;
+        justify-content: center !important;
+        align-items: center !important;
+        width: 100% !important;
+        max-width: 300px !important;
+        margin-left: auto !important;
+        margin-right: auto !important;
     }
 }
