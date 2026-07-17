@@ -10,6 +10,8 @@
     <link rel="stylesheet" href="../css/legal.css?v=3">
     <link rel="stylesheet" href="../css/study.css?v=2">
 
+    <link rel="icon" type="image/png" href="../picture/logo-unname.png">
+
     <script>
         const basePath = "../";
         const activeMenuId = "nav-study"; 
@@ -337,8 +339,7 @@
                         onclick="openStudyTab('tab-eng-overview', this)">Overview</button>
                     <button class="sub-tab-btn" onclick="openStudyTab('tab-eng-improve', this)">Improve Your
                         English</button>
-                    <button class="sub-tab-btn" onclick="openStudyTab('tab-eng-ielts', this)">IELTS & TOEFL
-                        Preparation</button>
+                    <button class="sub-tab-btn" onclick="openStudyTab('tab-eng-ielts', this)">IELTS & TOEFL</button>
                     <button class="sub-tab-btn" onclick="openStudyTab('tab-eng-help', this)">How Expatique
                         Helps</button>
                 </div>
@@ -598,6 +599,7 @@
                         </div>
                     </div>
                 </div>
+            </div>
         </section>
 
         <section class="background-feature-section" style="padding: 100px 0; 
@@ -700,6 +702,80 @@
     </main>
 
     <div id="footer-placeholder"></div>
+    <script>
+        // 1. ฟังก์ชันเปิด Tab
+        function openStudyTab(tabId, btnElement) {
+            // ซ่อนเนื้อหา Tab ทั้งหมด
+            const tabContents = document.querySelectorAll(".sub-tab-content");
+            tabContents.forEach(content => content.classList.remove("active"));
+
+            // ลบสถานะ Active ออกจากปุ่ม Desktop ทั้งหมด
+            const tabBtns = document.querySelectorAll(".sub-tab-btn");
+            tabBtns.forEach(btn => btn.classList.remove("active"));
+
+            // เปิด Tab เนื้อหา
+            const targetTab = document.getElementById(tabId);
+            if (targetTab) targetTab.classList.add("active");
+
+            // แอดคลาส Active ให้ปุ่มที่โดนคลิก (สำหรับจอคอม)
+            if (btnElement && btnElement.tagName === 'BUTTON') {
+                btnElement.classList.add("active");
+            } else {
+                // กรณีคลิกจากมือถือ ให้หาปุ่มในจอคอมที่คู่กันแล้ว Active ไว้เผื่อสลับหน้าจอ
+                const fallbackBtn = document.querySelector(`.sub-tab-btn[onclick*="${tabId}"]`);
+                if (fallbackBtn) fallbackBtn.classList.add("active");
+            }
+
+            // 🔥 ซิงค์ข้อความและสถานะไปที่ Mobile Dropdown
+            const dropdownOptions = document.querySelectorAll('#study-dropdown-menu .custom-dropdown-option');
+            const dropdownTriggerText = document.querySelector('#study-dropdown-trigger span');
+
+            dropdownOptions.forEach(opt => {
+                if (opt.getAttribute('data-value') === tabId) {
+                    opt.classList.add('selected');
+                    // เปลี่ยนข้อความบนปุ่มให้ตรงกับที่เลือก
+                    if (dropdownTriggerText) dropdownTriggerText.textContent = opt.textContent;
+                } else {
+                    opt.classList.remove('selected');
+                }
+            });
+        }
+
+        // 2. ฟังก์ชันควบคุมการทำงานของ Mobile Custom Dropdown
+        document.addEventListener('DOMContentLoaded', function () {
+            const dropdownTrigger = document.getElementById('study-dropdown-trigger');
+            const dropdownMenu = document.getElementById('study-dropdown-menu');
+            const dropdownOptions = document.querySelectorAll('#study-dropdown-menu .custom-dropdown-option');
+
+            if (dropdownTrigger && dropdownMenu) {
+                // เปิด/ปิด Dropdown
+                dropdownTrigger.addEventListener('click', function (e) {
+                    e.stopPropagation();
+                    this.classList.toggle('open');
+                });
+
+                // เลือก Option ในมือถือ
+                dropdownOptions.forEach(option => {
+                    option.addEventListener('click', function (e) {
+                        e.stopPropagation();
+                        // ปิด Dropdown ก่อน
+                        dropdownTrigger.classList.remove('open');
+
+                        // เรียกฟังก์ชันเปิด Tab (ฟังก์ชันจะจัดการเปลี่ยน Text ให้เอง)
+                        const tabId = this.getAttribute('data-value');
+                        openStudyTab(tabId, null);
+                    });
+                });
+
+                // ปิด Dropdown เมื่อคลิกที่ว่างๆ
+                document.addEventListener('click', function () {
+                    if (dropdownTrigger.classList.contains('open')) {
+                        dropdownTrigger.classList.remove('open');
+                    }
+                });
+            }
+        });
+    </script>
 
     <script src="../js/main.js"></script>
 </body>

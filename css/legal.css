@@ -773,7 +773,7 @@
     }
 
     /* =========================================
-       🔥 มือถือ: Custom Dropdown Premium UI (Tabs)
+       🔥 มือถือ: Custom Dropdown Premium UI (Tabs) - อัปเกรดความเนียน
        ========================================= */
     .desktop-tabs,
     .tab-menu {
@@ -787,7 +787,6 @@
         width: 100% !important;
         z-index: 50 !important;
         padding: 0 24px !important;
-        /* เว้นขอบซ้ายขวาในมือถือ */
         box-sizing: border-box !important;
     }
 
@@ -803,13 +802,17 @@
         background-color: #ffffff !important;
         border: 2px solid var(--primary-color, #0B1320) !important;
         border-radius: 12px !important;
+        margin-bottom: 0 !important;
+        /* 💡 ล็อกไม่ให้มีช่องว่างด้านล่าง */
         cursor: pointer !important;
         transition: all 0.3s ease !important;
         box-shadow: 0 4px 15px rgba(0, 0, 0, 0.04) !important;
         box-sizing: border-box !important;
+        position: relative !important;
+        z-index: 51 !important;
+        /* 💡 ให้อยู่เหนือเมนูเสมอ */
     }
 
-    /* 🔥 เพิ่มส่วนนี้เข้าไปเพื่อให้ข้อความอยู่บรรทัดเดียวและมี ... */
     .custom-dropdown-trigger span {
         white-space: nowrap !important;
         overflow: hidden !important;
@@ -821,11 +824,16 @@
         text-align: left !important;
     }
 
+    /* 🔥 สไตล์ตอนเปิด Dropdown (ให้เชื่อมกันเนียนๆ ไร้รอยต่อ) */
     .custom-dropdown-trigger.open {
         border-color: var(--accent-gold, #C49765) !important;
         color: var(--accent-gold, #C49765) !important;
         border-bottom-left-radius: 0 !important;
+        /* 💡 บังคับมุมล่างให้เป็นสี่เหลี่ยม */
         border-bottom-right-radius: 0 !important;
+        /* 💡 บังคับมุมล่างให้เป็นสี่เหลี่ยม */
+        border-bottom-color: transparent !important;
+        /* 💡 ลบเส้นกั้นขอบทองตรงกลางออก */
     }
 
     .custom-dropdown-trigger .dropdown-icon {
@@ -844,19 +852,26 @@
         left: 24px !important;
         right: 24px !important;
         width: calc(100% - 48px) !important;
-        /* คำนวณหักลบขอบซ้ายขวา */
+        margin-top: 0 !important;
+        /* 💡 ล็อกไม่ให้มีช่องว่างตรงกลาง */
         background-color: #ffffff !important;
         border: 2px solid var(--accent-gold, #C49765) !important;
         border-top: none !important;
+        /* 💡 ลบขอบบนทิ้งให้กลมกลืนกับปุ่ม */
+        border-top-left-radius: 0 !important;
+        /* 💡 บังคับมุมบนให้เป็นสี่เหลี่ยม */
+        border-top-right-radius: 0 !important;
+        /* 💡 บังคับมุมบนให้เป็นสี่เหลี่ยม */
         border-bottom-left-radius: 12px !important;
         border-bottom-right-radius: 12px !important;
-        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1) !important;
+        box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1) !important;
         opacity: 0;
         visibility: hidden;
         transform: translateY(-10px);
         transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1) !important;
         overflow: hidden !important;
         box-sizing: border-box !important;
+        z-index: 50 !important;
     }
 
     .custom-dropdown-trigger.open+.custom-dropdown-menu {

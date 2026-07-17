@@ -309,7 +309,7 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
     // ==========================================
-    // 4. Scroll Animation (ย่อขนาดโลโก้ที่ขยายใหม่ตอนเลื่อนหน้าจอ)
+    // 4. Scroll Animation
     // ==========================================
     window.addEventListener('scroll', function () {
         const header = document.getElementById('main-header');
@@ -397,7 +397,6 @@ document.addEventListener("DOMContentLoaded", function () {
             link.rel = 'icon';
             document.head.appendChild(link);
         }
-        // 🔥 เพิ่ม ?v= ไวรัสด้านหลัง เพื่อบังคับให้เบราว์เซอร์โหลดรูปใหม่ ไม่ดึงจาก Cache เก่า
         link.href = `${path}picture/logo-unname.png?v=${new Date().getTime()}`;
     };
     setFavicon();
@@ -419,8 +418,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
             if (!isMoving) {
                 requestAnimationFrame(() => {
-                    cursor.style.left = `${mouseX} px`;
-                    cursor.style.top = `${mouseY} px`;
+                    cursor.style.left = `${mouseX}px`;
+                    cursor.style.top = `${mouseY}px`;
                     isMoving = false;
                 });
                 isMoving = true;
@@ -448,78 +447,4 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     });
 
-    // ==========================================
-    // 9. Custom Mobile Dropdown Logic (สำหรับ Study Tabs)
-    // ==========================================
-    const dropdownTrigger = document.getElementById('study-dropdown-trigger');
-    const dropdownMenu = document.getElementById('study-dropdown-menu');
-    const dropdownOptions = document.querySelectorAll('.custom-dropdown-option');
-
-    if (dropdownTrigger && dropdownMenu) {
-        // เปิด/ปิด Dropdown
-        dropdownTrigger.addEventListener('click', function (e) {
-            e.stopPropagation();
-            this.classList.toggle('open');
-        });
-
-        // เลือก Option
-        dropdownOptions.forEach(option => {
-            option.addEventListener('click', function (e) {
-                e.stopPropagation();
-                // อัปเดตคลาส selected
-                dropdownOptions.forEach(opt => opt.classList.remove('selected'));
-                this.classList.add('selected');
-
-                // เปลี่ยน Text ที่ปุ่ม
-                dropdownTrigger.querySelector('span').textContent = this.textContent;
-
-                // ปิด Dropdown
-                dropdownTrigger.classList.remove('open');
-
-                // เรียกฟังก์ชันเปลี่ยน Tab เนื้อหา
-                const tabId = this.getAttribute('data-value');
-                openStudyTab(tabId, null);
-            });
-        });
-
-        // ปิด Dropdown เมื่อคลิกที่ว่างๆ
-        document.addEventListener('click', function () {
-            dropdownTrigger.classList.remove('open');
-        });
-    }
-
 });
-
-/* ==========================================================================
-   🔥 STUDY TABS INTERACTION (Global Function)
-   ========================================================================== */
-function openStudyTab(tabId, btnElement) {
-    // 1. จัดการปุ่ม Desktop
-    const allBtns = document.querySelectorAll('.sub-tab-btn');
-    allBtns.forEach(btn => btn.classList.remove('active'));
-
-    if (btnElement) {
-        btnElement.classList.add('active');
-    } else {
-        const fallbackBtn = document.querySelector(`.sub - tab - btn[onclick *= "${tabId}"]`);
-        if (fallbackBtn) fallbackBtn.classList.add('active');
-    }
-
-    // 2. แสดงเนื้อหา Tab
-    const allContents = document.querySelectorAll('.sub-tab-content');
-    allContents.forEach(content => content.classList.remove('active'));
-    document.getElementById(tabId).classList.add('active');
-
-    // 3. ซิงค์กับ Custom Dropdown ในมือถือ (ให้ text เปลี่ยนตามเวลาจอใหญ่โดนย่อ)
-    const dropdownOptions = document.querySelectorAll('.custom-dropdown-option');
-    const dropdownTriggerText = document.querySelector('#study-dropdown-trigger span');
-
-    dropdownOptions.forEach(opt => {
-        if (opt.getAttribute('data-value') === tabId) {
-            opt.classList.add('selected');
-            if (dropdownTriggerText) dropdownTriggerText.textContent = opt.textContent;
-        } else {
-            opt.classList.remove('selected');
-        }
-    });
-}

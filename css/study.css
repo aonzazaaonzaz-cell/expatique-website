@@ -605,7 +605,7 @@
     }
 
     /* =========================================
-       🔥 มือถือ: Custom Dropdown Premium UI
+       🔥 มือถือ: Custom Dropdown Premium UI - อัปเกรดไร้รอยต่อ 100%
        ========================================= */
     .desktop-tabs {
         display: none !important;
@@ -617,6 +617,8 @@
         margin-bottom: 30px !important;
         width: 100% !important;
         z-index: 50 !important;
+        padding: 0 !important;
+        /* 🔥 ลบ Padding ตัวปัญหาออก เพื่อให้ปุ่มกับเมนูกว้างเท่ากันเป๊ะ */
     }
 
     /* กล่องปุ่มกด Dropdown */
@@ -632,16 +634,36 @@
         background-color: #ffffff !important;
         border: 2px solid var(--primary-color, #0B1320) !important;
         border-radius: 12px !important;
+        margin-bottom: 0 !important;
         cursor: pointer !important;
         transition: all 0.3s ease !important;
         box-shadow: 0 4px 15px rgba(0, 0, 0, 0.04) !important;
+        position: relative !important;
+        z-index: 51 !important;
+        /* 🔥 ให้อยู่ชั้นบนสุดเสมอ */
     }
 
+    .custom-dropdown-trigger span {
+        white-space: nowrap !important;
+        overflow: hidden !important;
+        text-overflow: ellipsis !important;
+        font-size: 0.95rem !important;
+        margin-right: 10px !important;
+        display: block !important;
+        width: 100% !important;
+        text-align: left !important;
+    }
+
+    /* 🔥 สไตล์ตอนเปิด Dropdown (เทคนิคซ่อนรอยต่อ) */
     .custom-dropdown-trigger.open {
         border-color: var(--accent-gold, #C49765) !important;
         color: var(--accent-gold, #C49765) !important;
         border-bottom-left-radius: 0 !important;
         border-bottom-right-radius: 0 !important;
+        border-bottom-color: #ffffff !important;
+        /* 🔥 ใช้เส้นสีขาวทับรอยต่อด้านล่าง */
+        box-shadow: none !important;
+        /* ปิดเงาตอนเปิด เพื่อความเนียน */
     }
 
     .custom-dropdown-trigger .dropdown-icon {
@@ -659,18 +681,24 @@
         position: absolute !important;
         top: 100% !important;
         left: 0 !important;
+        /* 🔥 เริ่มที่ขอบซ้ายเป๊ะๆ */
         width: 100% !important;
+        /* 🔥 กว้าง 100% พอดีปุ่มเป๊ะๆ */
+        margin-top: -2px !important;
+        /* 🔥 ดึงขึ้นมาซ่อนใต้เส้นสีขาวของปุ่ม 2px */
         background-color: #ffffff !important;
         border: 2px solid var(--accent-gold, #C49765) !important;
         border-top: none !important;
         border-bottom-left-radius: 12px !important;
         border-bottom-right-radius: 12px !important;
-        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1) !important;
+        box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1) !important;
         opacity: 0;
         visibility: hidden;
         transform: translateY(-10px);
         transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1) !important;
         overflow: hidden !important;
+        box-sizing: border-box !important;
+        z-index: 50 !important;
     }
 
     .custom-dropdown-trigger.open+.custom-dropdown-menu {
@@ -681,7 +709,7 @@
 
     .custom-dropdown-option {
         padding: 15px 20px !important;
-        font-size: 1rem !important;
+        font-size: 0.95rem !important;
         font-weight: 500 !important;
         color: var(--text-muted, #5A6472) !important;
         cursor: pointer !important;
@@ -698,61 +726,5 @@
         background-color: rgba(196, 151, 101, 0.08) !important;
         color: var(--primary-color, #0B1320) !important;
         font-weight: 700 !important;
-    }
-
-    .study-tab-flex {
-        flex-direction: column !important;
-        padding: 24px 20px !important;
-        gap: 30px !important;
-        text-align: left !important;
-        min-height: auto !important;
-    }
-
-    .study-tab-flex .text-side,
-    .study-tab-flex .image-side {
-        width: 100% !important;
-        min-width: 0 !important;
-    }
-
-    .study-tab-flex h3 {
-        font-size: 1.5rem !important;
-    }
-
-    .study-tab-flex .image-side {
-        order: -1 !important;
-    }
-
-    .study-tab-flex .image-side img {
-        height: 250px !important;
-    }
-
-    /* =========================================
-       🔥 สำหรับมือถือ จัด Overview Grid เป็นแถวแนวตั้ง
-       ========================================= */
-    .eng-overview-grid {
-        grid-template-columns: 1fr !important;
-        /* เรียงเป็นแนวตั้งในมือถือ */
-        gap: 15px !important;
-    }
-
-    .eng-overview-card {
-        padding: 20px !important;
-        flex-direction: row !important;
-        /* ในมือถือให้ไอคอนอยู่ซ้าย ข้อความอยู่ขวา */
-        justify-content: flex-start !important;
-        gap: 20px !important;
-        text-align: left !important;
-    }
-
-    .eng-overview-card svg {
-        margin-bottom: 0 !important;
-    }
-
-    /* =========================================
-       🔥 สำหรับมือถือ จัด Improve Your English ให้เรียง 1 คอลัมน์
-       ========================================= */
-    .eng-skills-list-grid {
-        grid-template-columns: 1fr !important;
-        gap: 12px !important;
     }
 }
