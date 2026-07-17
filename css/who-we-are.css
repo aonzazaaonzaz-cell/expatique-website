@@ -277,3 +277,35 @@
     position: relative !important;
     z-index: 2 !important;
 }
+
+/* ==========================================================================
+   🔥 แก้ไขให้ปุ่ม Read Full Profile อยู่ล่างสุดเท่ากันทุกกล่อง
+   ========================================================================== */
+
+/* 1. ทำให้การ์ดสูงเต็มความสูงของ Grid และเรียงเนื้อหาแนวตั้ง */
+.team-card {
+    display: flex !important;
+    flex-direction: column !important;
+    height: 100% !important;
+    /* ให้การ์ดสูงเท่ากับแถวของ Grid */
+}
+
+/* 2. ทำให้กล่องข้อมูลยืดออกเพื่อผลักปุ่มลงไปด้านล่าง */
+.team-card-info {
+    flex: 1 !important;
+    /* ส่วนนี้จะยืดออกเพื่อดันปุ่มให้ตกลงไปล่างสุด */
+    display: flex !important;
+    flex-direction: column !important;
+}
+
+/* 3. ดันปุ่มที่ใช้ Class .btn (และ .btn-outline) ให้อยู่ล่างสุดเสมอ */
+.team-card-info .btn {
+    margin-top: auto !important;
+    /* ท่าไม้ตาย: ดันปุ่มลงล่าง */
+    margin-bottom: 0 !important;
+    width: 100% !important;
+    /* ทำให้ปุ่มกว้างเต็มกล่อง ดูเป็นระเบียบกว่า */
+    box-sizing: border-box !important;
+}
+
+/* ลบ .read-more-outline ตัวเก่าทิ้ง หรือไม่ต้องใช้มันแล้วครับ */
