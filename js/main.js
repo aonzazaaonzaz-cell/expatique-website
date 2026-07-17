@@ -232,8 +232,20 @@ document.addEventListener("DOMContentLoaded", function () {
 
             <div class="footer-col">
                 <h4>CONTACT</h4>
-                <p>info@expatique.com</p>
-                <p style="margin-top: 10px;">Bangkok, Thailand</p>
+                <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 15px;">
+                    <li style="display: flex; gap: 12px; align-items: flex-start;">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="var(--accent-gold, #C49765)" stroke-width="2" style="width: 20px; height: 20px; flex-shrink: 0; margin-top: 2px;"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+                        <a href="mailto:connect@expatique.com" style="color: inherit; text-decoration: none; transition: color 0.3s;" onmouseover="this.style.color='var(--accent-gold)'" onmouseout="this.style.color='inherit'">connect@expatique.com</a>
+                    </li>
+                    <li style="display: flex; gap: 12px; align-items: flex-start;">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="var(--accent-gold, #C49765)" stroke-width="2" style="width: 20px; height: 20px; flex-shrink: 0; margin-top: 2px;"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+                        <a href="tel:+66961040440" style="color: inherit; text-decoration: none; transition: color 0.3s;" onmouseover="this.style.color='var(--accent-gold)'" onmouseout="this.style.color='inherit'">+66 96 104 0440</a>
+                    </li>
+                    <li style="display: flex; gap: 12px; align-items: flex-start;">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="var(--accent-gold, #C49765)" stroke-width="2" style="width: 20px; height: 20px; flex-shrink: 0; margin-top: 2px;"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                        <span style="line-height: 1.6; color: inherit;">K Building, 22 Sukhumvit 35 Alley,<br>Khlong Toei Nuea, Watthana,<br>Bangkok 10110 (6th Floor)</span>
+                    </li>
+                </ul>
             </div>
         </div>
         <div class="footer-bottom">
@@ -258,7 +270,7 @@ document.addEventListener("DOMContentLoaded", function () {
         navMenu.classList.toggle('is-active');
         hamburger.classList.toggle('is-active');
 
-        // 🔥 เพิ่มคำสั่งนี้: ถ้าเมนูหลักถูกปิด ให้สั่งปิดเมนูย่อย (Dropdown) ทั้งหมดด้วย
+        // ถ้าเมนูหลักถูกปิด ให้สั่งปิดเมนูย่อย (Dropdown) ทั้งหมดด้วย
         if (!navMenu.classList.contains('is-active')) {
             const allMegaMenus = document.querySelectorAll('.mega-menu');
             allMegaMenus.forEach(function (menu) {
@@ -306,14 +318,14 @@ document.addEventListener("DOMContentLoaded", function () {
 
         if (window.scrollY > 50) {
             header.classList.add('scrolled');
-            if (logo) logo.style.height = '48px'; // 🔥 ตอนเลื่อนจอลง ย่อรูปโลโก้เหลือ 48px (เดิม 32px)
+            if (logo) logo.style.height = '48px';
             if (brandName) {
-                brandName.style.fontSize = '1.05rem'; // ย่อตัวหนังสือลงรับกัน
+                brandName.style.fontSize = '1.05rem';
                 brandName.style.color = '#FFFFFF';
             }
         } else {
             header.classList.remove('scrolled');
-            if (logo) logo.style.height = '64px'; // 🔥 อยู่บนสุด ขยายใหญ่เต็มตาที่ 64px
+            if (logo) logo.style.height = '64px';
             if (brandName) {
                 brandName.style.fontSize = '1.18rem';
                 brandName.style.color = '#FFFFFF';
@@ -351,7 +363,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
                 if (img && this.getAttribute('data-img')) {
                     img.src = this.getAttribute('data-img');
-                    // จัดการค่า object-position ที่ถูกอัปเดตใหม่
                     const imgPos = this.getAttribute('data-position') || 'right center';
                     img.style.objectPosition = imgPos;
                 }
@@ -386,7 +397,8 @@ document.addEventListener("DOMContentLoaded", function () {
             link.rel = 'icon';
             document.head.appendChild(link);
         }
-        link.href = `${path}picture/logo-unname.png`;
+        // 🔥 เพิ่ม ?v= ไวรัสด้านหลัง เพื่อบังคับให้เบราว์เซอร์โหลดรูปใหม่ ไม่ดึงจาก Cache เก่า
+        link.href = `${path}picture/logo-unname.png?v=${new Date().getTime()}`;
     };
     setFavicon();
 
@@ -407,8 +419,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
             if (!isMoving) {
                 requestAnimationFrame(() => {
-                    cursor.style.left = `${mouseX}px`;
-                    cursor.style.top = `${mouseY}px`;
+                    cursor.style.left = `${mouseX} px`;
+                    cursor.style.top = `${mouseY} px`;
                     isMoving = false;
                 });
                 isMoving = true;
@@ -417,34 +429,97 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     // ==========================================
-    // 8. Mobile Menu & Dropdown Logic (เพิ่มใหม่)
+    // 8. Mobile Menu & Dropdown Logic
     // ==========================================
-    // เลือกปุ่มเมนูหลักเฉพาะตัวที่มี Dropdown
     const mobileDropdownToggles = document.querySelectorAll('.mega-dropdown > a.nav-item');
 
     mobileDropdownToggles.forEach(function (toggle) {
         toggle.addEventListener('click', function (e) {
-            // เช็คว่าใช้งานอยู่บนหน้าจอมือถือ/แท็บเล็ต (กว้างไม่เกิน 1024px)
             if (window.innerWidth <= 1024) {
-                // หยุดพฤติกรรมการคลิกลิงก์เปลี่ยนหน้า
                 e.preventDefault();
-
-                // หากล่องเมนูย่อย (mega-menu) ที่อยู่ถัดจากปุ่มที่กด
                 const megaMenu = this.nextElementSibling;
-
                 if (megaMenu && megaMenu.classList.contains('mega-menu')) {
-                    // หากเมนูอื่นๆ เปิดอยู่ ให้สั่งปิดก่อน (เพื่อให้แสดงผลแค่เมนูเดียว)
                     document.querySelectorAll('.mega-menu').forEach(function (menu) {
-                        if (menu !== megaMenu) {
-                            menu.classList.remove('is-active-mobile');
-                        }
+                        if (menu !== megaMenu) menu.classList.remove('is-active-mobile');
                     });
-
-                    // สลับสถานะ กางออก/หุบเข้า ของเมนูที่กด
                     megaMenu.classList.toggle('is-active-mobile');
                 }
             }
         });
     });
 
+    // ==========================================
+    // 9. Custom Mobile Dropdown Logic (สำหรับ Study Tabs)
+    // ==========================================
+    const dropdownTrigger = document.getElementById('study-dropdown-trigger');
+    const dropdownMenu = document.getElementById('study-dropdown-menu');
+    const dropdownOptions = document.querySelectorAll('.custom-dropdown-option');
+
+    if (dropdownTrigger && dropdownMenu) {
+        // เปิด/ปิด Dropdown
+        dropdownTrigger.addEventListener('click', function (e) {
+            e.stopPropagation();
+            this.classList.toggle('open');
+        });
+
+        // เลือก Option
+        dropdownOptions.forEach(option => {
+            option.addEventListener('click', function (e) {
+                e.stopPropagation();
+                // อัปเดตคลาส selected
+                dropdownOptions.forEach(opt => opt.classList.remove('selected'));
+                this.classList.add('selected');
+
+                // เปลี่ยน Text ที่ปุ่ม
+                dropdownTrigger.querySelector('span').textContent = this.textContent;
+
+                // ปิด Dropdown
+                dropdownTrigger.classList.remove('open');
+
+                // เรียกฟังก์ชันเปลี่ยน Tab เนื้อหา
+                const tabId = this.getAttribute('data-value');
+                openStudyTab(tabId, null);
+            });
+        });
+
+        // ปิด Dropdown เมื่อคลิกที่ว่างๆ
+        document.addEventListener('click', function () {
+            dropdownTrigger.classList.remove('open');
+        });
+    }
+
 });
+
+/* ==========================================================================
+   🔥 STUDY TABS INTERACTION (Global Function)
+   ========================================================================== */
+function openStudyTab(tabId, btnElement) {
+    // 1. จัดการปุ่ม Desktop
+    const allBtns = document.querySelectorAll('.sub-tab-btn');
+    allBtns.forEach(btn => btn.classList.remove('active'));
+
+    if (btnElement) {
+        btnElement.classList.add('active');
+    } else {
+        const fallbackBtn = document.querySelector(`.sub - tab - btn[onclick *= "${tabId}"]`);
+        if (fallbackBtn) fallbackBtn.classList.add('active');
+    }
+
+    // 2. แสดงเนื้อหา Tab
+    const allContents = document.querySelectorAll('.sub-tab-content');
+    allContents.forEach(content => content.classList.remove('active'));
+    document.getElementById(tabId).classList.add('active');
+
+    // 3. ซิงค์กับ Custom Dropdown ในมือถือ (ให้ text เปลี่ยนตามเวลาจอใหญ่โดนย่อ)
+    const dropdownOptions = document.querySelectorAll('.custom-dropdown-option');
+    const dropdownTriggerText = document.querySelector('#study-dropdown-trigger span');
+
+    dropdownOptions.forEach(opt => {
+        if (opt.getAttribute('data-value') === tabId) {
+            opt.classList.add('selected');
+            if (dropdownTriggerText) dropdownTriggerText.textContent = opt.textContent;
+        } else {
+            opt.classList.remove('selected');
+        }
+    });
+}

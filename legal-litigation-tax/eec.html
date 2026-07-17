@@ -7,8 +7,7 @@
     <title>EEC Support | Expatique</title>
 
     <link rel="stylesheet" href="../css/global.css?v=2">
-    <link rel="stylesheet" href="../css/legal.css?v=3">
-
+    <link rel="stylesheet" href="../css/legal.css?v=4">
     <script>
         const basePath = "../";
         const activeMenuId = "nav-legal"; 
@@ -227,11 +226,28 @@
         <section class="tabs-section" id="eec-tabs" style="background-color: var(--bg-white);">
             <div class="woxa-container">
 
-                <div class="tab-menu">
-                    <button class="tab-btn active" onclick="openTab(event, 'tab-what')">What is EEC?</button>
-                    <button class="tab-btn" onclick="openTab(event, 'tab-benefits')">Benefits</button>
-                    <button class="tab-btn" onclick="openTab(event, 'tab-industries')">12 Targeted Industries</button>
-                    <button class="tab-btn" onclick="openTab(event, 'tab-process')">Application Process</button>
+                <div class="tab-menu desktop-tabs">
+                    <button class="tab-btn active" onclick="openTab('tab-what', this)">What is EEC?</button>
+                    <button class="tab-btn" onclick="openTab('tab-benefits', this)">Benefits</button>
+                    <button class="tab-btn" onclick="openTab('tab-industries', this)">12 Targeted Industries</button>
+                    <button class="tab-btn" onclick="openTab('tab-process', this)">Application Process</button>
+                </div>
+
+                <div class="mobile-tab-dropdown custom-dropdown-container">
+                    <div class="custom-dropdown-trigger" id="custom-dropdown-trigger">
+                        <span>What is EEC?</span>
+                        <div class="dropdown-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="6 9 12 15 18 9"></polyline>
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="custom-dropdown-menu" id="custom-dropdown-menu">
+                        <div class="custom-dropdown-option selected" data-value="tab-what">What is EEC?</div>
+                        <div class="custom-dropdown-option" data-value="tab-benefits">Benefits</div>
+                        <div class="custom-dropdown-option" data-value="tab-industries">12 Targeted Industries</div>
+                        <div class="custom-dropdown-option" data-value="tab-process">Application Process</div>
+                    </div>
                 </div>
 
                 <div id="tab-what" class="tab-content active">
@@ -540,31 +556,87 @@
     <div id="footer-placeholder"></div>
 
     <script>
-        function openTab(evt, tabId) {
-            var tabContents = document.getElementsByClassName("tab-content");
-            for (var i = 0; i < tabContents.length; i++) {
-                tabContents[i].classList.remove("active");
+        // 1. ฟังก์ชันเปิด Tab (อัปเดตให้รองรับ Dropdown)
+        function openTab(tabId, btnElement) {
+            // ซ่อนเนื้อหา Tab ทั้งหมด
+            const tabContents = document.querySelectorAll(".tab-content");
+            tabContents.forEach(content => content.classList.remove("active"));
+
+            // ลบสถานะ Active ออกจากปุ่ม Desktop ทั้งหมด
+            const tabBtns = document.querySelectorAll(".tab-btn");
+            tabBtns.forEach(btn => btn.classList.remove("active"));
+
+            // เปิด Tab เนื้อหา
+            const targetTab = document.getElementById(tabId);
+            if (targetTab) targetTab.classList.add("active");
+
+            // แอดคลาส Active ให้ปุ่มที่โดนคลิก (สำหรับจอคอม)
+            if (btnElement && btnElement.tagName === 'BUTTON') {
+                btnElement.classList.add("active");
+            } else {
+                // กรณีคลิกจากมือถือ ให้หาปุ่มในจอคอมที่คู่กันแล้ว Active ไว้เผื่อสลับหน้าจอ
+                const fallbackBtn = document.querySelector(`.tab-btn[onclick*="${tabId}"]`);
+                if (fallbackBtn) fallbackBtn.classList.add("active");
             }
-            var tabBtns = document.getElementsByClassName("tab-btn");
-            for (var i = 0; i < tabBtns.length; i++) {
-                tabBtns[i].classList.remove("active");
-            }
-            document.getElementById(tabId).classList.add("active");
-            evt.currentTarget.classList.add("active");
+
+            // ซิงค์ข้อความและสถานะไปที่ Mobile Dropdown
+            const dropdownOptions = document.querySelectorAll('.custom-dropdown-option');
+            const dropdownTriggerText = document.querySelector('#custom-dropdown-trigger span');
+
+            dropdownOptions.forEach(opt => {
+                if (opt.getAttribute('data-value') === tabId) {
+                    opt.classList.add('selected');
+                    if (dropdownTriggerText) dropdownTriggerText.textContent = opt.textContent;
+                } else {
+                    opt.classList.remove('selected');
+                }
+            });
         }
 
+        // ฟังก์ชัน Sub Tab (ในหน้า Benefits)
         function openSubTab(evt, tabId) {
-            var tabContents = document.getElementsByClassName("sub-tab-content");
-            for (var i = 0; i < tabContents.length; i++) {
-                tabContents[i].classList.remove("active");
-            }
-            var tabBtns = document.getElementsByClassName("sub-tab-btn");
-            for (var i = 0; i < tabBtns.length; i++) {
-                tabBtns[i].classList.remove("active");
-            }
+            const tabContents = document.querySelectorAll(".sub-tab-content");
+            tabContents.forEach(content => content.classList.remove("active"));
+
+            const tabBtns = document.querySelectorAll(".sub-tab-btn");
+            tabBtns.forEach(btn => btn.classList.remove("active"));
+
             document.getElementById(tabId).classList.add("active");
-            evt.currentTarget.classList.add("active");
+            if (evt && evt.currentTarget) evt.currentTarget.classList.add("active");
         }
+
+        // 2. ฟังก์ชันควบคุมการทำงานของ Mobile Custom Dropdown
+        document.addEventListener('DOMContentLoaded', function () {
+            const dropdownTrigger = document.getElementById('custom-dropdown-trigger');
+            const dropdownMenu = document.getElementById('custom-dropdown-menu');
+            const dropdownOptions = document.querySelectorAll('.custom-dropdown-option');
+
+            if (dropdownTrigger && dropdownMenu) {
+                // เปิด/ปิด Dropdown
+                dropdownTrigger.addEventListener('click', function (e) {
+                    e.stopPropagation();
+                    this.classList.toggle('open');
+                });
+
+                // เลือก Option ในมือถือ
+                dropdownOptions.forEach(option => {
+                    option.addEventListener('click', function (e) {
+                        e.stopPropagation();
+                        // ปิด Dropdown ก่อน
+                        dropdownTrigger.classList.remove('open');
+
+                        // เรียกฟังก์ชันเปิด Tab
+                        const tabId = this.getAttribute('data-value');
+                        openTab(tabId, null);
+                    });
+                });
+
+                // ปิด Dropdown เมื่อคลิกที่ว่างๆ
+                document.addEventListener('click', function () {
+                    dropdownTrigger.classList.remove('open');
+                });
+            }
+        });
     </script>
 
     <script src="../js/main.js"></script>

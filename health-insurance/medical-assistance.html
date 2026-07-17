@@ -7,7 +7,7 @@
     <title>Medical Assistance | Expatique</title>
 
     <link rel="stylesheet" href="../css/global.css?v=2">
-    <link rel="stylesheet" href="../css/legal.css?v=3">
+    <link rel="stylesheet" href="../css/legal.css?v=4">
     <link rel="stylesheet" href="../css/health.css?v=2">
 
     <script>
@@ -192,7 +192,8 @@
             <div class="woxa-container"
                 style="display: grid; grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); gap: 40px;">
 
-                <div style="border-radius: 12px; overflow: hidden; box-shadow: 0 15px 35px rgba(0,0,0,0.06); border: 1px solid var(--border-color); display: flex; flex-direction: column;">
+                <div
+                    style="border-radius: 12px; overflow: hidden; box-shadow: 0 15px 35px rgba(0,0,0,0.06); border: 1px solid var(--border-color); display: flex; flex-direction: column;">
                     <img src="../picture/health-insurance/medical/medical-content-2.1.png" alt="SMILE pro LASIK"
                         style="width: 100%; height: auto; display: block;">
                     <div
@@ -206,9 +207,10 @@
                     </div>
                 </div>
 
-                <div style="border-radius: 12px; overflow: hidden; box-shadow: 0 15px 35px rgba(0,0,0,0.06); border: 1px solid var(--border-color); display: flex; flex-direction: column;">
-                    <img src="../picture/health-insurance/medical/medical-content-2.2.png" alt="UNITY VCS Cataract Treatment"
-                        style="width: 100%; height: auto; display: block;">
+                <div
+                    style="border-radius: 12px; overflow: hidden; box-shadow: 0 15px 35px rgba(0,0,0,0.06); border: 1px solid var(--border-color); display: flex; flex-direction: column;">
+                    <img src="../picture/health-insurance/medical/medical-content-2.2.png"
+                        alt="UNITY VCS Cataract Treatment" style="width: 100%; height: auto; display: block;">
                     <div
                         style="background-color: var(--primary-color); padding: 35px; flex: 1; display: flex; flex-direction: column; justify-content: center;">
                         <h4 style="font-size: 1.3rem; margin-bottom: 15px; color: var(--accent-gold);">Cataract
@@ -230,23 +232,45 @@
                 <h2 style="font-size: 2.5rem; color: var(--primary-color); margin-bottom: 40px; text-align: center;">
                     Partnered Institutions</h2>
 
-                <div class="tab-menu">
-                    <button class="tab-btn active" onclick="openTab(event, 'tab-sukhumvit')">Samitivej Sukhumvit
+                <div class="tab-menu desktop-tabs">
+                    <button class="tab-btn active" onclick="openTab('tab-sukhumvit', this)">Samitivej Sukhumvit
                         Hospital</button>
-                    <button class="tab-btn" onclick="openTab(event, 'tab-sriracha')">Samitivej Sriracha
+                    <button class="tab-btn" onclick="openTab('tab-sriracha', this)">Samitivej Sriracha
                         Hospital</button>
-                    <button class="tab-btn" onclick="openTab(event, 'tab-srinakarin')">Samitivej Srinakarin
+                    <button class="tab-btn" onclick="openTab('tab-srinakarin', this)">Samitivej Srinakarin
                         Hospital</button>
-                    <button class="tab-btn" onclick="openTab(event, 'tab-chinatown')">Samitivej Chinatown
+                    <button class="tab-btn" onclick="openTab('tab-chinatown', this)">Samitivej Chinatown
                         Hospital</button>
-                    <button class="tab-btn" onclick="openTab(event, 'tab-chonburi')">Samitivej Chonburi
+                    <button class="tab-btn" onclick="openTab('tab-chonburi', this)">Samitivej Chonburi
                         Hospital</button>
+                </div>
+
+                <div class="mobile-tab-dropdown custom-dropdown-container">
+                    <div class="custom-dropdown-trigger" id="medical-dropdown-trigger">
+                        <span>Samitivej Sukhumvit Hospital</span>
+                        <div class="dropdown-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="6 9 12 15 18 9"></polyline>
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="custom-dropdown-menu" id="medical-dropdown-menu">
+                        <div class="custom-dropdown-option selected" data-value="tab-sukhumvit">Samitivej Sukhumvit
+                            Hospital</div>
+                        <div class="custom-dropdown-option" data-value="tab-sriracha">Samitivej Sriracha Hospital</div>
+                        <div class="custom-dropdown-option" data-value="tab-srinakarin">Samitivej Srinakarin Hospital
+                        </div>
+                        <div class="custom-dropdown-option" data-value="tab-chinatown">Samitivej Chinatown Hospital
+                        </div>
+                        <div class="custom-dropdown-option" data-value="tab-chonburi">Samitivej Chonburi Hospital</div>
+                    </div>
                 </div>
 
                 <div id="tab-sukhumvit" class="tab-content active">
                     <div class="tab-content-flex">
                         <div class="circle-img-container">
-                            <img src="../picture/health-insurance/medical/medical-content-5.1.png" alt="Samitivej Sukhumvit Hospital">
+                            <img src="../picture/health-insurance/medical/medical-content-5.1.png"
+                                alt="Samitivej Sukhumvit Hospital">
                         </div>
                         <div class="text-side">
                             <h3 style="text-transform: none;">Samitivej Sukhumvit Hospital</h3>
@@ -288,7 +312,8 @@
                 <div id="tab-sriracha" class="tab-content">
                     <div class="tab-content-flex">
                         <div class="circle-img-container">
-                            <img src="../picture/health-insurance/medical/medical-content-5.2.png" alt="Samitivej Sriracha Hospital">
+                            <img src="../picture/health-insurance/medical/medical-content-5.2.png"
+                                alt="Samitivej Sriracha Hospital">
                         </div>
                         <div class="text-side">
                             <h3 style="text-transform: none;">Samitivej Sriracha Hospital</h3>
@@ -331,7 +356,8 @@
                 <div id="tab-srinakarin" class="tab-content">
                     <div class="tab-content-flex">
                         <div class="circle-img-container">
-                            <img src="../picture/health-insurance/medical/medical-content-5.3.png" alt="Samitivej Srinakarin Hospital">
+                            <img src="../picture/health-insurance/medical/medical-content-5.3.png"
+                                alt="Samitivej Srinakarin Hospital">
                         </div>
                         <div class="text-side">
                             <h3 style="text-transform: none;">Samitivej Srinakarin Hospital</h3>
@@ -369,7 +395,8 @@
                 <div id="tab-chinatown" class="tab-content">
                     <div class="tab-content-flex">
                         <div class="circle-img-container">
-                            <img src="../picture/health-insurance/medical/medical-content-5.4.png" alt="Samitivej Chinatown Hospital">
+                            <img src="../picture/health-insurance/medical/medical-content-5.4.png"
+                                alt="Samitivej Chinatown Hospital">
                         </div>
                         <div class="text-side">
                             <h3 style="text-transform: none;">Samitivej Chinatown Hospital</h3>
@@ -405,7 +432,8 @@
                 <div id="tab-chonburi" class="tab-content">
                     <div class="tab-content-flex">
                         <div class="circle-img-container">
-                            <img src="../picture/health-insurance/medical/medical-content-5.4.png" alt="Samitivej Chonburi Hospital">
+                            <img src="../picture/health-insurance/medical/medical-content-5.4.png"
+                                alt="Samitivej Chonburi Hospital">
                         </div>
                         <div class="text-side">
                             <h3 style="text-transform: none;">Samitivej Chonburi Hospital</h3>
@@ -447,18 +475,75 @@
     <div id="footer-placeholder"></div>
 
     <script>
-        function openTab(evt, tabId) {
-            var tabContents = document.getElementsByClassName("tab-content");
-            for (var i = 0; i < tabContents.length; i++) {
-                tabContents[i].classList.remove("active");
+        // 1. ฟังก์ชันเปิด Tab
+        function openTab(tabId, btnElement) {
+            // ซ่อนเนื้อหา Tab ทั้งหมด
+            const tabContents = document.querySelectorAll(".tab-content");
+            tabContents.forEach(content => content.classList.remove("active"));
+
+            // ลบสถานะ Active ออกจากปุ่ม Desktop ทั้งหมด
+            const tabBtns = document.querySelectorAll(".tab-btn");
+            tabBtns.forEach(btn => btn.classList.remove("active"));
+
+            // เปิด Tab เนื้อหา
+            const targetTab = document.getElementById(tabId);
+            if (targetTab) targetTab.classList.add("active");
+
+            // แอดคลาส Active ให้ปุ่มที่โดนคลิก (สำหรับจอคอม)
+            if (btnElement && btnElement.tagName === 'BUTTON') {
+                btnElement.classList.add("active");
+            } else {
+                // กรณีคลิกจากมือถือ ให้หาปุ่มในจอคอมที่คู่กันแล้ว Active ไว้เผื่อสลับหน้าจอ
+                const fallbackBtn = document.querySelector(`.tab-btn[onclick*="${tabId}"]`);
+                if (fallbackBtn) fallbackBtn.classList.add("active");
             }
-            var tabBtns = document.getElementsByClassName("tab-btn");
-            for (var i = 0; i < tabBtns.length; i++) {
-                tabBtns[i].classList.remove("active");
-            }
-            document.getElementById(tabId).classList.add("active");
-            evt.currentTarget.classList.add("active");
+
+            // ซิงค์ข้อความและสถานะไปที่ Mobile Dropdown
+            const dropdownOptions = document.querySelectorAll('.custom-dropdown-option');
+            const dropdownTriggerText = document.querySelector('#medical-dropdown-trigger span');
+
+            dropdownOptions.forEach(opt => {
+                if (opt.getAttribute('data-value') === tabId) {
+                    opt.classList.add('selected');
+                    if (dropdownTriggerText) dropdownTriggerText.textContent = opt.textContent;
+                } else {
+                    opt.classList.remove('selected');
+                }
+            });
         }
+
+        // 2. ฟังก์ชันควบคุมการทำงานของ Mobile Custom Dropdown
+        document.addEventListener('DOMContentLoaded', function () {
+            const dropdownTrigger = document.getElementById('medical-dropdown-trigger');
+            const dropdownMenu = document.getElementById('medical-dropdown-menu');
+            const dropdownOptions = document.querySelectorAll('.custom-dropdown-option');
+
+            if (dropdownTrigger && dropdownMenu) {
+                // เปิด/ปิด Dropdown
+                dropdownTrigger.addEventListener('click', function (e) {
+                    e.stopPropagation();
+                    this.classList.toggle('open');
+                });
+
+                // เลือก Option ในมือถือ
+                dropdownOptions.forEach(option => {
+                    option.addEventListener('click', function (e) {
+                        e.stopPropagation();
+                        // ปิด Dropdown ก่อน
+                        dropdownTrigger.classList.remove('open');
+
+                        // เรียกฟังก์ชันเปิด Tab
+                        const tabId = this.getAttribute('data-value');
+                        openTab(tabId, null);
+                    });
+                });
+
+                // ปิด Dropdown เมื่อคลิกที่ว่างๆ
+                document.addEventListener('click', function () {
+                    dropdownTrigger.classList.remove('open');
+                });
+            }
+        });
     </script>
 
     <script src="../js/main.js"></script>

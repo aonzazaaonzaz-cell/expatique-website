@@ -554,7 +554,14 @@
 }
 
 /* ==========================================================================
-   🔥 MASTER TIMELINE & NUMBERED CARDS FIX (ยุบรวมกฎตัวเลขให้เป็นก้อนเดียวที่ทรงพลัง)
+   🔥 ซ่อน Dropdown สำหรับจอคอม (ตั้งค่าเริ่มต้น)
+   ========================================================================== */
+.mobile-tab-dropdown {
+    display: none;
+}
+
+/* ==========================================================================
+   🔥 MASTER TIMELINE & NUMBERED CARDS FIX
    ========================================================================== */
 .timeline-item,
 .boi-icon-card.timeline-item,
@@ -567,7 +574,6 @@
     position: relative !important;
     display: flex !important;
     flex-direction: column !important;
-    /* 🔥 สั่งเรียงแนวตั้ง: เลขอยู่บน -> หัวข้ออยู่กลาง -> ข้อความอยู่ล่าง */
     align-items: flex-start !important;
     justify-content: flex-start !important;
     padding: 28px 24px !important;
@@ -582,7 +588,6 @@
     box-sizing: border-box !important;
 }
 
-/* ยกเลิกเส้นตรงกลางที่เกะกะ */
 .timeline-item::before,
 #tab-process div[class*="item"]::before,
 #tab-process div[class*="card"]::before,
@@ -590,7 +595,6 @@
     display: none !important;
 }
 
-/* 🔥 ดึงวงกลมตัวเลขออกจากโหมด Absolute มาเป็นปุ่มลอยตัวแนวตั้ง เปลี่ยนเป็นสีทอง Карамеล! */
 .timeline-number,
 .boi-stepper-number,
 #tab-process div[class*="number"],
@@ -599,7 +603,6 @@
 [class*="timeline-"] [class*="number"],
 [class*="step-"] [class*="number"] {
     position: relative !important;
-    /* 🔥 ฆ่าคำสั่ง absolute เดิมทิ้ง ห้ามลอยไปทับข้อความ */
     left: auto !important;
     top: auto !important;
     display: inline-flex !important;
@@ -608,13 +611,11 @@
     width: 38px !important;
     height: 38px !important;
     background-color: var(--accent-gold, #C49765) !important;
-    /* 🔥 สีทอง Caramel Gold */
     color: #ffffff !important;
     border-radius: 50% !important;
     font-weight: 700 !important;
     font-size: 0.95rem !important;
     margin: 0 0 15px 0 !important;
-    /* 🔥 ดันข้อความด้านล่างให้หนีห่างออกไป 15px เสมอ! */
     flex-shrink: 0 !important;
     z-index: 10 !important;
     box-shadow: 0 4px 10px rgba(196, 151, 101, 0.3) !important;
@@ -685,10 +686,8 @@
     .services-overview,
     .tabs-section {
         padding-top: 100px !important;
-        /* 🔥 ดันลงมาพ้น Header 80px + พื้นที่หายใจ 20px */
         padding-bottom: 50px !important;
         padding-left: 0 !important;
-        /* พื้นหลังยืดสุดขอบจอ 100% */
         padding-right: 0 !important;
         width: 100% !important;
         box-sizing: border-box !important;
@@ -713,43 +712,35 @@
         padding: 24px 18px !important;
     }
 
-    /* 2. 🔥 บังคับข้อความอยู่บนสุด และดันรูปภาพลงไปแสดงด้านล่างสุดเสมอ (Mobile Order Fix) */
+    /* 2. 🔥 บังคับข้อความอยู่บนสุด และดันรูปภาพลงไปแสดงด้านล่างสุดเสมอ */
     .split-content-block,
     .hero-with-bg .woxa-container,
     [class*="split-"],
     [class*="content-block"] {
         display: flex !important;
         flex-direction: column !important;
-        /* 🔥 สั่งเรียงซ้อนกันแนวตั้ง */
         align-items: center !important;
         justify-content: flex-start !important;
         gap: 25px !important;
-        /* ช่องไฟระหว่างข้อความกับรูปภาพด้านล่าง */
         width: 100% !important;
         padding-left: 24px !important;
-        /* Safe Padding 24px ให้ตัวหนังสือไม่อึดอัด */
         padding-right: 24px !important;
         box-sizing: border-box !important;
     }
 
-    /* ล็อกลำดับที่ 1: "โซนข้อความ" อยู่ด้านบนสุดเสมอ */
     .split-text-side,
     .hero-content,
     [class*="-text"] {
         order: 1 !important;
-        /* บังคับให้อยู่ลำดับแรกสุด (บนสุด) */
         width: 100% !important;
         text-align: left !important;
-        /* จัดชิดซ้ายอ่านง่าย */
         padding: 0 !important;
     }
 
-    /* ล็อกลำดับที่ 2: ดัน "โซนรูปภาพ" ให้ตกลงไปแสดงด้านล่างสุดเสมอ */
     .split-image-side,
     .hero-image,
     [class*="-image"] {
         order: 2 !important;
-        /* บังคับให้ลงไปอยู่ลำดับสอง (ล่างสุด) */
         width: 100% !important;
         margin-top: 10px !important;
         margin-bottom: 20px !important;
@@ -757,20 +748,16 @@
         justify-content: center !important;
     }
 
-    /* รูปภาพสวยคลีน ไม่สูงเทอะทะ */
     .split-image-side img,
     [class*="-image"] img {
         width: 100% !important;
         height: auto !important;
         max-height: 380px !important;
-        /* 🔥 ล็อกความสูงรูปในมือถือ */
         object-fit: cover !important;
         border-radius: 16px !important;
-        /* โค้งมนสวยหรู */
         box-shadow: 0 12px 30px rgba(11, 19, 32, 0.12) !important;
     }
 
-    /* จัดปุ่ม CTA ในมือถือให้อยู่ตรงกลางอย่างสมดุล */
     .split-text-side .btn,
     .split-text-side [class*="btn"],
     .button-group {
@@ -784,44 +771,143 @@
         width: fit-content !important;
         min-width: 220px !important;
     }
+
+    /* =========================================
+       🔥 มือถือ: Custom Dropdown Premium UI (Tabs)
+       ========================================= */
+    .desktop-tabs,
+    .tab-menu {
+        display: none !important;
+    }
+
+    .mobile-tab-dropdown {
+        display: block !important;
+        position: relative !important;
+        margin-bottom: 30px !important;
+        width: 100% !important;
+        z-index: 50 !important;
+        padding: 0 24px !important;
+        /* เว้นขอบซ้ายขวาในมือถือ */
+        box-sizing: border-box !important;
+    }
+
+    .custom-dropdown-trigger {
+        display: flex !important;
+        justify-content: space-between !important;
+        align-items: center !important;
+        width: 100% !important;
+        padding: 16px 20px !important;
+        font-size: 1.05rem !important;
+        font-weight: 700 !important;
+        color: var(--primary-color, #0B1320) !important;
+        background-color: #ffffff !important;
+        border: 2px solid var(--primary-color, #0B1320) !important;
+        border-radius: 12px !important;
+        cursor: pointer !important;
+        transition: all 0.3s ease !important;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.04) !important;
+        box-sizing: border-box !important;
+    }
+
+    /* 🔥 เพิ่มส่วนนี้เข้าไปเพื่อให้ข้อความอยู่บรรทัดเดียวและมี ... */
+    .custom-dropdown-trigger span {
+        white-space: nowrap !important;
+        overflow: hidden !important;
+        text-overflow: ellipsis !important;
+        font-size: 0.95rem !important;
+        margin-right: 10px !important;
+        display: block !important;
+        width: 100% !important;
+        text-align: left !important;
+    }
+
+    .custom-dropdown-trigger.open {
+        border-color: var(--accent-gold, #C49765) !important;
+        color: var(--accent-gold, #C49765) !important;
+        border-bottom-left-radius: 0 !important;
+        border-bottom-right-radius: 0 !important;
+    }
+
+    .custom-dropdown-trigger .dropdown-icon {
+        width: 20px !important;
+        height: 20px !important;
+        transition: transform 0.3s ease !important;
+    }
+
+    .custom-dropdown-trigger.open .dropdown-icon {
+        transform: rotate(180deg) !important;
+    }
+
+    .custom-dropdown-menu {
+        position: absolute !important;
+        top: 100% !important;
+        left: 24px !important;
+        right: 24px !important;
+        width: calc(100% - 48px) !important;
+        /* คำนวณหักลบขอบซ้ายขวา */
+        background-color: #ffffff !important;
+        border: 2px solid var(--accent-gold, #C49765) !important;
+        border-top: none !important;
+        border-bottom-left-radius: 12px !important;
+        border-bottom-right-radius: 12px !important;
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1) !important;
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(-10px);
+        transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1) !important;
+        overflow: hidden !important;
+        box-sizing: border-box !important;
+    }
+
+    .custom-dropdown-trigger.open+.custom-dropdown-menu {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+    }
+
+    .custom-dropdown-option {
+        padding: 15px 20px !important;
+        font-size: 0.95rem !important;
+        font-weight: 500 !important;
+        color: var(--text-muted, #5A6472) !important;
+        cursor: pointer !important;
+        transition: background 0.2s, color 0.2s !important;
+        border-bottom: 1px solid var(--border-color, rgba(11, 19, 32, 0.05)) !important;
+    }
+
+    .custom-dropdown-option:last-child {
+        border-bottom: none !important;
+    }
+
+    .custom-dropdown-option:hover,
+    .custom-dropdown-option.selected {
+        background-color: rgba(196, 151, 101, 0.08) !important;
+        color: var(--primary-color, #0B1320) !important;
+        font-weight: 700 !important;
+    }
 }
 
 /* ==========================================================================
    🔥 BACKGROUND FEATURE SECTION (MOBILE FIX)
-   แก้ปัญหารูปพื้นหลังกวนตัวหนังสือ บังคับโชว์รูปไว้ด้านล่างสุดของ Section
    ========================================================================== */
 @media (max-width: 768px) {
     .background-feature-section {
-        /* 1. 🔥 เขียนทับ Inline Style: เปลี่ยนการไล่สีเป็น "บนลงล่าง (180deg)" */
-        /* หมายเหตุ: ใส่ !important เพื่อบังคับชนะโค้ด style="..." ใน HTML */
         background-image: linear-gradient(180deg,
                 rgba(255, 255, 255, 1) 0%,
-                /* ด้านบนขาวทึบ 100% อ่านข้อความชัดเจน */
                 rgba(255, 255, 255, 0.95) 55%,
-                /* คลุมขาวลงมาถึงช่วงกลางๆ */
-                rgba(255, 255, 255, 0) 100%
-                /* ด้านล่างสุดโปร่งใส เพื่อโชว์รูปค้อนเต็มๆ */
-            ), url('../picture/legal-litigation-tax/legal-support/legal.png') !important;
+                rgba(255, 255, 255, 0) 100%), url('../picture/legal-litigation-tax/legal-support/legal.png') !important;
 
-        /* 2. ดันรูปภาพ (ค้อน) ให้ไปเกาะอยู่ตรงกลาง-ขอบล่างสุดของหน้าจอ */
         background-position: center bottom !important;
         background-size: cover !important;
-
-        /* 3. 🔥 ถ่างกล่องด้านล่างให้กว้างขึ้น เพื่อให้มีพื้นที่โชว์รูปค้อนโดยไม่มีตัวหนังสือบัง */
         padding-top: 100px !important;
-        /* พ้นระยะ Navbar */
         padding-bottom: 280px !important;
-        /* 🔥 เว้นที่ว่างด้านล่าง 280px ให้รูปโชว์เด่นๆ */
     }
 }
 
 /* ==========================================================================
    🔥 TAXATION PAGE MOBILE SPECIFIC FIX
-   * จัดระเบียบการ์ดทีมผู้เชี่ยวชาญด้านภาษี (Team Highlight) และจัดรูปทรงให้เข้ากับมือถือ
    ========================================================================== */
 @media (max-width: 768px) {
-
-    /* 1. 🔥 ปรับการ์ดผู้เชี่ยวชาญ (.team-highlight-card) ให้เรียงแนวตั้ง ขยายเต็มจอ */
     .team-highlight-card {
         padding: 30px 20px !important;
         width: 100% !important;
@@ -834,24 +920,20 @@
         background-color: #ffffff !important;
     }
 
-    /* 2. จัดส่วนหัวของการ์ด ให้รูปเด้งขึ้นไปอยู่ด้านบน และข้อความชื่ออยู่ด้านล่างรูป */
     .team-highlight-header {
         display: flex !important;
         flex-direction: column !important;
-        /* 🔥 สั่งให้รูปอยู่บน ข้อความอยู่ล่าง */
         align-items: flex-start !important;
         gap: 15px !important;
         width: 100% !important;
         margin-bottom: 5px !important;
     }
 
-    /* 🔥 ปรับขนาดรูปผู้เชี่ยวชาญด้านภาษี ให้สมดุล ไม่เบี้ยว และดูพรีเมียม */
     .team-highlight-img {
         width: 90px !important;
         height: 90px !important;
         object-fit: cover !important;
         border-radius: 50% !important;
-        /* ปรับเป็นวงกลมให้ดูโมเดิร์นและเป็นมิตรมากขึ้น */
         box-shadow: 0 6px 15px rgba(11, 19, 32, 0.1) !important;
         margin-left: 0 !important;
     }
@@ -874,7 +956,6 @@
         text-align: left !important;
     }
 
-    /* 3. จัดระเบียบจุด Bullet รายละเอียดความเชี่ยวชาญด้านภาษีให้อ่านง่าย */
     .team-highlight-card p {
         font-size: 0.95rem !important;
         line-height: 1.6 !important;
@@ -885,7 +966,6 @@
 
     .team-highlight-card ul {
         padding-left: 16px !important;
-        /* เว้นระยะเยื้องของ Bullet ให้พอดี ไม่หลุดขอบหน้าจอ */
         width: 100% !important;
         box-sizing: border-box !important;
     }
@@ -897,19 +977,48 @@
         margin-bottom: 10px !important;
         text-align: left !important;
         list-style-type: disc !important;
-        /* คงความเป็นจุดกลมพรีเมียมไว้ */
     }
 
-    /* 4. จัดการรูปภาพประกอบขนาดใหญ่ (ถ้าหน้า Taxation มีภาพประกอบตึกหรือกราฟิก SVG) */
     .large-svg-icon,
     .tax-illustration-img {
         width: 100% !important;
         max-width: 320px !important;
-        /* ล็อกไม่ให้ใหญ่เกินหน้าจอมือถือ */
         height: auto !important;
         margin: 20px auto !important;
-        /* จัดให้อยู่กึ่งกลางหน้าจอแนวนอน */
         display: block !important;
         opacity: 0.95;
+    }
+
+    /* =========================================
+       🔥 มือถือ: ปรับ Sub-tab ให้ปัดซ้าย-ขวาได้ (Swipeable) + แก้ปัญหาปุ่มโดนตัด
+       ========================================= */
+    .sub-tab-menu {
+        display: flex !important;
+        flex-wrap: nowrap !important;
+        overflow-x: auto !important;
+        justify-content: flex-start !important;
+        align-items: center !important;
+        /* จัดให้อยู่กึ่งกลางแนวตั้ง */
+        gap: 10px !important;
+        /* 🔥 เพิ่มพื้นที่ Padding บน 10px และ ล่าง 20px ให้เงา (Shadow) มีที่หายใจ ไม่โดนตัด */
+        padding: 10px 5px 25px 5px !important;
+        margin-bottom: 10px !important;
+        -webkit-overflow-scrolling: touch !important;
+        scrollbar-width: none !important;
+    }
+
+    .sub-tab-menu::-webkit-scrollbar {
+        display: none !important;
+    }
+
+    .sub-tab-btn {
+        white-space: nowrap !important;
+        flex-shrink: 0 !important;
+        width: auto !important;
+        margin: 0 !important;
+        font-size: 0.85rem !important;
+        padding: 10px 20px !important;
+        border-radius: 50px !important;
+        transition: all 0.3s ease !important;
     }
 }

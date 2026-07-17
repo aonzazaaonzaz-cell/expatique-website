@@ -83,13 +83,14 @@
 }
 
 /* ==========================================================================
-   🔥 3. FEATURED PROPERTY PORTFOLIOS (Team Profile Style Grid)
-   * รวมรูปภาพและข้อความเข้าด้วยกันเป็น "การ์ด" สไตล์เดียวกับ Team Profile
+   🔥 3. FEATURED PROPERTY PORTFOLIOS (2x2 Grid)
    ========================================================================== */
 .re-portfolio-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 30px;
+    /* 🔥 บังคับให้เป็น 2 คอลัมน์ สำหรับหน้าจอคอมพิวเตอร์ */
+    grid-template-columns: repeat(2, 1fr);
+    gap: 40px;
+    /* เพิ่มช่องไฟให้ดูพรีเมียมขึ้น */
     margin-top: 30px;
     margin-bottom: 40px;
     width: 100%;
@@ -99,9 +100,7 @@
     background-color: var(--bg-white, #ffffff);
     display: flex;
     flex-direction: column;
-    /* รูปอยู่บน ข้อความอยู่ล่าง */
     border-radius: 16px;
-    /* ขอบมนหรูหราเข้าธีม */
     border: 1px solid var(--border-color, rgba(11, 19, 32, 0.08));
     box-shadow: 0 6px 20px rgba(0, 0, 0, 0.04);
     overflow: hidden;
@@ -113,21 +112,22 @@
     transform: translateY(-8px);
     box-shadow: 0 15px 35px rgba(196, 151, 101, 0.15);
     border-color: var(--accent-gold, #C49765);
-    /* Hover แล้วขอบเปลี่ยนเป็นสีทอง */
 }
 
 .re-portfolio-card img {
     width: 100%;
-    height: 240px;
-    /* ความสูงสมดุลพอดีตา */
+    /* ปรับความสูงรูปให้สมดุลกับความกว้างของการ์ด 2 คอลัมน์ */
+    height: 300px;
     object-fit: cover;
     object-position: center;
-    border-bottom: 1px solid var(--border-color, rgba(11, 19, 32, 0.05));
+    border-bottom: 3px solid var(--accent-gold, #C49765);
+    /* เพิ่มลูกเล่นเส้นขอบทองใต้รูป */
     margin: 0;
 }
 
 .re-portfolio-info {
-    padding: 28px 24px;
+    padding: 35px;
+    /* เพิ่ม Padding ให้อ่านง่ายขึ้น */
     display: flex;
     flex-direction: column;
     flex: 1;
@@ -135,27 +135,27 @@
 }
 
 .re-portfolio-info h4 {
-    font-size: 1.25rem;
+    font-size: 1.35rem;
+    /* ขยายฟอนต์หัวข้อขึ้นนิดนึง */
     font-weight: 700;
     color: var(--primary-color, #0B1320);
-    margin: 0 0 6px 0;
-    line-height: 1.3;
+    margin: 0 0 8px 0;
+    line-height: 1.4;
 }
 
 .re-portfolio-info .subtitle {
-    font-size: 0.9rem;
+    font-size: 0.95rem;
     font-weight: 600;
     color: var(--accent-gold, #C49765);
-    /* สีทอง Caramel Gold */
-    margin-bottom: 15px;
+    margin-bottom: 20px;
     display: block;
 }
 
 .re-portfolio-info .desc {
-    font-size: 0.92rem;
+    font-size: 0.95rem;
     color: var(--text-muted, #5A6472);
     line-height: 1.6;
-    margin-bottom: 20px;
+    margin-bottom: 25px;
 }
 
 .re-portfolio-info ul {
@@ -163,16 +163,16 @@
     padding-left: 0;
     margin: 0;
     border-top: 1px dashed var(--border-color, rgba(11, 19, 32, 0.1));
-    padding-top: 15px;
+    padding-top: 20px;
 }
 
 .re-portfolio-info ul li {
-    font-size: 0.85rem;
+    font-size: 0.9rem;
     color: var(--text-dark, #333333);
-    margin-bottom: 8px;
+    margin-bottom: 12px;
     line-height: 1.5;
     position: relative;
-    padding-left: 16px;
+    padding-left: 18px;
 }
 
 .re-portfolio-info ul li::before {
@@ -239,6 +239,7 @@
         grid-template-columns: repeat(2, 1fr);
     }
 
+    /* บน Tablet ก็ยังคง 2 คอลัมน์ไว้ */
     .re-portfolio-grid {
         grid-template-columns: repeat(2, 1fr);
     }
@@ -353,11 +354,16 @@
         padding: 24px 20px !important;
     }
 
+    .re-portfolio-info h4 {
+        font-size: 1.25rem !important;
+    }
+
     /* --- 6. PROCESS TIMELINE (ขั้นตอนการทำงานแบบการ์ดแนวนอน) --- */
     .re-process-grid {
         display: flex !important;
         flex-direction: column !important;
         gap: 16px !important;
+        margin-top: 20px !important;
     }
 
     .re-process-step {

@@ -7,7 +7,7 @@
     <title>Insurance Assistance | Expatique</title>
 
     <link rel="stylesheet" href="../css/global.css?v=2">
-    <link rel="stylesheet" href="../css/legal.css?v=3">
+    <link rel="stylesheet" href="../css/legal.css?v=4">
     <link rel="stylesheet" href="../css/health.css?v=2">
 
     <script>
@@ -196,19 +196,40 @@
                 <h2 style="font-size: 2.5rem; color: var(--primary-color); margin-bottom: 30px; text-align: center;">
                     Insurance Coverage Options</h2>
 
-                <div class="tab-menu" style="border-bottom: 2px solid var(--border-color); margin-bottom: 40px;">
-                    <button class="tab-btn active" onclick="openTab(event, 'tab-health')">🏥 Health</button>
-                    <button class="tab-btn" onclick="openTab(event, 'tab-life')">☂️ Life & Accident</button>
-                    <button class="tab-btn" onclick="openTab(event, 'tab-motor')">🚗 Motor</button>
-                    <button class="tab-btn" onclick="openTab(event, 'tab-property')">🏠 Property</button>
-                    <button class="tab-btn" onclick="openTab(event, 'tab-travel')">✈️ Travel</button>
-                    <button class="tab-btn" onclick="openTab(event, 'tab-special')">🛡️ Specialized</button>
+                <div class="tab-menu desktop-tabs"
+                    style="border-bottom: 2px solid var(--border-color); margin-bottom: 40px;">
+                    <button class="tab-btn active" onclick="openTab('tab-health', this)">🏥 Health</button>
+                    <button class="tab-btn" onclick="openTab('tab-life', this)">☂️ Life & Accident</button>
+                    <button class="tab-btn" onclick="openTab('tab-motor', this)">🚗 Motor</button>
+                    <button class="tab-btn" onclick="openTab('tab-property', this)">🏠 Property</button>
+                    <button class="tab-btn" onclick="openTab('tab-travel', this)">✈️ Travel</button>
+                    <button class="tab-btn" onclick="openTab('tab-special', this)">🛡️ Specialized</button>
+                </div>
+
+                <div class="mobile-tab-dropdown custom-dropdown-container">
+                    <div class="custom-dropdown-trigger" id="insurance-dropdown-trigger">
+                        <span>🏥 Health</span>
+                        <div class="dropdown-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="6 9 12 15 18 9"></polyline>
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="custom-dropdown-menu" id="insurance-dropdown-menu">
+                        <div class="custom-dropdown-option selected" data-value="tab-health">🏥 Health</div>
+                        <div class="custom-dropdown-option" data-value="tab-life">☂️ Life & Accident</div>
+                        <div class="custom-dropdown-option" data-value="tab-motor">🚗 Motor</div>
+                        <div class="custom-dropdown-option" data-value="tab-property">🏠 Property</div>
+                        <div class="custom-dropdown-option" data-value="tab-travel">✈️ Travel</div>
+                        <div class="custom-dropdown-option" data-value="tab-special">🛡️ Specialized</div>
+                    </div>
                 </div>
 
                 <div id="tab-health" class="tab-content active">
                     <div class="tab-content-flex">
                         <div class="circle-img-container">
-                            <img src="../picture/health-insurance/insurance/insurance-content-tab1.png" alt="Health Insurance">
+                            <img src="../picture/health-insurance/insurance/insurance-content-tab1.png"
+                                alt="Health Insurance">
                         </div>
                         <div class="text-side">
                             <h3>Health Insurance</h3>
@@ -235,7 +256,8 @@
                 <div id="tab-life" class="tab-content">
                     <div class="tab-content-flex">
                         <div class="circle-img-container">
-                            <img src="../picture/health-insurance/insurance/insurance-content-tab2.png" alt="Life & Personal Accident">
+                            <img src="../picture/health-insurance/insurance/insurance-content-tab2.png"
+                                alt="Life & Personal Accident">
                         </div>
                         <div class="text-side">
                             <h3>Life & Personal Accident</h3>
@@ -255,7 +277,8 @@
                 <div id="tab-motor" class="tab-content">
                     <div class="tab-content-flex">
                         <div class="circle-img-container">
-                            <img src="../picture/health-insurance/insurance/insurance-content-tab3.png" alt="Vehicle Insurance">
+                            <img src="../picture/health-insurance/insurance/insurance-content-tab3.png"
+                                alt="Vehicle Insurance">
                         </div>
                         <div class="text-side">
                             <h3>Vehicle Insurance</h3>
@@ -276,7 +299,8 @@
                 <div id="tab-property" class="tab-content">
                     <div class="tab-content-flex">
                         <div class="circle-img-container">
-                            <img src="../picture/health-insurance/insurance/insurance-content-tab4.png" alt="Home & Condo Insurance">
+                            <img src="../picture/health-insurance/insurance/insurance-content-tab4.png"
+                                alt="Home & Condo Insurance">
                         </div>
                         <div class="text-side">
                             <h3>Home & Condo Insurance</h3>
@@ -297,7 +321,8 @@
                 <div id="tab-travel" class="tab-content">
                     <div class="tab-content-flex">
                         <div class="circle-img-container">
-                            <img src="../picture/health-insurance/insurance/insurance-content-tab5.png" alt="Travel Insurance">
+                            <img src="../picture/health-insurance/insurance/insurance-content-tab5.png"
+                                alt="Travel Insurance">
                         </div>
                         <div class="text-side">
                             <h3>Travel Insurance</h3>
@@ -317,7 +342,8 @@
                 <div id="tab-special" class="tab-content">
                     <div class="tab-content-flex">
                         <div class="circle-img-container">
-                            <img src="../picture/health-insurance/insurance/insurance-content-tab6.png" alt="Specialized Insurance">
+                            <img src="../picture/health-insurance/insurance/insurance-content-tab6.png"
+                                alt="Specialized Insurance">
                         </div>
                         <div class="text-side">
                             <h3>Specialized Insurance</h3>
@@ -350,18 +376,75 @@
     <div id="footer-placeholder"></div>
 
     <script>
-        function openTab(evt, tabId) {
-            var tabContents = document.getElementsByClassName("tab-content");
-            for (var i = 0; i < tabContents.length; i++) {
-                tabContents[i].classList.remove("active");
+        // 1. ฟังก์ชันเปิด Tab
+        function openTab(tabId, btnElement) {
+            // ซ่อนเนื้อหา Tab ทั้งหมด
+            const tabContents = document.querySelectorAll(".tab-content");
+            tabContents.forEach(content => content.classList.remove("active"));
+
+            // ลบสถานะ Active ออกจากปุ่ม Desktop ทั้งหมด
+            const tabBtns = document.querySelectorAll(".tab-btn");
+            tabBtns.forEach(btn => btn.classList.remove("active"));
+
+            // เปิด Tab เนื้อหา
+            const targetTab = document.getElementById(tabId);
+            if (targetTab) targetTab.classList.add("active");
+
+            // แอดคลาส Active ให้ปุ่มที่โดนคลิก (สำหรับจอคอม)
+            if (btnElement && btnElement.tagName === 'BUTTON') {
+                btnElement.classList.add("active");
+            } else {
+                // กรณีคลิกจากมือถือ ให้หาปุ่มในจอคอมที่คู่กันแล้ว Active ไว้เผื่อสลับหน้าจอ
+                const fallbackBtn = document.querySelector(`.tab-btn[onclick*="${tabId}"]`);
+                if (fallbackBtn) fallbackBtn.classList.add("active");
             }
-            var tabBtns = document.getElementsByClassName("tab-btn");
-            for (var i = 0; i < tabBtns.length; i++) {
-                tabBtns[i].classList.remove("active");
-            }
-            document.getElementById(tabId).classList.add("active");
-            evt.currentTarget.classList.add("active");
+
+            // ซิงค์ข้อความและสถานะไปที่ Mobile Dropdown
+            const dropdownOptions = document.querySelectorAll('.custom-dropdown-option');
+            const dropdownTriggerText = document.querySelector('#insurance-dropdown-trigger span');
+
+            dropdownOptions.forEach(opt => {
+                if (opt.getAttribute('data-value') === tabId) {
+                    opt.classList.add('selected');
+                    if (dropdownTriggerText) dropdownTriggerText.textContent = opt.textContent;
+                } else {
+                    opt.classList.remove('selected');
+                }
+            });
         }
+
+        // 2. ฟังก์ชันควบคุมการทำงานของ Mobile Custom Dropdown
+        document.addEventListener('DOMContentLoaded', function () {
+            const dropdownTrigger = document.getElementById('insurance-dropdown-trigger');
+            const dropdownMenu = document.getElementById('insurance-dropdown-menu');
+            const dropdownOptions = document.querySelectorAll('.custom-dropdown-option');
+
+            if (dropdownTrigger && dropdownMenu) {
+                // เปิด/ปิด Dropdown
+                dropdownTrigger.addEventListener('click', function (e) {
+                    e.stopPropagation();
+                    this.classList.toggle('open');
+                });
+
+                // เลือก Option ในมือถือ
+                dropdownOptions.forEach(option => {
+                    option.addEventListener('click', function (e) {
+                        e.stopPropagation();
+                        // ปิด Dropdown ก่อน
+                        dropdownTrigger.classList.remove('open');
+
+                        // เรียกฟังก์ชันเปิด Tab
+                        const tabId = this.getAttribute('data-value');
+                        openTab(tabId, null);
+                    });
+                });
+
+                // ปิด Dropdown เมื่อคลิกที่ว่างๆ
+                document.addEventListener('click', function () {
+                    dropdownTrigger.classList.remove('open');
+                });
+            }
+        });
     </script>
 
     <script src="../js/main.js"></script>

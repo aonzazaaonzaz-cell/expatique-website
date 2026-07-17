@@ -219,6 +219,228 @@
 }
 
 /* ==========================================================================
+   🔥 NEW: STUDY TABS (English Course Section)
+   ========================================================================== */
+.study-tab-flex {
+    display: flex;
+    gap: 50px;
+    align-items: center;
+    background: #ffffff;
+    padding: 40px;
+    border-radius: 16px;
+    border: 1px solid var(--border-color, rgba(11, 19, 32, 0.08));
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03);
+
+    /* 🔥 บังคับความสูงขั้นต่ำให้เท่ากันทุกแท็บ ป้องกันกล่องกระตุกยืดหดในจอคอม */
+    min-height: 480px;
+}
+
+/* ซ่อน Dropdown ในจอคอม */
+.mobile-tab-dropdown {
+    display: none;
+}
+
+.study-tab-flex .text-side {
+    flex: 1;
+    min-width: 350px;
+}
+
+.study-tab-flex .image-side {
+    flex: 1;
+    min-width: 300px;
+}
+
+.study-tab-flex h3 {
+    font-size: 1.8rem;
+    color: var(--primary-color, #0B1320);
+    margin-bottom: 15px;
+    line-height: 1.3;
+}
+
+.study-tab-flex p.desc {
+    font-size: 1.05rem;
+    color: var(--text-muted, #5A6472);
+    margin-bottom: 25px;
+    line-height: 1.7;
+}
+
+.study-tab-flex ul {
+    padding-left: 20px;
+    margin-bottom: 0;
+}
+
+.study-tab-flex ul li {
+    font-size: 0.95rem;
+    color: var(--text-dark, #333333);
+    margin-bottom: 12px;
+    line-height: 1.6;
+}
+
+.study-tab-flex ul li strong {
+    color: var(--primary-color, #0B1320);
+}
+
+/* Animations สำหรับเวลาสลับแท็บ */
+.sub-tab-content {
+    display: none;
+    animation: fadeInTab 0.4s ease forwards;
+}
+
+.sub-tab-content.active {
+    display: block;
+}
+
+@keyframes fadeInTab {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ==========================================================================
+   🔥 Overview Grid Cards (3 ช่อง)
+   ========================================================================== */
+.eng-overview-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+    margin-bottom: 30px;
+}
+
+.eng-overview-card {
+    background-color: #F8FAFC;
+    border-radius: 12px;
+    padding: 25px 10px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+}
+
+.eng-overview-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
+    background-color: #F1F5F9;
+}
+
+.eng-overview-card svg {
+    width: 32px;
+    height: 32px;
+    color: var(--primary-color, #0B1320);
+    margin-bottom: 15px;
+}
+
+.eng-overview-card span {
+    font-size: 0.95rem;
+    color: var(--primary-color, #0B1320);
+    font-weight: 600;
+    line-height: 1.4;
+}
+
+/* ==========================================================================
+   🔥 Unified Tab List Style (Improve English & IELTS)
+   ========================================================================== */
+/* สำหรับ IELTS (เรียงแนวตั้ง) */
+.eng-list-container {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin-bottom: 30px;
+}
+
+/* สำหรับ Improve Your English (เรียง 2 คอลัมน์) */
+.eng-skills-list-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px 30px;
+    margin-bottom: 30px;
+}
+
+/* ดีไซน์ไอคอนและข้อความ (ใช้ร่วมกันเพื่อให้เข้าธีมเป๊ะๆ) */
+.skill-item,
+.eng-list-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 15px;
+}
+
+.skill-item svg,
+.eng-list-item svg {
+    width: 22px;
+    height: 22px;
+    color: var(--accent-gold, #C49765) !important;
+    /* 🔥 เปลี่ยนเป็นสีทองตาม Canva */
+    flex-shrink: 0;
+    margin-top: 2px;
+}
+
+.skill-item span,
+.eng-list-item span {
+    font-size: 1.05rem;
+    font-weight: 500;
+    color: var(--primary-color, #0B1320);
+    /* สีตัวหนังสือให้ตรงกัน */
+    line-height: 1.5;
+}
+
+.eng-list-item .sub-text {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+/* ==========================================================================
+   🔥 How Expatique Helps (Steps)
+   ========================================================================== */
+.eng-step-container {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.eng-step-item {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.eng-step-item .step-num {
+    width: 45px;
+    height: 45px;
+    background-color: var(--accent-gold, #C49765) !important;
+    /* วงกลมสีทอง */
+    color: #ffffff;
+    font-size: 1.1rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    flex-shrink: 0;
+}
+
+.eng-step-item .step-text h4 {
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: var(--primary-color, #0B1320);
+    margin: 0 0 5px 0;
+}
+
+.eng-step-item .step-text p {
+    font-size: 0.95rem;
+    color: var(--text-muted, #5A6472);
+    margin: 0;
+    line-height: 1.4;
+}
+
+/* ==========================================================================
    🔥 STUDY & INTERN MOBILE MASTER FIX (ยุบรวมกฎมือถือไว้ที่เดียว สวยเป๊ะไม่ล้นจอ)
    ========================================================================== */
 @media (max-width: 768px) {
@@ -240,7 +462,6 @@
     [class*="-section"],
     [id*="section"] {
         padding-top: 100px !important;
-        /* ดันลงมาพ้น Header 80px */
         padding-bottom: 50px !important;
         padding-left: 0 !important;
         padding-right: 0 !important;
@@ -280,7 +501,6 @@
 
     .uni-cards-grid {
         grid-template-columns: 1fr !important;
-        /* 🔥 บังคับเรียง 1 คอลัมน์ ไม่ให้ล้นจอ */
         gap: 20px !important;
     }
 
@@ -290,27 +510,22 @@
 
     .uni-card img {
         height: 180px !important;
-        /* ย่อความสูงรูปมหาลัยลงนิดนึงให้สมดุลพอดีตา */
     }
 
     .uni-card-content {
         padding: 24px 20px !important;
     }
 
-    /* --- 4. 🔥 แก้ไข INTERN ICON GRID (รูป image_6a5a59.png ที่เคยเบียดล้น) --- */
+    /* --- 4. 🔥 แก้ไข INTERN ICON GRID --- */
     .intern-icon-grid {
         display: grid !important;
         grid-template-columns: repeat(2, 1fr) !important;
-        /* 🔥 จัด 2 คอลัมน์พอดีจอ */
         gap: 12px !important;
-        /* ลดช่องไฟลงไม่ให้ดันจอทะลุ */
     }
 
     .intern-icon-card {
         padding: 20px 12px !important;
-        /* ย่อขอบด้านในลง ให้การ์ดดูคลีนไม่อึดอัด */
         min-width: 0 !important;
-        /* ปลดล็อก minmax 160px เดิมที่เคยทำให้ล้นจอ */
         width: 100% !important;
         box-sizing: border-box !important;
     }
@@ -323,7 +538,6 @@
 
     .intern-icon-card p {
         font-size: 0.85rem !important;
-        /* ปรับขนาดฟอนต์ให้พอดีการ์ด ไม่ล้นบรรทัด */
         line-height: 1.3 !important;
     }
 
@@ -331,13 +545,11 @@
     .intern-process-grid {
         display: flex !important;
         flex-direction: column !important;
-        /* เรียงซ้อนแนวตั้ง */
         gap: 16px !important;
     }
 
     .intern-process-step {
         display: flex !important;
-        /* 🔥 วางเลขขั้นตอนไว้ซ้าย ข้อความไว้ขวา */
         align-items: flex-start !important;
         gap: 16px !important;
         text-align: left !important;
@@ -352,19 +564,15 @@
 
     .intern-process-step:not(:last-child)::after {
         display: none !important;
-        /* ปิดเส้นเชื่อมแนวนอนของจอคอม */
     }
 
     .intern-process-num {
         margin: 0 !important;
-        /* ลบ margin เก่าทิ้ง */
         flex-shrink: 0 !important;
-        /* ห้ามวงกลมตัวเลขถูกบีบเล็กลง */
         width: 38px !important;
         height: 38px !important;
         font-size: 0.95rem !important;
         background-color: var(--accent-gold, #C49765) !important;
-        /* 🔥 เปลี่ยนเลขเป็นสีทองหรูหรา */
     }
 
     .intern-process-step p {
@@ -372,7 +580,6 @@
         line-height: 1.5 !important;
         margin: 0 !important;
         padding-top: 6px !important;
-        /* จัดให้อยู่ระดับเดียวกับตัวเลข */
     }
 
     /* --- 6. โลโก้พาร์ทเนอร์ และปุ่ม CTA --- */
@@ -382,10 +589,8 @@
 
     .partner-logos-grid img {
         height: 40px !important;
-        /* ย่อขนาดโลโก้ลงให้เรียงสวยในมือถือ */
     }
 
-    /* ปุ่ม CTA ทุกปุ่มอยู่ตรงกลางจอ */
     .btn,
     .btn-primary,
     .btn-outline,
@@ -397,5 +602,157 @@
         width: fit-content !important;
         min-width: 220px !important;
         max-width: 90% !important;
+    }
+
+    /* =========================================
+       🔥 มือถือ: Custom Dropdown Premium UI
+       ========================================= */
+    .desktop-tabs {
+        display: none !important;
+    }
+
+    .mobile-tab-dropdown {
+        display: block !important;
+        position: relative !important;
+        margin-bottom: 30px !important;
+        width: 100% !important;
+        z-index: 50 !important;
+    }
+
+    /* กล่องปุ่มกด Dropdown */
+    .custom-dropdown-trigger {
+        display: flex !important;
+        justify-content: space-between !important;
+        align-items: center !important;
+        width: 100% !important;
+        padding: 16px 20px !important;
+        font-size: 1.05rem !important;
+        font-weight: 700 !important;
+        color: var(--primary-color, #0B1320) !important;
+        background-color: #ffffff !important;
+        border: 2px solid var(--primary-color, #0B1320) !important;
+        border-radius: 12px !important;
+        cursor: pointer !important;
+        transition: all 0.3s ease !important;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.04) !important;
+    }
+
+    .custom-dropdown-trigger.open {
+        border-color: var(--accent-gold, #C49765) !important;
+        color: var(--accent-gold, #C49765) !important;
+        border-bottom-left-radius: 0 !important;
+        border-bottom-right-radius: 0 !important;
+    }
+
+    .custom-dropdown-trigger .dropdown-icon {
+        width: 20px !important;
+        height: 20px !important;
+        transition: transform 0.3s ease !important;
+    }
+
+    .custom-dropdown-trigger.open .dropdown-icon {
+        transform: rotate(180deg) !important;
+    }
+
+    /* กล่องรายการเมนูย่อย */
+    .custom-dropdown-menu {
+        position: absolute !important;
+        top: 100% !important;
+        left: 0 !important;
+        width: 100% !important;
+        background-color: #ffffff !important;
+        border: 2px solid var(--accent-gold, #C49765) !important;
+        border-top: none !important;
+        border-bottom-left-radius: 12px !important;
+        border-bottom-right-radius: 12px !important;
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1) !important;
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(-10px);
+        transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1) !important;
+        overflow: hidden !important;
+    }
+
+    .custom-dropdown-trigger.open+.custom-dropdown-menu {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+    }
+
+    .custom-dropdown-option {
+        padding: 15px 20px !important;
+        font-size: 1rem !important;
+        font-weight: 500 !important;
+        color: var(--text-muted, #5A6472) !important;
+        cursor: pointer !important;
+        transition: background 0.2s, color 0.2s !important;
+        border-bottom: 1px solid var(--border-color, rgba(11, 19, 32, 0.05)) !important;
+    }
+
+    .custom-dropdown-option:last-child {
+        border-bottom: none !important;
+    }
+
+    .custom-dropdown-option:hover,
+    .custom-dropdown-option.selected {
+        background-color: rgba(196, 151, 101, 0.08) !important;
+        color: var(--primary-color, #0B1320) !important;
+        font-weight: 700 !important;
+    }
+
+    .study-tab-flex {
+        flex-direction: column !important;
+        padding: 24px 20px !important;
+        gap: 30px !important;
+        text-align: left !important;
+        min-height: auto !important;
+    }
+
+    .study-tab-flex .text-side,
+    .study-tab-flex .image-side {
+        width: 100% !important;
+        min-width: 0 !important;
+    }
+
+    .study-tab-flex h3 {
+        font-size: 1.5rem !important;
+    }
+
+    .study-tab-flex .image-side {
+        order: -1 !important;
+    }
+
+    .study-tab-flex .image-side img {
+        height: 250px !important;
+    }
+
+    /* =========================================
+       🔥 สำหรับมือถือ จัด Overview Grid เป็นแถวแนวตั้ง
+       ========================================= */
+    .eng-overview-grid {
+        grid-template-columns: 1fr !important;
+        /* เรียงเป็นแนวตั้งในมือถือ */
+        gap: 15px !important;
+    }
+
+    .eng-overview-card {
+        padding: 20px !important;
+        flex-direction: row !important;
+        /* ในมือถือให้ไอคอนอยู่ซ้าย ข้อความอยู่ขวา */
+        justify-content: flex-start !important;
+        gap: 20px !important;
+        text-align: left !important;
+    }
+
+    .eng-overview-card svg {
+        margin-bottom: 0 !important;
+    }
+
+    /* =========================================
+       🔥 สำหรับมือถือ จัด Improve Your English ให้เรียง 1 คอลัมน์
+       ========================================= */
+    .eng-skills-list-grid {
+        grid-template-columns: 1fr !important;
+        gap: 12px !important;
     }
 }
